@@ -241,8 +241,8 @@
         }
         
         .nav-link.active {
-            color: var(--black);
-            font-weight: 500;
+            color: var(--black) !important;
+            font-weight: 500 !important;
         }
         
         .nav-right {
@@ -256,7 +256,11 @@
             color: var(--black);
         }
         
-        /* Contact Button - Expandable on hover */
+        /* Contact Button - Click to expand dropdown */
+        .contact-btn-wrapper {
+            position: relative;
+        }
+        
         .contact-btn {
             display: inline-flex;
             align-items: center;
@@ -271,65 +275,110 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-            overflow: hidden;
-            position: relative;
             flex-shrink: 0;
-            width: 90px;
-            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 8px;
+            transition: background 0.15s ease;
+        }
+        
+        .contact-btn:hover {
+            background: var(--primary-blue-dark);
         }
         
         .contact-btn-label {
             white-space: nowrap;
-            transition: opacity 0.2s ease;
         }
         
-        .contact-btn-expanded {
+        .contact-btn-chevron {
+            width: 12px;
+            height: 12px;
+            transition: transform 0.2s ease;
+        }
+        
+        .contact-btn-wrapper.expanded .contact-btn-chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* Dropdown panel that expands below button */
+        .contact-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--gray-border);
+            min-width: 240px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+            z-index: 1001;
+        }
+        
+        .contact-btn-wrapper.expanded .contact-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .contact-dropdown-content {
+            padding: 16px;
+        }
+        
+        .contact-dropdown-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            position: absolute;
-            left: 16px;
-            right: 8px;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease;
-        }
-        
-        .contact-btn-email {
-            white-space: nowrap;
+            padding: 12px;
+            border-radius: 6px;
+            color: var(--text-body);
+            text-decoration: none;
             font-size: 14px;
-            color: var(--white);
+            transition: background 0.15s ease;
         }
         
-        .contact-btn-copy {
-            padding: 6px 12px;
-            background: rgba(255, 255, 255, 0.15);
+        .contact-dropdown-item:hover {
+            background: var(--bg-card);
+        }
+        
+        .contact-dropdown-item svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            color: var(--gray-dark);
+        }
+        
+        .contact-dropdown-divider {
+            height: 1px;
+            background: var(--gray-border);
+            margin: 8px 0;
+        }
+        
+        .contact-dropdown-copy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-card);
             border: none;
-            border-radius: 4px;
-            color: var(--white);
-            font-family: 'IBM Plex Sans', sans-serif;
-            font-size: 14px;
+            border-radius: 6px;
+            color: var(--text-body);
+            font-family: inherit;
+            font-size: 13px;
             cursor: pointer;
             transition: background 0.15s ease;
-            margin-left: auto;
+            margin-top: 8px;
         }
         
-        .contact-btn-copy:hover {
-            background: rgba(255, 255, 255, 0.25);
+        .contact-dropdown-copy:hover {
+            background: var(--bg-divider);
         }
         
-        /* Hover state - expand and show email */
-        .contact-btn:hover {
-            width: 290px;
-        }
-        
-        .contact-btn:hover .contact-btn-label {
-            opacity: 0;
-        }
-        
-        .contact-btn:hover .contact-btn-expanded {
-            opacity: 1;
-            pointer-events: auto;
+        .contact-dropdown-copy svg {
+            width: 14px;
+            height: 14px;
         }
         
         /* Mobile Menu Toggle - IBM style (compact) */
@@ -964,8 +1013,18 @@
                 flex-shrink: 0;
             }
             
+            .nav-right .contact-btn-wrapper {
+                display: block;
+            }
+            
             .nav-right .contact-btn {
                 display: inline-flex;
+            }
+            
+            /* Dropdown repositioning on mobile */
+            .contact-dropdown {
+                right: 0;
+                min-width: 220px;
             }
             
             /* Show hamburger menu */
@@ -1020,6 +1079,11 @@
                 text-decoration: none;
                 text-align: left;
                 transition: color 0.15s ease;
+            }
+            
+            .nav-main.active .nav-link.active {
+                color: var(--black) !important;
+                font-weight: 500 !important;
             }
             
             .nav-main.active .nav-link:last-of-type {
@@ -1330,17 +1394,18 @@
             bottom: 0;
             background: rgba(0, 0, 0, 0.5);
             z-index: 100000;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
             padding: 24px;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            visibility: hidden;
+            transition: opacity 0.2s ease, visibility 0.2s ease;
         }
         
         .info-popup-overlay.active {
-            display: flex;
             opacity: 1;
+            visibility: visible;
         }
         
         .info-popup {
@@ -1497,17 +1562,43 @@
                     <a href="#threat-matrix" class="nav-link">Threat Matrix</a>
                     <a href="#research" class="nav-link">Research</a>
                     <!-- Mobile-only Contact button -->
-                    <a href="/cdn-cgi/l/email-protection#a8cbc7c6dcc9cbdce8c0ddc5c9c6c6c7cccd86c1c7" class="btn-mobile-contact mobile-other-btn">
+                    <a href="/cdn-cgi/l/email-protection#3a5955544e5b594e7a524f575b5454555e5f145355" class="btn-mobile-contact mobile-other-btn">
                         <span>Contact</span>
                     </a>
                 </nav>
             </div>
             <div class="nav-right">
-                <div class="contact-btn" id="contactBtn">
-                    <span class="contact-btn-label">Contact</span>
-                    <div class="contact-btn-expanded">
-                        <span class="contact-btn-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="33505c5d47525047735b465e525d5d5c57561d5a5c">[email&#160;protected]</a></span>
-                        <button class="contact-btn-copy" onclick="copyEmail(event)">Copy</button>
+                <div class="contact-btn-wrapper" id="contactWrapper">
+                    <button class="contact-btn" id="contactBtn" aria-expanded="false" aria-haspopup="true">
+                        <span class="contact-btn-label">Contact</span>
+                        <svg class="contact-btn-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M2 4L6 8L10 4"/>
+                        </svg>
+                    </button>
+                    <div class="contact-dropdown" id="contactDropdown">
+                        <div class="contact-dropdown-content">
+                            <a href="mailto:contact@humannode.io" class="contact-dropdown-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="M22 6L12 13L2 6"/>
+                                </svg>
+                                <span>contact@humannode.io</span>
+                            </a>
+                            <a href="tel:+447300070051" class="contact-dropdown-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                </svg>
+                                <span>07300 070051</span>
+                            </a>
+                            <div class="contact-dropdown-divider"></div>
+                            <button class="contact-dropdown-copy" onclick="copyEmail(event)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                </svg>
+                                <span>Copy email address</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -2104,7 +2195,7 @@
                     <ul>
                         <li><button onclick="openInfoPopup('about')">About</button></li>
                         <li class="footer-contact-detail">
-                            <a href="mailto:contact@humannode.io">contact@humannode.io</a>
+                            <a href="/cdn-cgi/l/email-protection#f1929e9f85909285b199849c909f9f9e9594df989e"><span class="__cf_email__" data-cfemail="bad9d5d4cedbd9cefad2cfd7dbd4d4d5dedf94d3d5">[email&#160;protected]</span></a>
                         </li>
                         <li class="footer-contact-detail">
                             <a href="tel:+447300070051">07300 070051</a>
@@ -2164,9 +2255,9 @@
                 <h4>Data Protection</h4>
                 <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction.</p>
                 <h4>Your Rights</h4>
-                <p>Under UK GDPR, you have the right to access, rectify, erase, or restrict processing of your personal data. To exercise these rights, please contact us at contact@humannode.io.</p>
+                <p>Under UK GDPR, you have the right to access, rectify, erase, or restrict processing of your personal data. To exercise these rights, please contact us at <a href="/cdn-cgi/l/email-protection#99faf6f7edf8faedd9f1ecf4f8f7f7f6fdfcb7f0f6"><span class="__cf_email__" data-cfemail="7a1915140e1b190e3a120f171b1414151e1f541315">[email&#160;protected]</span></a>.</p>
                 <h4>Contact</h4>
-                <p>For privacy-related enquiries, please contact us at contact@humannode.io.</p>
+                <p>For privacy-related enquiries, please contact us at <a href="/cdn-cgi/l/email-protection#32515d5c46535146725a475f535c5c5d56571c5b5d"><span class="__cf_email__" data-cfemail="3f5c50514b5e5c4b7f574a525e5151505b5a115650">[email&#160;protected]</span></a>.</p>
             </div>
         </div>
     </div>
@@ -2194,39 +2285,43 @@
                 <h4>Governing Law</h4>
                 <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
                 <h4>Contact</h4>
-                <p>For questions about these terms, please contact us at contact@humannode.io.</p>
+                <p>For questions about these terms, please contact us at <a href="/cdn-cgi/l/email-protection#3a5955544e5b594e7a524f575b5454555e5f145355"><span class="__cf_email__" data-cfemail="c9aaa6a7bda8aabd89a1bca4a8a7a7a6adace7a0a6">[email&#160;protected]</span></a>.</p>
             </div>
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navMain = document.getElementById('navMain');
         const menuOverlay = document.getElementById('menuOverlay');
         
         function openMenu() {
-            navMain.classList.add('active');
-            menuToggle.classList.add('active');
-            menuOverlay.classList.add('active');
+            if (navMain) navMain.classList.add('active');
+            if (menuToggle) menuToggle.classList.add('active');
+            if (menuOverlay) menuOverlay.classList.add('active');
         }
         
         function closeMenu() {
-            navMain.classList.remove('active');
-            menuToggle.classList.remove('active');
-            menuOverlay.classList.remove('active');
+            if (navMain) navMain.classList.remove('active');
+            if (menuToggle) menuToggle.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
         }
         
-        menuToggle.addEventListener('click', () => {
-            if (navMain.classList.contains('active')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                if (navMain && navMain.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+        }
 
         // Close menu when clicking overlay
-        menuOverlay.addEventListener('click', closeMenu);
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', closeMenu);
+        }
 
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2288,14 +2383,18 @@
         // Copy email to clipboard
         function copyEmail(event) {
             event.stopPropagation();
+            event.preventDefault();
             const email = 'contact@humannode.io';
             navigator.clipboard.writeText(email).then(() => {
-                const btn = event.target;
-                const originalText = btn.textContent;
-                btn.textContent = 'Copied!';
-                setTimeout(() => {
-                    btn.textContent = originalText;
-                }, 1500);
+                const btn = event.currentTarget || event.target.closest('button');
+                const textSpan = btn.querySelector('span');
+                if (textSpan) {
+                    const originalText = textSpan.textContent;
+                    textSpan.textContent = 'Copied!';
+                    setTimeout(() => {
+                        textSpan.textContent = originalText;
+                    }, 1500);
+                }
             }).catch(err => {
                 console.error('Failed to copy:', err);
             });
@@ -2325,18 +2424,24 @@
             if (e.key === 'Escape') {
                 closeDiagramFullscreen();
                 closeAllInfoPopups();
+                // Close contact dropdown
+                var contactWrapper = document.getElementById('contactWrapper');
+                var contactBtn = document.getElementById('contactBtn');
+                if (contactWrapper) {
+                    contactWrapper.classList.remove('expanded');
+                }
+                if (contactBtn) {
+                    contactBtn.setAttribute('aria-expanded', 'false');
+                }
             }
         });
         
-        // Info popup functions
+        // Info Popup functions
         function openInfoPopup(type) {
             var popupId = type + 'Popup';
             var popup = document.getElementById(popupId);
             if (popup) {
-                popup.style.display = 'flex';
-                setTimeout(function() {
-                    popup.classList.add('active');
-                }, 10);
+                popup.classList.add('active');
                 document.body.style.overflow = 'hidden';
             }
         }
@@ -2346,9 +2451,6 @@
             var popup = document.getElementById(popupId);
             if (popup) {
                 popup.classList.remove('active');
-                setTimeout(function() {
-                    popup.style.display = 'none';
-                }, 200);
                 document.body.style.overflow = '';
             }
         }
@@ -2357,11 +2459,30 @@
             var popups = document.querySelectorAll('.info-popup-overlay');
             popups.forEach(function(popup) {
                 popup.classList.remove('active');
-                setTimeout(function() {
-                    popup.style.display = 'none';
-                }, 200);
             });
             document.body.style.overflow = '';
+        }
+        
+        // Contact dropdown toggle
+        var contactWrapper = document.getElementById('contactWrapper');
+        var contactBtn = document.getElementById('contactBtn');
+        
+        if (contactBtn && contactWrapper) {
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var isExpanded = contactWrapper.classList.contains('expanded');
+                contactWrapper.classList.toggle('expanded');
+                contactBtn.setAttribute('aria-expanded', !isExpanded);
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!contactWrapper.contains(e.target)) {
+                    contactWrapper.classList.remove('expanded');
+                    contactBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
         }
     </script>
 </body>
