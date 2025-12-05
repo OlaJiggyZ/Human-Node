@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0LMS06XJMT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0LMS06XJMT');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Human Node - Cognitive Defence for Cybersecurity</title>
@@ -684,6 +693,17 @@
         @media (max-width: 672px) {
             :root { --container-padding: 20px; --section-gap: 32px; }
             
+            /* Mobile hero - 35% taller */
+            .hero {
+                overflow: hidden;
+            }
+            
+            .hero-image {
+                width: 135%;
+                height: auto;
+                margin-left: -17.5%;
+            }
+            
             /* Mobile BTO diagram - scrollable */
             .model-intelligence-diagram.sankey { 
                 padding: 16px 16px 48px 16px; 
@@ -795,7 +815,7 @@
                 <section class="section">
                     <h2 class="section-title">The New Reality – Why it matters</h2>
                     <p class="text-body">
-                        The human layer is now the primary breach vector. AI has given attackers the ability to shape perceptions, influence judgement, and steer decisions in ways organisations are not built to detect.
+                        The human layer is now the primary breach vector. AI has given attackers the ability to shape perceptions, influence judgement, and steer decisions in ways organisations are not built to detect. Their objective is straightforward: exploit the path of least resistance, often through unsuspecting employees, to obtain valid credentials.
                     </p>
                     <p class="text-body">
                         One shifted cue, one fabricated sense of urgency, one misread signal is enough to compromise an entire organisation. <em>Cyber risk has become a Cognitive Problem.</em> Defence must move there too.
@@ -1228,9 +1248,9 @@
                 <h4>Data Protection</h4>
                 <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, alteration, disclosure, or destruction.</p>
                 <h4>Your Rights</h4>
-                <p>Under UK GDPR, you have the right to access, rectify, erase, or restrict processing of your personal data. To exercise these rights, please contact us at <a href="mailto:contact@humannode.io">contact@humannode.io</a>.</p>
+                <p>Under UK GDPR, you have the right to access, rectify, erase, or restrict processing of your personal data. To exercise these rights, please contact us at <a href="/cdn-cgi/l/email-protection#99faf6f7edf8faedd9f1ecf4f8f7f7f6fdfcb7f0f6"><span class="__cf_email__" data-cfemail="42212d2c36232136022a372f232c2c2d26276c2b2d">[email&#160;protected]</span></a>.</p>
                 <h4>Contact</h4>
-                <p>For privacy-related enquiries, please contact us at <a href="mailto:contact@humannode.io">contact@humannode.io</a>.</p>
+                <p>For privacy-related enquiries, please contact us at <a href="/cdn-cgi/l/email-protection#b8dbd7d6ccd9dbccf8d0cdd5d9d6d6d7dcdd96d1d7"><span class="__cf_email__" data-cfemail="b8dbd7d6ccd9dbccf8d0cdd5d9d6d6d7dcdd96d1d7">[email&#160;protected]</span></a>.</p>
             </div>
         </div>
     </div>
@@ -1258,12 +1278,12 @@
                 <h4>Governing Law</h4>
                 <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
                 <h4>Contact</h4>
-                <p>For questions about these terms, please contact us at <a href="mailto:contact@humannode.io">contact@humannode.io</a>.</p>
+                <p>For questions about these terms, please contact us at <a href="/cdn-cgi/l/email-protection#2c4f4342584d4f586c4459414d4242434849024543"><span class="__cf_email__" data-cfemail="dfbcb0b1abbebcab9fb7aab2beb1b1b0bbbaf1b6b0">[email&#160;protected]</span></a>.</p>
             </div>
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         (function() {
             // Element references
             var menuToggle = document.getElementById('menuToggle');
@@ -1444,7 +1464,7 @@
             // Escape key handler
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') {
-                    if (diagramModal) diagramModal.classList.remove('active');
+                                      if (diagramModal) diagramModal.classList.remove('active');
                     if (termsPopup) termsPopup.classList.remove('active');
                     if (privacyPopup) privacyPopup.classList.remove('active');
                     if (contactWrapper) contactWrapper.classList.remove('expanded');
