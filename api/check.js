@@ -1,8 +1,6 @@
-// Human Node · Exposure Check engine (Vercel Edge Function, same project as the site).
+// Human Node · Exposure Check engine (Vercel Function, Node.js runtime, Web-standard handler).
 // The Exposure Check tab on humannode.io posts here: POST /api/check
 // Requires env var PERPLEXITY_API_KEY in Vercel → Project → Settings → Environment Variables.
-
-export const config = { runtime: "edge" };
 
 const SECTORS = ["Retail & E-commerce", "FMCG", "FinTech", "Banking", "Healthcare", "Legal", "Professional Services", "Technology & SaaS", "Insurance", "Asset Management", "Crypto & Digital Assets", "Pharma & Life Sciences", "Telecoms", "Energy & Utilities", "Manufacturing", "Automotive", "Logistics & Transport", "Aviation & Travel", "Hospitality", "Education", "Public Sector", "Charities & Non-profit", "Media & Entertainment", "Real Estate", "Defence & Aerospace"];
 
@@ -13,7 +11,7 @@ function allowedOrigins() {
   return list;
 }
 
-// Best-effort limit per IP, per edge instance. Add a Vercel Firewall rate-limit rule on /api/check for a hard limit.
+// Best-effort limit per IP, per function instance. Add a Vercel Firewall rate-limit rule on /api/check for a hard limit.
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
 const hits = new Map();
@@ -50,8 +48,7 @@ async function perplexity(prompt, recency = "month") {
   return data.choices?.[0]?.message?.content || "";
 }
 
-export default async function handler(request) {
-  if (request.method !== "POST") return json({ error: { message: "Method not allowed" } }, 405);
+export async function POST(request) {
   const origin = request.headers.get("origin");
   if (!origin || !allowedOrigins().includes(origin)) {
     return json({ error: { message: "Origin not allowed" } }, 403);

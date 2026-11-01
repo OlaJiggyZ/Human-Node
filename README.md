@@ -3,7 +3,8 @@
 One Vercel project: the site and the Exposure Check engine.
 
 - `index.html`: the site. Hash routes `#exposure-check`, `#exposure-audit`, `#ai-audit`, `#os1`, `#pricing`, `#contact`.
-- `api/check.js`: the Exposure Check engine (Vercel Edge Function). The Exposure Check tab posts to `/api/check`.
+- `package.json`: marks the project as ES modules (no build step).
+- `api/check.js`: the Exposure Check engine (Vercel Function, Node.js runtime). The Exposure Check tab posts to `/api/check`.
 
 ## Deploy (GitHub + Vercel)
 1. Create a GitHub repo (e.g. `humannode-site`) and push these files to `main`.
