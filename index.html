@@ -1,0 +1,1616 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Human Node · Cognitive defence and cybersecurity</title>
+<meta name="description" content="Human Node secures the decision layer across people, systems and AI: Exposure Check, Exposure Audit, AI Audit and OS°1.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://humannode.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Human Node">
+<meta property="og:title" content="Human Node · Defence for the decision layer">
+<meta property="og:description" content="Human Node secures the decision layer across people, systems and AI.">
+<meta property="og:url" content="https://humannode.io/">
+<meta name="twitter:card" content="summary">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: enterprise briefing in the Verify register. Every page opens on a gradient hero (answer first),
+   then sections in a fixed order: what it is, proof, offer, action. Single light theme, navy ink,
+   one blurple accent for actions, semantic red/amber/green only for exposure states. */
+:root {
+  color-scheme: light;
+  --bg: #f6f9fc;
+  --surface: #ffffff;
+  --ink: #0a2540;
+  --ink-2: #425466;
+  --ink-3: #8792a2;
+  --line: #e3e8ee;
+  --line-2: #cfd7df;
+  --accent: #635bff;
+  --accent-deep: #4b44e0;
+  --accent-soft: #f0efff;
+  --red: #df1b41; --red-soft: #ffe7ec;
+  --amber: #b25e09; --amber-soft: #fff4e0;
+  --green: #0a7d55; --green-soft: #dcf6ea;
+  --band: #0a2540; --band-ink: #ffffff; --band-2: #adbdcc; --band-line: #2b4a6b;
+  --shadow: 0 30px 60px -12px rgba(50,50,93,.22), 0 18px 36px -18px rgba(0,0,0,.25);
+  --shadow-sm: 0 13px 27px -5px rgba(50,50,93,.14), 0 8px 16px -8px rgba(0,0,0,.14);
+
+  --sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --t-display: clamp(42px, 6vw, 76px);
+  --t-h1: clamp(36px, 4.6vw, 56px);
+  --t-h2: clamp(26px, 2.8vw, 34px);
+  --t-h3: 18px;
+  --t-lead: clamp(17px, 1.5vw, 20px);
+  --t-body: 16px;
+  --t-small: 14px;
+  --t-label: 12px;
+
+  --grid: 1160px;
+  --col: 680px;
+  --sec: clamp(64px, 8vw, 112px);
+  --ease: cubic-bezier(.22,.8,.24,1);
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 76px; }
+body { margin: 0; background: var(--surface); color: var(--ink); font-family: var(--sans); font-size: var(--t-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 50; background: var(--surface); }
+h1,h2,h3,h4,p,ul,ol,dl,dd,figure { margin: 0; }
+h1,h2 { text-wrap: balance; font-weight: 600; letter-spacing: -0.03em; }
+h1 { font-size: var(--t-h1); line-height: 1.05; }
+h2 { font-size: var(--t-h2); line-height: 1.15; }
+h3 { font-size: var(--t-h3); line-height: 1.35; font-weight: 500; letter-spacing: -0.01em; text-wrap: balance; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.wrap { max-width: var(--grid); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); position: relative; }
+.label { font-family: var(--mono); font-size: var(--t-label); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.muted { color: var(--ink-2); }
+.small { font-size: var(--t-small); }
+.tnum { font-variant-numeric: tabular-nums; }
+.link { color: var(--accent); text-decoration: none; font-weight: 500; }
+.link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border-radius: 4px; border: 1px solid var(--ink); background: var(--ink); color: #ffffff; font: 500 var(--t-small)/1.2 var(--sans); text-decoration: none; cursor: pointer; transition: background .2s var(--ease), border-color .2s var(--ease); white-space: nowrap; }
+.btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn.primary { background: var(--accent); border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn.line { background: rgba(255,255,255,.7); color: var(--ink); border-color: var(--line-2); }
+.btn.line:hover { border-color: var(--ink); background: #ffffff; }
+.btn svg { width: 14px; height: 14px; flex: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* Nav */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--line); }
+.top .wrap { height: 64px; display: flex; align-items: center; gap: 20px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 17px; letter-spacing: -0.02em; white-space: nowrap; }
+.brand .mark { width: 24px; height: 29px; flex: none; margin-top: 4px; }
+.brand { font-weight: 700; letter-spacing: -0.025em; gap: 12px; }
+.menu { display: flex; gap: 2px; margin-left: 16px; margin-right: auto; }
+.menu a { text-decoration: none; font-size: var(--t-small); color: var(--ink-2); padding: 8px 11px; border-radius: 4px; white-space: nowrap; }
+.menu a:hover { color: var(--ink); background: var(--bg); }
+.menu a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
+@media (max-width: 1040px) { .menu a[aria-current="page"] { text-decoration: none; box-shadow: inset 3px 0 0 var(--accent); padding-left: 12px; } }
+.nav-cta { display: flex; gap: 8px; }
+.burger { display: none; width: 44px; height: 40px; margin-left: auto; border: 1px solid var(--line-2); background: #ffffff; border-radius: 4px; cursor: pointer; place-items: center; color: var(--ink); }
+@media (max-width: 1040px) {
+  .burger { display: grid; }
+  .nav-cta .btn.line { display: none; }
+  .menu { display: none; position: absolute; top: 64px; left: 0; right: 0; margin: 0; flex-direction: column; background: #ffffff; border-bottom: 1px solid var(--line); padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); box-shadow: var(--shadow-sm); }
+  .menu.open { display: flex; }
+  .menu a { padding: 14px 4px; border-bottom: 1px solid var(--line); border-radius: 0; font-size: var(--t-body); }
+}
+@media (max-width: 560px) { .nav-cta { display: none; } }
+
+/* Pages */
+main > [data-page] { display: none; }
+main > [data-page].on { display: block; }
+
+/* Hero: Verify wave gradient on every page */
+.hero { position: relative; z-index: 2; background: #ffffff; padding-block: clamp(72px, 10vw, 132px) clamp(56px, 7vw, 96px); border-bottom: 1px solid var(--line); }
+.hero-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.hero-bg::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: min(82%, 640px); transform: skewY(-8deg); transform-origin: top left; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(60% 90% at 85% 10%, #a960ee 0%, transparent 60%),
+    radial-gradient(50% 80% at 60% 0%, #ff333d 0%, transparent 55%),
+    radial-gradient(45% 70% at 100% 70%, #90e0ff 0%, transparent 60%),
+    radial-gradient(40% 60% at 40% 30%, #ffcb57 0%, transparent 60%),
+    linear-gradient(120deg, #ffe3f0, #e6ecff);
+  opacity: .9; }
+.hero-bg::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: min(82%, 640px); transform: skewY(-8deg); transform-origin: top left; pointer-events: none; z-index: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,.88) 0%, rgba(255,255,255,.62) 30%, rgba(255,255,255,0) 58%); }
+.hero > .wrap { z-index: 1; }
+.hero .grid-hero { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero .copy { display: grid; gap: 22px; max-width: 640px; }
+.hero h1.display { font-size: var(--t-display); line-height: 1.02; letter-spacing: -0.04em; }
+.hero .lede { font-size: var(--t-lead); color: var(--ink-2); max-width: 54ch; }
+.hero .note { font-size: var(--t-small); color: var(--ink-3); }
+.hero .label { color: var(--ink-2); }
+@media (max-width: 900px) {
+  .hero .grid-hero { grid-template-columns: 1fr; }
+  .hero-bg::before, .hero-bg::after { height: 360px; }
+  .hero-bg::after { background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.75) 55%, #ffffff 100%); }
+}
+
+/* Hero panel */
+.panel { background: #ffffff; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); padding: 22px; display: grid; gap: 14px; min-width: 0; }
+.panel-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; flex-wrap: wrap; }
+.prow { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 14px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line); }
+.prow b { display: block; font-weight: 500; font-size: 15px; }
+.prow span.d { display: block; font-size: 13px; color: var(--ink-2); line-height: 1.45; margin-top: 2px; }
+.prow .num { font-family: var(--mono); font-size: 28px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.panel-foot { font-size: 12px; color: var(--ink-3); }
+
+/* Sections */
+section.sec { padding-block: var(--sec); }
+section.sec.tint { background: var(--bg); }
+section.sec + section.sec:not(.tint):not(.band) { border-top: 1px solid var(--line); }
+.head { display: grid; gap: 14px; max-width: var(--col); }
+.head p { color: var(--ink-2); font-size: 17px; }
+.body { margin-top: clamp(32px, 4vw, 52px); }
+
+/* Offer rows (Palantir-style: one line each, arrow link) */
+.rows { border-top: 1px solid var(--line-2); }
+.row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr) minmax(120px, 2fr); gap: 24px; align-items: baseline; padding: 26px 0; border-bottom: 1px solid var(--line); text-decoration: none; transition: background .2s var(--ease); }
+a.row:hover { background: linear-gradient(90deg, var(--accent-soft), transparent 70%); }
+.row .k { display: grid; gap: 4px; }
+.row .k b { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+.row p { color: var(--ink-2); max-width: 56ch; }
+.row .go { color: var(--accent); font-weight: 500; font-size: var(--t-small); display: block; margin-top: 8px; }
+.row .p { text-align: right; font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.row .p small { display: block; font-size: 12px; color: var(--ink-3); margin-top: 2px; font-family: var(--sans); }
+.row.lead { background: linear-gradient(90deg, var(--accent-soft), transparent 80%); }
+@media (max-width: 760px) { .row { grid-template-columns: 1fr; gap: 8px; } .row .p { text-align: left; } }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border-top: 1px solid var(--line-2); }
+.stats > div { padding: 22px 22px 0 0; display: grid; gap: 6px; min-width: 0; }
+.stats b { font-family: var(--mono); font-size: clamp(30px, 3.4vw, 42px); font-weight: 500; letter-spacing: -0.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.stats span { font-size: var(--t-small); color: var(--ink-2); line-height: 1.45; max-width: 26ch; }
+@media (max-width: 860px) { .stats { grid-template-columns: 1fr 1fr; row-gap: 22px; } }
+
+/* Three-up */
+.three { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: clamp(20px, 3vw, 40px); }
+.three > div { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); min-width: 0; }
+.three > div p { color: var(--ink-2); font-size: 15px; }
+.two { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: clamp(20px, 3vw, 40px); }
+.two > div { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 1px solid var(--line-2); min-width: 0; }
+.two > div p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .three, .two { grid-template-columns: 1fr; } }
+
+/* Split: text left, evidence right */
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.facts { border-top: 1px solid var(--line-2); }
+.facts div { display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: var(--t-small); }
+.facts dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-3); padding-top: 2px; }
+.facts dd { color: var(--ink); }
+
+/* Feature (sweep) */
+.feature { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); background: #ffffff; }
+.feature > div { padding: clamp(22px, 3vw, 36px); min-width: 0; }
+.feature > div + div { border-left: 1px solid var(--line); background: var(--bg); display: grid; gap: 14px; align-content: start; }
+.feature .big { font-family: var(--mono); font-size: clamp(36px, 4vw, 48px); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; line-height: 1; }
+.checks { list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 18px; }
+.checks li { display: grid; grid-template-columns: 18px minmax(0,1fr); gap: 10px; font-size: 15px; color: var(--ink-2); }
+.checks li::before { content: ""; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: var(--accent); }
+.checks b { color: var(--ink); font-weight: 500; }
+@media (max-width: 860px) { .feature { grid-template-columns: 1fr; } .feature > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+
+/* Report spec */
+.spec { border-top: 1px solid var(--line-2); }
+.spec div { display: grid; grid-template-columns: 200px minmax(0,1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.spec b { font-weight: 500; }
+.spec span { color: var(--ink-2); }
+@media (max-width: 600px) { .spec div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Steps */
+.steps { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px; }
+.steps li { display: grid; gap: 8px; align-content: start; padding-top: 16px; border-top: 2px solid var(--accent); min-width: 0; }
+.steps .label { color: var(--accent); }
+.steps p { font-size: var(--t-small); color: var(--ink-2); }
+.steps.s3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+@media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .steps.s3 { grid-template-columns: 1fr; } }
+@media (max-width: 480px) { .steps { grid-template-columns: 1fr; } }
+
+/* Tables */
+.table-wrap { overflow-x: auto; position: relative; border: 1px solid var(--line); border-radius: 10px; background: #ffffff; }
+table { border-collapse: collapse; width: 100%; font-size: var(--t-small); }
+th, td { text-align: left; padding: 13px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font: 500 var(--t-label)/1.3 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); background: var(--bg); }
+tr:last-child td, tr:last-child th { border-bottom: 0; }
+td.n, th.n { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pill { font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 5px 8px; border-radius: 99px; white-space: nowrap; display: inline-block; }
+.pill.r { color: var(--red); background: var(--red-soft); }
+.pill.a { color: var(--amber); background: var(--amber-soft); }
+.pill.g { color: var(--green); background: var(--green-soft); }
+
+/* Heat matrix */
+.heat { min-width: 900px; }
+.heat thead th { text-align: center; }
+.heat thead th:first-child { text-align: left; }
+.heat tbody th { text-align: left; font-weight: 400; min-width: 250px; max-width: 300px; background: #ffffff; }
+.heat tbody th b { display: block; font-weight: 500; font-size: 14px; }
+.heat .ex { display: block; font-size: 12px; color: var(--ink-3); margin-top: 3px; line-height: 1.4; }
+.heat td.hm { text-align: center; font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; border-left: 2px solid #ffffff; min-width: 64px; position: relative; vertical-align: middle; }
+.heat td.hm.z { color: var(--ink-3); }
+.heat td.n { vertical-align: middle; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* BTO flow */
+.flow { display: grid; grid-template-columns: minmax(0,1fr) 128px minmax(0,1fr); gap: 16px; align-items: center; }
+.flow .col { display: grid; gap: 12px; }
+.flow .box { border: 1px solid var(--line); background: #ffffff; border-radius: 8px; padding: 16px; }
+.flow .box ul { list-style: none; padding: 0; display: grid; gap: 4px; font-size: var(--t-small); color: var(--ink-2); margin-top: 6px; }
+.engine { aspect-ratio: 1; max-width: 100%; border-radius: 50%; display: grid; place-items: center; text-align: center; font: 500 13px/1.3 var(--mono); color: #ffffff; background: radial-gradient(circle at 30% 30%, #a960ee, #635bff 60%, #4b44e0); box-shadow: var(--shadow-sm); }
+@media (max-width: 760px) { .flow { grid-template-columns: 1fr; } .engine { width: 128px; margin: 0 auto; } }
+
+/* Case (step story) */
+.case { border: 1px solid var(--line); border-radius: 10px; background: #ffffff; box-shadow: var(--shadow-sm); padding: 22px; display: grid; gap: 12px; font-size: var(--t-small); }
+.case .step { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); }
+.case .step .label { color: var(--red); padding-top: 2px; }
+.case .case-out { border-top: 1px solid var(--line); padding-top: 12px; color: var(--ink-2); }
+
+/* Band */
+.band { background: var(--band); color: var(--band-ink); position: relative; overflow: hidden; }
+.band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 80% at 100% 0%, rgba(169,96,238,.35), transparent 70%), radial-gradient(40% 60% at 85% 100%, rgba(144,224,255,.18), transparent 70%); pointer-events: none; }
+.band .wrap { z-index: 1; }
+.band .label { color: var(--band-2); }
+.band .head p, .band p { color: var(--band-2); }
+.band .three > div { border-top-color: rgba(255,255,255,.5); }
+.band .three > div p, .band .two > div p { color: var(--band-2); }
+.band .btn.line { background: transparent; color: var(--band-ink); border-color: var(--band-line); }
+.band .btn.line:hover { border-color: var(--band-ink); background: transparent; }
+.band a.link { color: #c5c1ff; }
+
+/* Contact */
+.form { display: grid; gap: 16px; max-width: 560px; }
+.field { display: grid; gap: 6px; }
+.field label { font-size: var(--t-small); font-weight: 500; }
+.field input, .field select, .field textarea { font: inherit; font-size: 16px; color: var(--ink); background: #ffffff; border: 1px solid var(--line-2); border-radius: 4px; padding: 11px 12px; min-height: 44px; width: 100%; }
+.field textarea { min-height: 110px; resize: vertical; }
+.out { border: 1px solid var(--line); border-radius: 10px; background: #ffffff; padding: 20px; display: grid; gap: 12px; }
+.out pre { margin: 0; white-space: pre-wrap; font: 13px/1.55 var(--mono); color: var(--ink-2); background: var(--bg); padding: 12px; border-radius: 4px; overflow-x: auto; }
+.addr { font-family: var(--mono); font-size: 15px; user-select: all; }
+
+/* Exposure Check */
+.xc-form { gap: 18px; }
+.xc-form .field { display: grid; gap: 10px; }
+.xc-form input { font: inherit; font-size: 16px; color: var(--ink); background: #ffffff; border: 1px solid var(--line-2); border-radius: 4px; padding: 11px 12px; min-height: 44px; width: 100%; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { font: 500 13px/1 var(--sans); padding: 10px 12px; min-height: 40px; border-radius: 99px; border: 1px solid var(--line-2); background: #ffffff; color: var(--ink-2); cursor: pointer; }
+.chip:hover { border-color: var(--ink); color: var(--ink); }
+.chip[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: #ffffff; }
+.chip-more { border-style: dashed; color: var(--accent); }
+.chip-more:hover { border-color: var(--accent); color: var(--accent-deep); }
+.btn[disabled] { opacity: .45; cursor: default; }
+.btn[disabled]:hover { background: var(--accent); border-color: var(--accent); }
+.xc-steps { list-style: none; padding: 0; display: grid; gap: 0; max-width: 560px; border-top: 1px solid var(--line-2); }
+.xc-steps li { display: grid; grid-template-columns: 22px minmax(0,1fr); gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink-3); transition: color .3s var(--ease); }
+.xc-steps li::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--line-2); justify-self: center; }
+.xc-steps li.on { color: var(--ink); }
+.xc-steps li.on::before { border-color: var(--accent); background: var(--accent-soft); animation: xcpulse 1s ease-in-out infinite; }
+.xc-steps li.done { color: var(--ink-2); }
+.xc-steps li.done::before { border-color: var(--green); background: var(--green); }
+@keyframes xcpulse { 50% { transform: scale(1.35); } }
+.xc-sum { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.xc-kpis { display: grid; border-top: 1px solid var(--line-2); }
+.xc-kpis > div { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.xc-kpis > div .pill { justify-self: start; }
+.xc-kpis b { font-family: var(--mono); font-size: 32px; font-weight: 500; letter-spacing: -0.02em; line-height: 1; }
+.xc-kpis b.xc-role { font-family: var(--sans); font-size: 17px; font-weight: 500; letter-spacing: 0; line-height: 1.35; }
+.xc-kpis > div > span.small { grid-column: 2; }
+@media (max-width: 860px) { .xc-sum { grid-template-columns: 1fr; } }
+.xc-seq { list-style: none; padding: 0; counter-reset: s; border-top: 1px solid var(--line-2); }
+.xc-seq li { counter-increment: s; display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.xc-seq li::before { content: counter(s); font-family: var(--mono); color: var(--accent); font-size: 14px; padding-top: 2px; }
+.xc-seq b { display: block; font-weight: 500; }
+.xc-seq span { color: var(--ink-2); font-size: 15px; }
+.spec .pill { justify-self: start; }
+
+.rule { font-size: var(--t-small); color: var(--ink-2); border-left: 2px solid var(--accent); padding: 4px 0 4px 14px; max-width: 70ch; }
+footer { background: var(--bg); border-top: 1px solid var(--line); padding-block: 40px; font-size: var(--t-small); color: var(--ink-3); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+footer a { text-decoration: none; color: var(--ink-2); }
+footer a:hover { color: var(--ink); }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: #ffffff; padding: 10px 16px; border-radius: 4px; font-size: var(--t-small); z-index: 60; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Currency switch */
+.hero .copy > .cur { justify-self: start; }
+.cur { display: inline-flex; padding: 3px; border: 1px solid var(--line-2); border-radius: 99px; background: #ffffff; }
+.cur button { font: 500 13px/1 var(--sans); border: 0; background: transparent; color: var(--ink-2); padding: 9px 14px; border-radius: 99px; cursor: pointer; min-height: 36px; }
+.cur button[aria-pressed="true"] { background: var(--ink); color: #ffffff; }
+
+/* Pricing cards */
+.pgroup + .pgroup { margin-top: clamp(56px, 7vw, 88px); }
+.pgroup-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line-2); }
+.pgroup-head h2 { font-size: clamp(24px, 2.4vw, 30px); }
+.pgroup-head p { color: var(--ink-2); max-width: 56ch; }
+.pcards { display: grid; gap: 16px; margin-top: 24px; }
+.pcards.c3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.pcards.c4 { grid-template-columns: repeat(4, minmax(0,1fr)); }
+@media (max-width: 1040px) { .pcards.c4 { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 860px) { .pcards.c3, .pcards.c4 { grid-template-columns: 1fr; } }
+.pcard { display: grid; grid-template-rows: auto auto auto auto 1fr; gap: 14px; align-content: start; background: #ffffff; border: 1px solid var(--line); border-radius: 12px; padding: 24px; min-width: 0; }
+.pcard.key { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow-sm); }
+.pcard h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+.pcard .d { color: var(--ink-2); font-size: 15px; min-height: 3em; }
+.price { display: grid; gap: 2px; }
+.price .from { font-size: 13px; color: var(--ink-3); }
+.price .amt { font-size: clamp(30px, 3vw, 38px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.price .per { font-size: 13px; color: var(--ink-3); }
+.pcard .btn { width: 100%; }
+.incl { list-style: none; padding: 16px 0 0; display: grid; gap: 9px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-2); }
+.incl li { display: grid; grid-template-columns: 16px minmax(0,1fr); gap: 8px; }
+.incl li::before { content: ""; width: 6px; height: 6px; margin-top: 8px; border-radius: 50%; background: var(--accent); }
+.plist { margin-top: 16px; border-top: 1px solid var(--line); }
+.plist > div { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr) minmax(110px, 2fr); gap: 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.plist b { font-weight: 500; }
+.plist span.m { color: var(--ink-2); }
+.plist .v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+@media (max-width: 760px) { .plist > div { grid-template-columns: 1fr; gap: 4px; } .plist .v { text-align: left; } }
+.os-card { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 28px; align-items: center; background: var(--band); color: #ffffff; border-radius: 12px; padding: clamp(24px, 3.4vw, 40px); position: relative; overflow: hidden; }
+.os-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 90% at 100% 0%, rgba(169,96,238,.4), transparent 70%), radial-gradient(40% 70% at 80% 100%, rgba(144,224,255,.2), transparent 70%); pointer-events: none; }
+.os-card > * { position: relative; }
+.os-card p { color: var(--band-2); }
+.os-card .incl { border-top-color: rgba(255,255,255,.18); color: var(--band-2); }
+.os-card .incl li::before { background: #c5c1ff; }
+@media (max-width: 860px) { .os-card { grid-template-columns: 1fr; } }
+.terms { margin-top: clamp(48px, 6vw, 72px); display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+.terms > div { padding-top: 14px; border-top: 1px solid var(--line-2); display: grid; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.terms b { color: var(--ink); font-weight: 500; font-size: 15px; }
+@media (max-width: 860px) { .terms { grid-template-columns: 1fr; } }
+
+/* Problem list (A, B, C) */
+.abc { border-top: 1px solid var(--line-2); }
+.abc > div { display: grid; grid-template-columns: 40px minmax(0,1fr); gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+.abc .l { font-family: var(--mono); color: var(--accent); font-weight: 500; padding-top: 2px; }
+.abc b { display: block; font-weight: 500; font-size: 17px; }
+.abc p { color: var(--ink-2); font-size: 15px; margin-top: 2px; }
+
+/* Audit anatomy card */
+.anat { background: #ffffff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+.anat-top { display: flex; justify-content: space-between; gap: 12px; padding: 16px 22px; border-bottom: 1px solid var(--line); background: var(--bg); }
+.anat-q { margin: 20px 22px 0; background: var(--ink); color: #ffffff; border-radius: 8px; padding: 14px 16px; font-size: 15px; }
+.anat-q .label { color: var(--band-2); display: block; margin-bottom: 6px; }
+.anat-list { padding: 8px 22px 20px; }
+.anat-list > div { display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.anat-list > div:last-child { border-bottom: 0; }
+.anat-list .k { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); padding-top: 2px; }
+@media (max-width: 480px) { .anat-list > div { grid-template-columns: 1fr; gap: 4px; } }
+
+/* Every channel ring */
+.regions { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; max-width: 900px; }
+.regions > div { border: 1px solid var(--line); border-radius: 10px; background: #ffffff; padding: 18px 20px; font-size: 15px; color: var(--ink-2); }
+.regions b { color: var(--ink); font-weight: 500; }
+@media (max-width: 760px) { .regions { grid-template-columns: 1fr; } }
+.ringbox { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #ffffff; }
+.ring-wrap { background: var(--bg); padding: clamp(20px, 3vw, 40px); display: grid; place-items: center; min-width: 0; }
+.ring { position: relative; width: 100%; max-width: 440px; aspect-ratio: 1; }
+.ring::before { content: ""; position: absolute; inset: 11%; border: 1px solid var(--line-2); border-radius: 50%; }
+.ring .core { position: absolute; inset: 30%; border-radius: 50%; border: 1px dashed var(--line-2); background: #ffffff; display: grid; place-content: center; text-align: center; gap: 4px; padding: 8px; }
+.ring .core b { font-size: clamp(15px, 2vw, 18px); font-weight: 600; letter-spacing: -0.01em; }
+.ring .core span { font-size: 12px; color: var(--ink-2); line-height: 1.35; }
+.node { position: absolute; width: 25%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: #ffffff; box-shadow: var(--shadow-sm); display: grid; place-content: center; text-align: center; gap: 4px; padding: 6px; font-size: clamp(11px, 1.4vw, 14px); font-weight: 500; line-height: 1.2; }
+.node small { font: 500 10px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+.node.soon { color: var(--ink-3); }
+.ring-points { display: grid; align-content: start; min-width: 0; }
+.ring-points > div { padding: clamp(18px, 2.4vw, 28px); border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+.ring-points > div:last-child { border-bottom: 0; }
+.ring-points h3 { font-size: 18px; }
+.ring-points p { color: var(--ink-2); font-size: 15px; }
+@media (max-width: 860px) { .ringbox { grid-template-columns: 1fr; } }
+
+/* Works with your stack */
+.stack { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+@media (max-width: 860px) { .stack { grid-template-columns: 1fr; } }
+.tiles-wrap { border: 1px solid var(--line); border-radius: 12px; background: var(--bg); padding: clamp(16px, 3vw, 36px); min-width: 0; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+.tile { aspect-ratio: 4 / 3; display: grid; place-items: center; text-align: center; padding: 8px; border-radius: 8px; background: #ffffff; border: 1px solid var(--line); color: var(--ink-2); font: 500 14px/1.3 var(--sans); cursor: pointer; transition: border-color .15s var(--ease), color .15s var(--ease), box-shadow .15s var(--ease); min-width: 0; }
+.tile:hover, .tile[aria-pressed="true"] { border-color: var(--ink); color: var(--ink); box-shadow: var(--shadow-sm); }
+.tile.hn { cursor: default; color: var(--ink); box-shadow: var(--shadow-sm); border-color: var(--line-2); }
+.tile.hn span { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; letter-spacing: -0.02em; }
+.tile.hn .mark { width: 18px; height: 22px; margin-top: 3px; }
+.tile.hn span { font-weight: 700; }
+.tile-cap { margin-top: 16px; font-size: 15px; color: var(--ink-2); min-height: 3em; }
+.tile-cap b { color: var(--ink); font-weight: 500; }
+@media (max-width: 480px) { .tile { font-size: 12px; } }
+.pts { display: grid; gap: 26px; }
+.pts > div { display: grid; grid-template-columns: 12px minmax(0,1fr); gap: 14px; }
+.pts > div::before { content: ""; width: 8px; height: 8px; margin-top: 10px; border-radius: 50%; background: var(--accent); }
+.pts h3 { font-size: 19px; margin-bottom: 4px; }
+.pts p { color: var(--ink-2); font-size: 15px; }
+
+/* Dark booking panel */
+.book { position: relative; overflow: hidden; border-radius: 16px; background: var(--band); color: #ffffff; padding: clamp(28px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 5vw, 72px); }
+.book::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 60% at 55% 0%, rgba(255,51,61,.18), transparent 70%), radial-gradient(60% 80% at 100% 10%, rgba(169,96,238,.35), transparent 70%), radial-gradient(50% 60% at 90% 100%, rgba(144,224,255,.18), transparent 70%); pointer-events: none; }
+.book > * { position: relative; min-width: 0; }
+.book .label { color: #b9b5ff; }
+.book h2 { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.08; margin-top: 12px; }
+.book .bl { color: var(--band-2); margin-top: 16px; font-size: 17px; }
+.book .bs { color: var(--band-2); margin-top: 14px; font-size: 15px; }
+.book .form { max-width: none; }
+.book .field label { color: #d8dee8; font-weight: 400; }
+.book .field input, .book .field select, .book .field textarea { background: rgba(255,255,255,.08); border: 0; border-bottom: 1px solid rgba(255,255,255,.28); border-radius: 0; color: #ffffff; }
+.book .field select option { color: var(--ink); }
+.book .field input::placeholder, .book .field textarea::placeholder { color: rgba(255,255,255,.45); }
+.book .small { color: var(--band-2); }
+.book .out { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); color: #ffffff; }
+.book .out pre { background: rgba(0,0,0,.25); color: #d8dee8; }
+.book .out .label { color: #b9b5ff; }
+.book .btn.line { background: transparent; color: #ffffff; border-color: rgba(255,255,255,.35); }
+.book .contact-meta { margin-top: 28px; display: grid; gap: 6px; font-size: 15px; color: var(--band-2); }
+.book .addr { color: #ffffff; }
+@media (max-width: 860px) { .book { grid-template-columns: 1fr; } }
+
+
+/* Branded dropdown */
+.book .flabel { color: #d8dee8; font-size: var(--t-small); }
+.dd { position: relative; }
+.dd-btn { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; font: 500 16px/1.3 var(--sans); text-align: left; cursor: pointer; color: #ffffff; background: rgba(255,255,255,.08); border: 0; border-bottom: 1px solid rgba(255,255,255,.28); border-radius: 0; }
+.dd-btn:hover, .dd-btn[aria-expanded="true"] { background: rgba(255,255,255,.12); border-bottom-color: #b9b5ff; }
+.dd-btn svg { width: 12px; height: 8px; flex: none; color: #b9b5ff; transition: transform .2s var(--ease); }
+.dd-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.dd-list { position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 8px); margin: 0; padding: 6px; list-style: none; background: #ffffff; border: 1px solid var(--line); border-radius: 10px; box-shadow: var(--shadow); max-height: 340px; overflow-y: auto; }
+.dd-list:focus { outline: none; }
+.dd-list li { display: grid; grid-template-columns: 10px minmax(0,1fr); gap: 10px; align-items: center; padding: 11px 12px; border-radius: 6px; color: var(--ink); font-size: 15px; cursor: pointer; }
+.dd-list li::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: transparent; }
+.dd-list li[aria-selected="true"] { font-weight: 500; }
+.dd-list li[aria-selected="true"]::before { background: var(--accent); }
+.dd-list li.active { background: var(--accent-soft); color: var(--accent-deep); }
+
+
+/* Sector dropdown (light) */
+.dd-light .dd-btn { background: #ffffff; color: var(--ink); border: 1px solid var(--line-2); border-radius: 4px; font-weight: 400; }
+.dd-light .dd-btn:hover, .dd-light .dd-btn[aria-expanded="true"] { background: #ffffff; border-color: var(--accent); }
+.dd-light .dd-btn svg { color: var(--accent); }
+.dd-light .dd-btn .ph { color: var(--ink-3); }
+.dd-light .dd-list { max-height: 320px; }
+.dd-list li.grp { display: block; padding: 12px 12px 6px; font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); cursor: default; background: none; }
+.dd-list li.grp::before { display: none; }
+
+
+/* Exposure debrief */
+.db-top { padding-top: clamp(48px, 6vw, 80px); }
+.db-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-bottom: 14px; border-bottom: 1px solid var(--line-2); }
+.db-org { font-size: var(--t-h1); line-height: 1.08; margin-top: 22px; }
+.db-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 64px); margin-top: 28px; align-items: start; }
+@media (max-width: 860px) { .db-grid { grid-template-columns: 1fr; } }
+.db-bl { border-left: 3px solid var(--accent); padding: 2px 0 2px 20px; display: grid; gap: 10px; }
+.db-bl p { font-size: clamp(19px, 1.9vw, 24px); line-height: 1.4; color: var(--ink); letter-spacing: -0.01em; }
+.db-kpis { margin: 0; border-top: 1px solid var(--line-2); }
+.db-kpis > div { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.db-kpis dt { font-family: var(--mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); }
+.db-kpis dd { margin: 0; font-size: 15px; }
+.db-kpis dd.num { font-family: var(--mono); font-size: 26px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.rate { display: inline-flex; align-items: center; gap: 8px; font: 600 14px/1 var(--sans); padding: 8px 12px; border-radius: 99px; }
+.rate::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.rate.elevated { color: var(--red); background: var(--red-soft); }
+.rate.moderate { color: var(--amber); background: var(--amber-soft); }
+.rate.low { color: var(--green); background: var(--green-soft); }
+.rate.insufficient { color: var(--ink-2); background: #ffffff; border: 1px solid var(--line-2); }
+.db-findings { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line-2); counter-reset: f; }
+.db-findings > li { counter-increment: f; display: grid; grid-template-columns: 36px minmax(0,1fr); gap: 14px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.db-findings > li::before { content: counter(f, decimal-leading-zero); font-family: var(--mono); font-size: 13px; color: var(--accent); padding-top: 3px; }
+.db-findings > li.empty { grid-template-columns: 1fr; color: var(--ink-2); }
+.db-findings > li.empty::before { content: none; }
+.db-f-top { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.db-f-top b { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+.db-f-imp { color: var(--ink-2); font-size: 15px; margin-top: 6px; }
+.db-ev { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 6px; }
+.db-ev li { font-size: 13px; color: var(--ink-2); padding: 8px 10px; background: #ffffff; border: 1px solid var(--line); border-radius: 6px; overflow-wrap: anywhere; }
+.db-ev li.rec { font-family: var(--mono); font-size: 12px; }
+.db-ev a { color: var(--accent); text-decoration: none; font-weight: 500; margin-left: 6px; white-space: nowrap; }
+.db-ev a:hover { text-decoration: underline; }
+.db-controls { margin-top: 18px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 8px; background: #ffffff; display: grid; gap: 8px; }
+.db-controls b { font-weight: 500; }
+.db-controls .c { display: grid; grid-template-columns: 14px minmax(0,1fr); gap: 8px; font-size: 14px; color: var(--ink-2); }
+.db-controls .c::before { content: ""; width: 8px; height: 8px; margin-top: 6px; border-radius: 50%; background: var(--green); }
+.db-actions { min-width: 640px; }
+.db-actions td:first-child { font-family: var(--mono); color: var(--accent); width: 40px; }
+.db-actions td.e, .db-actions td.o { white-space: nowrap; color: var(--ink-2); }
+.db-actions td.w { color: var(--ink-2); }
+.db-incidents { border-top: 1px solid var(--line-2); }
+.db-incidents > div { padding: 18px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; }
+.db-inc-top { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.db-inc-top b { font-weight: 600; }
+.vchip { font: 500 11px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--accent-deep); background: var(--accent-soft); padding: 5px 8px; border-radius: 99px; }
+.db-incidents p { color: var(--ink-2); font-size: 15px; }
+.db-incidents a { font-size: 13px; }
+.linkbtn { margin-top: 14px; background: none; border: 0; padding: 0; font: 500 14px/1.4 var(--sans); color: #c5c1ff; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; justify-self: start; }
+.db-method { margin-top: 14px; color: var(--band-2); }
+.xc-opt { color: var(--ink-3); text-transform: none; letter-spacing: 0; font-family: var(--sans); }
+
+
+/* CEO entry: route chooser, protects grid */
+.doors { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+@media (max-width: 1040px) { .doors { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px) { .doors { grid-template-columns: 1fr; } }
+.door { display: grid; gap: 8px; align-content: start; padding: 22px; border: 1px solid var(--line); border-radius: 12px; background: #ffffff; text-decoration: none; min-width: 0; transition: border-color .2s var(--ease), box-shadow .2s var(--ease), transform .2s var(--ease); }
+.door:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.door .label { color: var(--accent); }
+.door b { font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+.door span:not(.label):not(.go) { color: var(--ink-2); font-size: 15px; }
+.door .go { color: var(--accent); font-weight: 500; font-size: 14px; margin-top: 6px; }
+.protects { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: clamp(20px, 3vw, 32px); }
+@media (max-width: 1040px) { .protects { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 600px) { .protects { grid-template-columns: 1fr; } }
+.protects > div { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 2px solid var(--ink); min-width: 0; }
+.protects p { color: var(--ink-2); font-size: 15px; }
+.case-l { font-size: 13px; color: var(--ink-3); border-left: 2px solid var(--accent); padding-left: 10px; }
+.prow .num small.u { display: block; font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); text-align: right; margin-top: 4px; }
+
+/* End-of-page call to action */
+.cta-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+.cta-end h2 { max-width: 22ch; }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Human Node home">
+      <svg class="mark" viewBox="0 0 28 34" aria-hidden="true"><defs><radialGradient id="hn-g0" cx="30%" cy="28%" r="80%"><stop offset="0" stop-color="#a960ee"/><stop offset=".6" stop-color="#635bff"/><stop offset="1" stop-color="#4b44e0"/></radialGradient></defs><circle cx="14" cy="13" r="13" fill="url(#hn-g0)"/><rect x="8" y="30" width="2.4" height="2.4" fill="#635bff"/><rect x="12.8" y="30" width="2.4" height="2.4" fill="#635bff"/><rect x="17.6" y="30" width="2.4" height="2.4" fill="#635bff"/></svg>
+      Human Node
+    </a>
+    <nav class="menu" id="menu" aria-label="Main">
+      <a href="#exposure-check">Exposure Check</a>
+      <a href="#exposure-audit">Exposure Audit</a>
+      <a href="#ai-audit">AI Audit</a>
+      <a href="#os1">OS°1</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
+      <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HOME -->
+<div data-page="home">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap grid-hero">
+      <div class="copy">
+        <p class="label">Defence for the decision layer</p>
+        <h1 class="display">Stop the call that costs you the business.</h1>
+        <p class="lede">Most breaches now start with someone being talked into something: a password reset, a payment, a login. Human Node finds where your business is exposed, fixes it, and prepares your people. Fixed prices.</p>
+        <div class="actions">
+          <a class="btn primary" href="#exposure-check">Run the free Exposure Check</a>
+          <a class="btn line" href="#contact" data-intent="sweep">Book a Sweep</a>
+        </div>
+      </div>
+      <figure class="panel" aria-label="What one decision cost in 2026">
+        <div class="panel-top"><span class="label">What one decision cost in 2026</span></div>
+        <div class="prow"><span><b>A caller posing as the bank</b><span class="d">One employee shared account details. Money left the payroll accounts. City of Aurora, May.</span></span><span class="num">$1.1M</span></div>
+        <div class="prow"><span><b>A message from the "CEO"</b><span class="d">Then a cloned voice on the phone. The chair approved the transfers. Fideuram, September.</span></span><span class="num">€95M</span></div>
+        <div class="prow"><span><b>A fake trusted contact</b><span class="d">One login, then the company's own app was used to message its customers. ASOS, October.</span></span><span class="num">1<small class="u">login</small></span></div>
+        <figcaption class="panel-foot">Sources: <a class="link" href="https://www.govtech.com/security/social-engineering-fraud-cost-aurora-ill-nearly-1-1m" target="_blank" rel="noopener">GovTech</a>, <a class="link" href="https://live.euronext.com/en/financial-news/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say" target="_blank" rel="noopener">Reuters</a>, <a class="link" href="https://techcrunch.com/2026/10/08/asos-confirms-breach-of-customer-data-after-hackers-send-rogue-app-notification/" target="_blank" rel="noopener">TechCrunch</a>.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Start where you sit</p><h2>Choose your route.</h2></div>
+      <div class="body doors">
+        <a class="door" href="#exposure-check"><span class="label">I run the business</span><b>See where you are exposed.</b><span>A free check in 90 seconds, then a one-day sweep with a fixed-price fix list.</span><span class="go">Run the check →</span></a>
+        <a class="door" href="#exposure-audit"><span class="label">I run IT or security</span><b>Test systems, logins and people.</b><span>A full audit under signed scope, every finding evidenced and ranked.</span><span class="go">Exposure Audit →</span></a>
+        <a class="door" href="#ai-audit"><span class="label">We use AI with customers</span><b>Control what your AI says and does.</b><span>Accuracy across AI search, and assistants that cannot be turned against you.</span><span class="go">AI Audit →</span></a>
+        <a class="door" href="#os1"><span class="label">I sit on the board</span><b>Measure human risk.</b><span>Board-level evidence of how decisions hold under attack pressure.</span><span class="go">OS°1 →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap">
+      <div class="head"><p class="label">What it protects</p><h2>Four things a breach takes from a business.</h2></div>
+      <div class="body protects">
+        <div><span class="label">Cash</span><h3>Payments and payroll</h3><p>Fake calls and emails move money in minutes. Approvals that check the request keep it in the account.</p><span class="case-l">City of Aurora lost nearly $1.1M to one call, despite phishing training.</span></div>
+        <div><span class="label">Customers</span><h3>Trust in your brand</h3><p>Attackers now use a company's own emails, texts and app alerts to reach its customers.</p><span class="case-l">ASOS customers received an extortion alert through the ASOS app.</span></div>
+        <div><span class="label">Contracts</span><h3>Client and insurer requirements</h3><p>Clients, insurers and regulators ask for evidence of controls. A Human Node report gives you that evidence.</p><span class="case-l">Findings, fixes and sign-off, documented for due diligence.</span></div>
+        <div><span class="label">Continuity</span><h3>Keeping the business running</h3><p>One stolen admin login can stop operations without any malware.</p><span class="case-l">At Stryker, one admin account wiped about 80,000 devices.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">How it works</p><h2>Check. Sweep. Fix.</h2></div>
+      <ol class="body steps s3">
+        <li><span class="label">1 · Free</span><h3>Run the Exposure Check</h3><p>See what an attacker can already learn about your business, in 90 seconds.</p></li>
+        <li><span class="label">2 · One day</span><h3>Book the sweep</h3><p>We test your website, logins, email and customer channels, then rank every finding.</p></li>
+        <li><span class="label">3 · Then</span><h3>Fix and prepare</h3><p>Your team fixes, or we do. Your people learn to spot and stop the call.</p></li>
+      </ol>
+      <div class="actions" style="margin-top:32px"><a class="btn primary" href="#exposure-check">Run the free Exposure Check</a><a class="btn line" href="#pricing">Pricing</a></div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Threat landscape · 2026</p>
+        <h2>Verify the request, not just the login.</h2>
+        <p>The largest losses of 2026 moved through legitimate accounts acting on false requests.</p>
+      </div>
+      <div class="body three">
+        <div><span class="label">People</span><h3>The phone is the front door</h3><p>Calls posing as IT, a help desk or a bank were the most common known way in.</p></div>
+        <div><span class="label">Suppliers</span><h3>One supplier, thousands of victims</h3><p>One hacked supplier exposed thousands of its customers' businesses.</p></div>
+        <div><span class="label">AI</span><h3>AI tools are a new way in</h3><p>AI assistants were tricked into resetting passwords and leaking data. AI involvement doubled in September and October.</p></div>
+      </div>
+      <p style="margin-top:28px"><a class="link" href="#threat-matrix">2026 Threat Matrix →</a></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">Standards</p>
+        <h2>How we operate.</h2>
+      </div>
+      <div class="two">
+        <div><h3>Public sources first</h3><p>Every first look runs on what is publicly visible.</p></div>
+        <div><h3>Signed scope</h3><p>Testing beyond public information runs under written authorisation.</p></div>
+        <div><h3>Validated findings</h3><p>Every finding carries evidence, a severity with its reason, and a fix.</p></div>
+        <div><h3>Confidential by default</h3><p>Client identities stay private. Data protection terms under UK GDPR in every engagement.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EXPOSURE CHECK -->
+<div data-page="exposure-check">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap grid-hero">
+      <div class="copy">
+        <p class="label">Exposure Check · Free</p>
+        <h1>See what an attacker already knows.</h1>
+        <p class="lede">Your public exposure and the attack routes most used against your sector, mapped in about 90 seconds.</p>
+        <p class="note">No email required. Public sources only, every finding cited. For use on your own organisation.</p>
+      </div>
+      <form class="panel xc-form" id="xc-form" novalidate aria-label="Run the Exposure Check">
+        <div class="field"><span class="label" id="xc-sector-label">1 · Sector</span>
+          <div class="dd dd-light" id="xdd">
+            <button type="button" class="dd-btn" id="xdd-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="xc-sector-label xdd-val"><span id="xdd-val" class="ph">Choose a sector</span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+            <ul class="dd-list" id="xdd-list" role="listbox" tabindex="-1" aria-labelledby="xc-sector-label" hidden></ul>
+          </div>
+        </div>
+        <div class="field"><label class="label" for="xc-org">2 · Organisation name</label>
+          <input id="xc-org" maxlength="100" autocomplete="organization" placeholder="Your organisation">
+        </div>
+        <div class="field"><label class="label" for="xc-domain">3 · Website <span class="xc-opt">(recommended)</span></label>
+          <input id="xc-domain" maxlength="120" inputmode="url" autocomplete="url" placeholder="yourcompany.com">
+        </div>
+        <button class="btn primary" type="submit" id="xc-run" disabled>Run the check</button>
+        <p class="small muted" id="xc-hint">Choose a sector and enter a name to start.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="sec" id="xc-scan" hidden aria-live="polite">
+    <div class="wrap">
+      <div class="head"><p class="label">Running</p><h2 id="xc-scan-title">Checking</h2></div>
+      <ol class="body xc-steps" id="xc-steps"></ol>
+    </div>
+  </section>
+
+  <section class="sec" id="xc-error" hidden aria-live="polite">
+    <div class="wrap">
+      <div class="head"><p class="label">Check not completed</p><h2>The check could not finish.</h2><p id="xc-error-text"></p>
+        <div class="actions"><button class="btn primary" type="button" id="xc-retry">Try again</button><a class="btn line" href="#contact" data-intent="sweep">Book a Sweep</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="xc-result" hidden>
+    <section class="sec db-top">
+      <div class="wrap">
+        <div class="db-meta"><span class="label" id="db-meta"></span><span class="label" id="db-conf"></span></div>
+        <h2 class="db-org" id="db-org"></h2>
+        <div class="db-grid">
+          <div class="db-bl"><span class="label">Bottom line</span><p id="db-bottom"></p></div>
+          <dl class="db-kpis">
+            <div><dt>Exposure</dt><dd><span id="db-rating" class="rate"></span></dd></div>
+            <div><dt>Priority findings</dt><dd id="db-priority" class="num"></dd></div>
+            <div><dt>Evidence</dt><dd id="db-evidence"></dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap split">
+        <div class="head"><span class="label">01 · Findings</span><h2>What an attacker can use.</h2><p>Ranked by priority. Every finding shows its evidence.</p></div>
+        <div><ol class="db-findings" id="db-findings"></ol><div class="db-controls" id="db-controls" hidden></div></div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap">
+        <div class="head"><span class="label">02 · Actions</span><h2>What to do first.</h2></div>
+        <div class="body table-wrap"><table class="db-actions"><thead><tr><th>#</th><th>Action</th><th>Addresses</th><th>Effort</th><th>Owner</th></tr></thead><tbody id="db-actions"></tbody></table></div>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap split">
+        <div class="head"><span class="label">03 · Sector context</span><h2 id="db-sector-title"></h2><p id="db-pattern"></p></div>
+        <div class="db-incidents" id="db-incidents"></div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap split">
+        <div class="head"><span class="label">04 · Limits</span><h2>What public sources cannot show.</h2><p>The routes behind most 2026 losses sit inside the organisation. They are tested under signed scope.</p></div>
+        <div class="spec">
+          <div><b>Help-desk resets</b><span>Whether a phone call is enough to reset a password or MFA. Tested in the Exposure Audit.</span></div>
+          <div><b>Payment approvals</b><span>Whether a cloned voice or a familiar email can release money. Tested in the Exposure Audit.</span></div>
+          <div><b>Identity set-up</b><span>Admin access, MFA coverage and connected apps. Tested in the sweep.</span></div>
+          <div><b>Customer channels</b><span>Who can send from your email, SMS and push platforms. Tested in the sweep.</span></div>
+          <div><b>AI assistants</b><span>Whether your assistant can be talked into acting for an attacker. Tested in the Agent Attack Test.</span></div>
+        </div>
+      </div>
+    </section>
+    <section class="sec band">
+      <div class="wrap split">
+        <div class="head"><span class="label">Next step</span><h2>Turn this debrief into a tested fix list.</h2><p>The sweep tests what public sources cannot show, under signed scope, in one day. Report within five working days.</p></div>
+        <div class="head">
+          <div class="actions"><a class="btn primary" href="#contact" id="xc-book" data-intent="sweep">Book a Sweep</a><a class="btn line" href="#contact" id="xc-debrief" data-intent="debrief">Discuss this debrief</a></div>
+          <button class="linkbtn" type="button" id="xc-new">Run another check</button>
+          <p class="small db-method" id="db-method"></p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="sec" id="xc-how">
+    <div class="wrap">
+      <div class="head"><p class="label">How it works</p><h2>Three steps. No login.</h2></div>
+      <ol class="body steps s3">
+        <li><span class="label">1</span><h3>Choose your sector</h3><p>Sector sets the attack methods the check models.</p></li>
+        <li><span class="label">2</span><h3>Enter your organisation</h3><p>Name only. Nothing installed, nothing scanned.</p></li>
+        <li><span class="label">3</span><h3>Read your exposure</h3><p>Public exposure and likely attack routes, in plain language.</p></li>
+      </ol>
+      <div class="body"><div class="flow">
+        <div class="col"><div class="box"><span class="label">You provide</span><ul><li>Sector</li><li>Organisation name</li></ul></div><div class="box"><span class="label">Public sources</span><ul><li>Executive and staff footprint</li><li>Recent news and filings</li><li>Attack methods, last 90 days</li></ul></div></div>
+        <div class="engine">Exposure<br>Check</div>
+        <div class="col"><div class="box"><span class="label">Outputs</span><ul><li>Public exposure</li><li>Likely attack routes</li><li>Most exposed role</li><li>Indicative score</li></ul></div></div>
+      </div></div>
+      <p class="body rule">Public sources only. Testing beyond them runs under signed scope.</p>
+    </div>
+  </section>
+</div>
+
+
+
+<!-- EXPOSURE AUDIT -->
+<div data-page="exposure-audit">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">Exposure Audit</p>
+        <h1>Find the way in before it is used.</h1>
+        <p class="lede">We find the ways someone could get into your business, through your website, your logins or your people, and we fix them. Fixed price, agreed in writing, every finding evidenced.</p>
+        <div class="actions"><a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a><a class="btn line" href="#pricing">Pricing</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Why three layers</p><h2>Attackers chain systems, identity and people.</h2><p>From the Human Node 2026 breach log, incidents with a disclosed entry route.</p></div>
+      <div class="body stats">
+        <div><b>33</b><span>began with a person deceived: a call, a deepfake, a trusted sender</span></div>
+        <div><b>19</b><span>came through a supplier's credential or software</span></div>
+        <div><b>12</b><span>started with a single impersonation call</span></div>
+        <div><b>47%</b><span>of all 118 incidents involved a third party</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div class="head"><p class="label">Method</p><h2>Three layers in. One ranked report out.</h2><p>Every layer is tested under signed scope and resolved into a single list of findings, ordered by impact.</p></div>
+      <div class="flow">
+        <div class="col"><div class="box"><span class="label">Systems and identity</span><ul><li>Website and app</li><li>SSO, MFA, OAuth apps</li><li>Email and customer channels</li></ul></div><div class="box"><span class="label">People</span><ul><li>Help-desk resets</li><li>Payment approvals</li><li>Call verification</li></ul></div><div class="box"><span class="label">AI</span><ul><li>AI search accuracy</li><li>Prompt injection</li><li>Connected AI tools</li></ul></div></div>
+        <div class="engine">Exposure<br>Audit</div>
+        <div class="col"><div class="box"><span class="label">Outputs</span><ul><li>Severity</li><li>Evidence</li><li>Attack route</li><li>Fix</li><li>Effort</li></ul></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Coverage</p><h2>What each layer covers.</h2></div>
+      <div class="body three">
+        <div><span class="label">Systems and identity</span><h3>The way in</h3><p><b>Your website, apps and staff logins.</b> Website and app, single sign-on, multi-factor coverage, OAuth apps, AI tools connected to company accounts, email authentication and customer channels.</p></div>
+        <div><span class="label">People</span><h3>The decision</h3><p><b>Whether your team can be talked into it.</b> Help-desk resets, payment and transfer approvals, and how staff verify a call from IT, the bank or an executive.</p></div>
+        <div><span class="label">AI</span><h3>The new channel</h3><p><b>What AI tells customers, and what it can be made to do.</b> What AI search says about you, how your assistant handles prompt injection, and the AI tools staff have connected.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap">
+      <div class="head"><p class="label">Engagements</p><h2>Start in one day. Extend to the full audit.</h2></div>
+      <div class="body rows">
+        <div class="row"><span class="k"><span class="label">Start</span><b>App and security sweep</b></span><span><p>One day across your website, app, identity set-up, customer channels and public footprint. Ranked report within five working days.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Full</span><b>Exposure Audit</b></span><span><p>The sweep, plus the people and AI layers, in one engagement.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">People</span><b>Adversary Simulation</b></span><span><p>Bespoke, live, scenario-based simulation of the attacks behind 2026's breaches: impersonation calls, cloned-voice executives, trusted-sender abuse, fake job interviews and payment diversion. Scored on decisions, not attendance.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Fix</span><b>Hardening</b></span><span><p>Human Node fixes what the audit finds, or briefs your developers. Every change logged and signed off.</p></span><span class="p"></span></div>
+      </div>
+      <p style="margin-top:20px"><a class="link" href="#pricing">Pricing →</a></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap split">
+      <div class="head"><p class="label">The sweep</p><h2>One day. A ranked fix list.</h2><p>Testing runs under signed scope. Account checks use read-only access you grant.</p>
+        <div class="actions" style="margin-top:6px"><a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a></div></div>
+      <ul class="checks" style="margin-top:0">
+        <li><span><b>Website and app.</b> Outdated components, exposed admin and test paths, security headers, TLS.</span></li>
+        <li><span><b>Identity.</b> Admin access, multi-factor coverage, single sign-on, OAuth apps and AI tools connected to company accounts.</span></li>
+        <li><span><b>Email.</b> SPF, DKIM and DMARC, and how easily your domain can be spoofed.</span></li>
+        <li><span><b>Customer channels.</b> Email marketing, SMS and app push platforms that reach your customers.</span></li>
+        <li><span><b>Public footprint.</b> Leaked credentials, reported and never used, and staff exposure used for pretexting.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div class="head"><p class="label">The report</p><h2>Every finding, validated.</h2><p>An executive summary on page one. Five parts to every finding.</p></div>
+      <div class="spec">
+        <div><b>Severity</b><span>High, medium or low, with the reason: likelihood of use and cost to the business.</span></div>
+        <div><b>Evidence</b><span>Screenshots, headers, records and references.</span></div>
+        <div><b>Attack route</b><span>How it would be used, matched to 2026 incidents in the Human Node breach log.</span></div>
+        <div><b>Fix</b><span>The specific change, written for your team or your developer.</span></div>
+        <div><b>Effort</b><span>Hours, days or weeks, so high-impact, low-effort fixes go first.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="trusted-channels">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">Case · ASOS, October 2026</p>
+        <h2>Trusted channels turned against customers.</h2>
+        <p>ASOS app users received a push notification ASOS did not send: an extortion message aimed at the company. ASOS said attackers had accessed a third-party platform that hosts data it uses to contact customers.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Entry</dt><dd>A third-party data platform. Bleeping Computer reports, unconfirmed by the company, that credentials were obtained by impersonating a trusted contact.</dd></div>
+        <div><dt>Channel</dt><dd>The retailer's own app notifications.</dd></div>
+        <div><dt>Taken</dt><dd>Names and contact details, per the company's stock exchange filing.</dd></div>
+        <div><dt>Control</dt><dd>Customer-messaging platforms sit inside every Human Node scope.</dd></div>
+        <div><dt>Source</dt><dd><a class="link" href="https://techcrunch.com/2026/10/08/asos-confirms-breach-of-customer-data-after-hackers-send-rogue-app-notification/" target="_blank" rel="noopener">TechCrunch, 8 Oct 2026</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap">
+      <div class="head"><p class="label">Process</p><h2>Scope, test, report, fix.</h2></div>
+      <ol class="body steps">
+        <li><span class="label">Day 0</span><h3>Scope</h3><p>What is in, what is out, and written authorisation.</p></li>
+        <li><span class="label">Days 1–3</span><h3>Test</h3><p>One day for the sweep. Up to three for the full audit.</p></li>
+        <li><span class="label">Within 5 days</span><h3>Report</h3><p>Every finding with evidence, severity and a fix.</p></li>
+        <li><span class="label">Then</span><h3>Fix</h3><p>Your team, or Human Node.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap cta-end">
+      <h2>Start with the sweep.</h2>
+      <div class="actions"><a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a><a class="btn line" href="#contact" data-intent="training">Discuss Adversary Simulation</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- AI AUDIT -->
+<div data-page="ai-audit">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">AI Audit</p>
+        <h1>Know what your AI says, and what it can be made to do.</h1>
+        <p class="lede">AI search speaks for your brand. AI agents act with real permissions. Human Node audits both, corrects the data they read and guards the agents you run.</p>
+        <div class="actions"><a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a><a class="btn line" href="#pricing">Pricing</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">AI in 2026</p><h2>AI moved from tool to target.</h2><p>From the Human Node 2026 breach log.</p></div>
+      <div class="body stats">
+        <div><b>30</b><span>incidents with AI involved, confirmed or suspected</span></div>
+        <div><b>2×</b><span>AI involvement in September and October versus January to August</span></div>
+        <div><b>20,225</b><span>accounts taken through one AI support assistant</span></div>
+        <div><b>6</b><span>incidents of AI agents overreaching or staff leaking data into AI tools</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div>
+        <div class="head"><p class="label">The problem</p><h2>Customers ask AI first.</h2><p>AI search and shopping tools read your product data and answer on your behalf. Few brands check what they say.</p></div>
+        <div class="body abc">
+          <div><span class="l">A</span><div><b>Wrong facts</b><p>Old prices, sizes, ingredients and policies quoted to buyers.</p></div></div>
+          <div><span class="l">B</span><div><b>Invented claims</b><p>Health and safety claims you never made. A regulatory exposure.</p></div></div>
+          <div><span class="l">C</span><div><b>Missing products</b><p>Incomplete data. AI recommends a competitor.</p></div></div>
+        </div>
+      </div>
+      <div class="anat" aria-label="What the AI Visibility Audit checks">
+        <div class="anat-top"><span class="label">AI Visibility Audit</span><span class="label">Score in 3 working days</span></div>
+        <div class="anat-q"><span class="label">Input</span>The questions your customers put to AI, by category and market.</div>
+        <div class="anat-list">
+          <div><span class="k">Engines</span><span>Perplexity, ChatGPT, Google AI Mode and your site assistant.</span></div>
+          <div><span class="k">Checked against</span><span>Your live prices, specs, claims and policies.</span></div>
+          <div><span class="k">Errors</span><span>Wrong facts, invented claims, outdated policies and missing products, each with evidence.</span></div>
+          <div><span class="k">Output</span><span>An accuracy score per channel and a fix for every error.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Every channel</p><h2>One set of facts. Every channel.</h2></div>
+      <div class="body regions">
+        <div><b>United States.</b> Perplexity reads Shopify data from stores that ship to the US. ChatGPT and Google AI Mode read the same catalogue.</div>
+        <div><b>United Kingdom.</b> Google AI Mode, ChatGPT and your on-site assistant carry the most weight today.</div>
+      </div>
+      <div class="body ringbox">
+        <div class="ring-wrap">
+          <div class="ring" aria-label="Channels checked against one set of facts">
+            <div class="core"><b>Your brand</b><span>One set of facts</span></div>
+            <div class="node" style="left:50%;top:11%">Perplexity</div>
+            <div class="node" style="left:87%;top:38%">ChatGPT</div>
+            <div class="node" style="left:73%;top:82%">Google AI Mode</div>
+            <div class="node" style="left:27%;top:82%">Your site assistant</div>
+            <div class="node soon" style="left:13%;top:38%">Meta ads<small>Soon</small></div>
+          </div>
+        </div>
+        <div class="ring-points">
+          <div><h3>One set of facts to check against</h3><p>Every channel is tested against your live prices, claims and policies, with every difference shown.</p></div>
+          <div><h3>Fix at the source</h3><p>Human Node corrects the product data AI reads, then re-tests each engine until the correction holds.</p></div>
+          <div><h3>One view of what AI says</h3><p>A monthly accuracy score for every channel, and an alert the moment one drifts below your standard.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="stack">
+    <div class="wrap">
+      <div class="head"><p class="label">Works with your stack</p><h2>Works with your existing stack.</h2></div>
+      <div class="body stack">
+        <div>
+          <div class="tiles-wrap">
+            <div class="tiles" id="tiles">
+              <button type="button" class="tile" data-use="Where your product data comes from. AI reads it first.">Shopify</button>
+              <button type="button" class="tile" data-use="Feeds Google Shopping and Google AI Mode.">Google Merchant Center</button>
+              <button type="button" class="tile" data-use="Merchant programme, product data and in-chat checkout.">Perplexity</button>
+              <button type="button" class="tile" data-use="The product feed behind Meta ads and AI-written ad copy.">Meta catalogue</button>
+              <div class="tile hn" aria-hidden="true"><span><svg class="mark" viewBox="0 0 28 34" aria-hidden="true"><defs><radialGradient id="hn-g1" cx="30%" cy="28%" r="80%"><stop offset="0" stop-color="#a960ee"/><stop offset=".6" stop-color="#635bff"/><stop offset="1" stop-color="#4b44e0"/></radialGradient></defs><circle cx="14" cy="13" r="13" fill="url(#hn-g1)"/><rect x="8" y="30" width="2.4" height="2.4" fill="#635bff"/><rect x="12.8" y="30" width="2.4" height="2.4" fill="#635bff"/><rect x="17.6" y="30" width="2.4" height="2.4" fill="#635bff"/></svg>Human Node</span></div>
+              <button type="button" class="tile" data-use="On-site assistant. Human Node adds guardrails; nothing is replaced.">Zipchat</button>
+              <button type="button" class="tile" data-use="Help desk and chat. Human Node checks what it tells customers.">Gorgias</button>
+              <button type="button" class="tile" data-use="Email and SMS copy that AI tools also pick up. Inside the security scope as a customer channel.">Klaviyo</button>
+              <button type="button" class="tile" data-use="Reviews. AI quotes them in its answers, and attackers hide instructions in them.">Yotpo · Judge.me</button>
+            </div>
+          </div>
+          <p class="tile-cap" id="tile-cap" aria-live="polite"><b>Select a tool</b> to see how Human Node uses it.</p>
+        </div>
+        <div class="pts">
+          <div><div><h3>Quick start</h3><p>The audit needs only your store's web address. No login, no install, a score in three working days.</p></div></div>
+          <div><div><h3>Deeper connection</h3><p>Read-only access to Shopify and your chat history powers monthly governance and alerts. Customer details are stripped first; logs are deleted after 90 days.</p></div></div>
+          <div><div><h3>Keep your tools</h3><p>Guardrails go on the assistant you already run. Nothing is replaced.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split">
+        <div class="head"><p class="label">Services</p><h2>Audit. Fix. Govern. Protect.</h2><p>Every engagement starts with an audit. Its findings set the scope.</p></div>
+        <div class="flow">
+        <div class="col"><div class="box"><span class="label">Your brand</span><ul><li>Customer questions</li><li>Live prices, claims, policies</li></ul></div><div class="box"><span class="label">Your agents</span><ul><li>Permissions</li><li>What they read</li><li>What they can do</li></ul></div></div>
+        <div class="engine">AI<br>Audit</div>
+        <div class="col"><div class="box"><span class="label">Outputs</span><ul><li>Accuracy per channel</li><li>Errors with evidence</li><li>Attack findings</li><li>Fixes and guardrails</li></ul></div></div>
+      </div>
+      </div>
+      <div class="body rows">
+        <div class="row"><span class="k"><span class="label">Audit</span><b>AI Visibility Audit</b></span><span><p>Your customers' questions put to the major AI engines and checked against your live prices, claims and policies.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Fix</span><b>AI Catalogue Readiness</b></span><span><p>Structured product data for AI search, merchant programmes and in-chat checkout.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Fix</span><b>AI Shopping Assistant</b></span><span><p>An assistant trained on your catalogue and policies, with guardrails, attack-tested before launch.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Govern</span><b>Monthly AI Governance</b></span><span><p>A monthly accuracy score per channel, corrections and guardrail updates. Three to six months, then hand-over.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Protect</span><b>Agent Attack Test</b></span><span><p>Your AI agent attacked the way an adversary would: prompt injection, poisoned data, social engineering and data extraction.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Protect</span><b>Guard</b></span><span><p>Screens what your agent reads and says, blocks known attack patterns and logs every block.</p></span><span class="p"></span></div>
+      </div>
+      <p style="margin-top:20px"><a class="link" href="#pricing">Pricing →</a></p>
+    </div>
+  </section>
+
+  <section class="sec tint" id="protect">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">Protect</p>
+        <h2>An AI agent with account powers is a help desk attackers can call.</h2>
+        <p>In 2026, prompt injection through web forms and files hijacked agents built on Copilot Studio, Agentforce and AI coding tools. Any agent with account, refund or data permissions is in scope.</p>
+        <div class="actions"><a class="btn primary" href="#contact" data-intent="protect">Book an Attack Test</a></div>
+      </div>
+      <div class="case" aria-label="How attackers used Meta's AI support assistant">
+        <span class="label">Case · Instagram, June 2026</span>
+        <div class="step"><span class="label">Step 1</span><span>Attackers used a VPN to appear close to the account holder.</span></div>
+        <div class="step"><span class="label">Step 2</span><span>They asked Meta's AI support assistant to link the account to an email address they controlled.</span></div>
+        <div class="step"><span class="label">Step 3</span><span>The recovery path did not check that email against the account. The reset link went to the attacker.</span></div>
+        <div class="case-out"><b style="color:var(--ink)">20,225 accounts taken.</b> Meta disabled the tool and invalidated the links. Sources: <a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a>, <a class="link" href="https://bleepingcomputer.com/news/security/meta-ai-support-data-breach-affects-20-000-instagram-accounts" target="_blank" rel="noopener">BleepingComputer</a>.</div>
+        <div class="case-out"><b style="color:var(--ink)">Guard.</b> Identity checks sit outside the model. No request in the chat can change where a reset goes.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="liability">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">Liability</p>
+        <h2>You answer for what your AI says.</h2>
+        <p>In February 2024 a Canadian tribunal held Air Canada responsible for its website chatbot's wrong bereavement-fare answer.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Case</dt><dd>Moffatt v. Air Canada, 2024 BCCRT 149</dd></div>
+        <div><dt>Error</dt><dd>The chatbot said a reduced bereavement fare could be claimed after travel. The airline's policy did not allow it.</dd></div>
+        <div><dt>Finding</dt><dd>The chatbot is part of the airline's website. Air Canada was liable for negligent misrepresentation.</dd></div>
+        <div><dt>Outcome</dt><dd class="tnum">C$812.02 in damages, interest and fees. The reasoning is widely cited.</dd></div>
+        <div><dt>Source</dt><dd><a class="link" href="https://decisions.civilresolutionbc.ca/crt/crtd/en/525448/1/document.do" target="_blank" rel="noopener">Tribunal decision</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div class="head"><p class="label">Data</p><h2>Held to security standards.</h2></div>
+      <div class="two">
+        <div><h3>Public data first</h3><p>The audit starts from your public store and what AI says in public.</p></div>
+        <div><h3>Read-only by default</h3><p>Deeper access is read-only, limited to the work, and ends with the engagement.</p></div>
+        <div><h3>Your data stays yours</h3><p>Your data and your customers' data are not used to train models.</p></div>
+        <div><h3>Every change on record</h3><p>Data protection terms under UK GDPR. Every change is signed off and logged.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap cta-end">
+      <h2>See what AI says about you.</h2>
+      <div class="actions"><a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a><a class="btn line" href="#contact" data-intent="protect">Book an Attack Test</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- OS1 -->
+<div data-page="os1">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">OS°1 · For boards and security leaders</p>
+        <h1>The operating system for human cognitive defence.</h1>
+        <p class="lede">OS°1 maps where decisions break under attack pressure, across staff, signing systems and AI agents. It measures that risk and sets the controls that hold.</p>
+        <div class="actions"><a class="btn primary" href="#contact" data-intent="briefing">Request a Briefing</a><a class="btn line" href="#threat-matrix">2026 Threat Matrix</a></div>
+        <p class="note">Methodology depth is disclosed under NDA.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">The problem</p>
+        <h2>Cyber risk is a decision problem.</h2>
+        <p>People are involved in around 60% of breaches (<a class="link" href="https://www.verizon.com/business/resources/reports/dbir/" target="_blank" rel="noopener">Verizon DBIR 2025</a>). In 2026 a cloned CEO voice moved €95M at Fideuram (<a class="link" href="https://live.euronext.com/en/financial-news/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say" target="_blank" rel="noopener">Reuters</a>), and a trusted internal service let about $6.3B leave Binance in roughly 20 minutes (<a class="link" href="https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/" target="_blank" rel="noopener">TechCrunch</a>). People, signing systems and AI agents now sit on one decision surface.</p>
+      </div>
+      <div class="body three" id="system">
+        <div><span class="label">Illuminate</span><h3>Reveal</h3><p>The points where decisions are made under pressure: help desks, approvals, signing systems, supplier channels and AI agents.</p></div>
+        <div><span class="label">Model</span><h3>Measure</h3><p>Internal and external forces resolved into a measurable risk layer that locates likely decision failure.</p></div>
+        <div><span class="label">Reinforce</span><h3>Strengthen</h3><p>Model-driven controls at the decision points most open to manipulation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">BTO model and DHOS</p>
+        <h2>Two vantage points. One decision-risk map.</h2>
+        <p>The BTO model fuses internal and external intelligence into a single map of where failure is most likely to be induced.</p>
+        <p id="dhos">DHOS is the assessment model underneath. Structured assessments, scenario exercises and threat intelligence set a decision baseline for key roles, track change between assessments and locate where failure is most likely.</p>
+      </div>
+      <div class="flow">
+        <div class="col">
+          <div class="box"><span class="label">Internal</span><ul><li>Decision pressure</li><li>Approval paths</li><li>Operational patterns</li></ul></div>
+          <div class="box"><span class="label">External</span><ul><li>Impersonation and deepfakes</li><li>Supplier and channel abuse</li><li>AI-run attacks</li></ul></div>
+        </div>
+        <div class="engine">BTO<br>engine</div>
+        <div class="col">
+          <div class="box"><span class="label">Outputs</span><ul><li>Risk scores</li><li>Likely failure points</li><li>Controls</li><li>Board evidence</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="sec" id="threat-matrix">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Threat Behaviour Matrix · 2026 edition</p>
+        <h2>Trust is the master key. Authority and urgency turn it.</h2>
+        <p>Built from 118 breaches logged between January and October 2026. Each cell counts the incidents where that attack vector exploited that pressure state, as recorded in the incident's sources.</p>
+      </div>
+      <div class="body stats">
+        <div><b>118</b><span>breaches logged in 2026, with sources</span></div>
+        <div><b>50</b><span>pressure entries citing trust, twice any other state</span></div>
+        <div><b>12</b><span>break-ins began with an impersonation call, the top known vector</span></div>
+        <div><b>2×</b><span>AI involvement: September and October matched January to August</span></div>
+      </div>
+      <div class="body table-wrap">
+        <table class="heat">
+          <thead><tr><th>Attack vector</th><th class="n">Incidents</th><th>Trust</th><th>Authority</th><th>Urgency</th><th>Routine</th><th>Speed</th><th>Fear</th><th>Reward</th><th>Secrecy</th><th class="n">AI involved</th></tr></thead>
+          <tbody><tr><th scope="row"><b>Impersonation call: IT, help desk, bank</b><span class="ex">Odido · Charter · RingCentral · City of Aurora</span></th><td class="n">12</td><td class="hm" style="background:rgba(99,91,255,0.90);color:#ffffff" title="12 incidents">12</td><td class="hm" style="background:rgba(99,91,255,0.90);color:#ffffff" title="12 incidents">12</td><td class="hm" style="background:rgba(99,91,255,0.70);color:#ffffff" title="9 incidents">9</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>Stolen SaaS, OAuth or vendor credential</b><span class="ex">Vercel via Context.ai · Klue → LastPass · Beacon CRM (1,500 UK charities)</span></th><td class="n">10</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">2</td></tr><tr><th scope="row"><b>Poisoned software update or package</b><span class="ex">Trivy → European Commission · LiteLLM · TanStack → OpenAI</span></th><td class="n">9</td><td class="hm" style="background:rgba(99,91,255,0.64);color:#ffffff" title="8 incidents">8</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.70);color:#ffffff" title="9 incidents">9</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">4</td></tr><tr><th scope="row"><b>AI-run intrusion</b><span class="ex">ARTEX vs Korean banks and 2,250 M365 tenants · JadePuffer · Mexican agencies</span></th><td class="n">8</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">8</td></tr><tr><th scope="row"><b>Trusted-sender and official-channel abuse</b><span class="ex">ASOS · Revolut · Brevo → Trezor</span></th><td class="n">6</td><td class="hm" style="background:rgba(99,91,255,0.51);color:#ffffff" title="6 incidents">6</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>Automated internal trust: signing, approval, data feeds</b><span class="ex">Binance · Bitget · KelpDAO</span></th><td class="n">6</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>AI agent overreach and shadow AI</b><span class="ex">Panasonic · Vercel · OpenAI test models → Hugging Face</span></th><td class="n">6</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">6</td></tr><tr><th scope="row"><b>Executive or VIP deepfake</b><span class="ex">Fideuram (€95M) · Singapore Zoom · Schwyz SME</span></th><td class="n">5</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.45);color:var(--ink)" title="5 incidents">5</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="n">5</td></tr><tr><th scope="row"><b>Employee social engineering, method undisclosed</b><span class="ex">Carnival · Levi Strauss · Apollo</span></th><td class="n">4</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>Fake relationship: partner, founder, recruiter</b><span class="ex">Drift Protocol · axios · fake job interviews (WaterPlum)</span></th><td class="n">3</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>AI agent manipulation: prompt injection, support bots</b><span class="ex">Meta AI support bot · Copilot Studio / Agentforce · AGENTS.md injection</span></th><td class="n">3</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">3</td></tr><tr><th scope="row"><b>Insider misuse</b><span class="ex">UK Biobank · ESNEFT</span></th><td class="n">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>Credential phishing: email and search ads</b><span class="ex">CIRO · Google Cloud search ads</span></th><td class="n">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr></tbody>
+        </table>
+      </div>
+      <div class="body three">
+        <div><span class="label">Finding</span><h3>Verify the request, not just the login</h3><p>The largest losses moved through legitimate accounts acting on false requests.</p></div>
+        <div><span class="label">Finding</span><h3>Machines fall for trust too</h3><p>Signing systems, package updates, OAuth grants and AI agents acted on input because it came from a trusted source.</p></div>
+        <div><span class="label">Finding</span><h3>Fatigue and overload rarely appear</h3><p>Both are tracked as hypotheses, not lead risks.</p></div>
+      </div>
+      <p class="small muted" style="margin-top:20px">Method: 71 of 118 incidents had a disclosed entry vector and are scored; an incident can count in more than one row. "AI involved" counts confirmed or suspected AI use. Updated 31 October 2026.</p>
+    </div>
+  </section>
+
+<section class="sec tint" id="briefings">
+    <div class="wrap">
+      <div class="head"><p class="label">Threat briefings</p><h2>The incidents that define 2026.</h2></div>
+      <div class="body table-wrap">
+        <table style="min-width:680px">
+          <thead><tr><th>Date</th><th>Incident</th><th>Layer</th><th>Source</th></tr></thead>
+          <tbody><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Binance: an engineer&#x27;s compromised laptop reached a trusted internal service; about $6.3B left in roughly 20 minutes</td><td style="white-space:nowrap">Systems · People</td><td><a class="link" href="https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>ASOS: an impersonated trusted contact led to customer data access and a rogue notification sent through the app</td><td style="white-space:nowrap">People · Channels</td><td><a class="link" href="https://techcrunch.com/2026/10/08/asos-confirms-breach-of-customer-data-after-hackers-send-rogue-app-notification/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Korean banks: an AI attack framework probed and exploited customer-facing apps at machine speed</td><td style="white-space:nowrap">AI · Systems</td><td><a class="link" href="https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/" target="_blank" rel="noopener">BleepingComputer</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Sep 2026</td><td>Fideuram: a WhatsApp message posing as the group CEO and a cloned voice led to about €95M in transfers</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://live.euronext.com/en/financial-news/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say" target="_blank" rel="noopener">Reuters</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Jun 2026</td><td>Instagram: attackers talked Meta&#x27;s AI support assistant into sending password resets; 20,225 accounts taken</td><td style="white-space:nowrap">AI</td><td><a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a></td></tr><tr><td class="tnum" style="white-space:nowrap">May 2026</td><td>Singapore: a Zoom call with deepfaked heads of government cost a businessman about US$3.8m</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://www.scmp.com/news/asia/southeast-asia/article/3353868/how-victim-lost-us38-million-singapore-deepfake-zoom-scam-impersonating-pm-wong" target="_blank" rel="noopener">SCMP</a></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Who it serves</p><h2>Organisations where one decision is a structural liability.</h2></div>
+      <div class="body rows">
+        <div class="row"><span class="k"><b>Regulated finance</b></span><span><p>Payment approvals, help desks and signing systems under UK GDPR, the UK NIS Regulations and DORA.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><b>High-trust supply chains</b></span><span><p>Automotive, defence and food networks, where one failure cascades across partners.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><b>Insurers and capital allocators</b></span><span><p>Quantified human exposure to price cyber risk.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><b>Boards and C-suites</b></span><span><p>Human risk measured and reported with the discipline of financial risk.</p></span><span class="p"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap split">
+      <div class="head"><p class="label">Engagements</p><h2>Start with the board.</h2></div>
+      <div class="head"><p>A live scenario with your leadership team, built on the pressure states your sector faces, followed by a decision-risk report. Programme engagements are scoped with you under NDA.</p>
+        <div class="actions" style="margin-top:12px"><a class="btn primary" href="#contact" data-intent="briefing">Request a Briefing</a></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- PRICING -->
+<div data-page="pricing">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">Pricing</p>
+        <h1>Fixed prices. Agreed before work starts.</h1>
+        <p class="lede">Every engagement opens at a fixed price. Anything beyond it is scoped from findings and agreed in writing.</p>
+        <div class="cur" role="group" aria-label="Currency"><button type="button" data-cur="GBP" aria-pressed="true">GBP £</button><button type="button" data-cur="USD" aria-pressed="false">USD $</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="pgroup">
+        <div class="pgroup-head"><div><p class="label">Security</p><h2>Exposure Audit</h2></div><p>Systems, identity and people, tested under signed scope.</p></div>
+        <div class="pcards c3">
+          <article class="pcard">
+            <h3>App and security sweep</h3>
+            <p class="d">One day across your website, app, identity set-up, customer channels and public footprint.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="2950" data-usd="3850">£2,950</span><span class="per">one day</span></div>
+            <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
+            <ul class="incl"><li>Ranked report within 5 working days</li><li>Evidence and a fix for every finding</li><li>Signed scope before testing</li></ul>
+          </article>
+          <article class="pcard key">
+            <h3>Exposure Audit</h3>
+            <p class="d">Systems, identity, people and AI in one engagement.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="4500" data-usd="5850">£4,500</span><span class="per">per audit</span></div>
+            <a class="btn primary" href="#contact" data-intent="audit">Book the Exposure Audit</a>
+            <ul class="incl"><li>Everything in the sweep</li><li>Help-desk, approval and call-verification testing</li><li>AI accuracy and prompt-injection checks</li><li>One website, one AI assistant, up to 20 staff</li></ul>
+          </article>
+          <article class="pcard">
+            <h3>Adversary Simulation</h3>
+            <p class="d">Bespoke, live simulation of the attacks behind 2026's breaches, scored by decision.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="3500" data-usd="4550">£3,500</span><span class="per">per programme</span></div>
+            <a class="btn line" href="#contact" data-intent="training">Discuss simulation</a>
+            <ul class="incl"><li>Impersonation calls and cloned voices</li><li>Trusted-sender and payment-diversion scenarios</li><li>Decision scores for finance, support and leadership</li></ul>
+          </article>
+        </div>
+        <div class="plist">
+          <div><b>Exposure Audit, 21+ staff</b><span class="m">More help-desk, approval and verification paths tested across a larger team.</span><span class="v">From <span data-gbp="8500" data-usd="11050">£8,500</span></span></div>
+          <div><b>Hardening</b><span class="m">Fixes for what the audit finds, delivered or briefed to your developers.</span><span class="v">Scoped from findings</span></div>
+        </div>
+      </div>
+
+      <div class="pgroup">
+        <div class="pgroup-head"><div><p class="label">AI</p><h2>AI Audit</h2></div><p>What AI says about you, and what your agents can be made to do.</p></div>
+        <div class="pcards c4">
+          <article class="pcard key">
+            <h3>AI Visibility Audit</h3>
+            <p class="d">Your customers' questions, checked across the major AI engines.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="1200" data-usd="1550">£1,200</span><span class="per">one-off</span></div>
+            <a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a>
+            <ul class="incl"><li>Perplexity, ChatGPT, Google AI Mode and your assistant</li><li>Score in 3 working days</li><li>Fixed quote for anything it recommends</li></ul>
+          </article>
+          <article class="pcard">
+            <h3>Agent Attack Test</h3>
+            <p class="d">Your AI agent attacked the way an adversary would.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="1800" data-usd="2350">£1,800</span><span class="per">one-off</span></div>
+            <a class="btn line" href="#contact" data-intent="protect">Book an Attack Test</a>
+            <ul class="incl"><li>Prompt injection, poisoned data, social engineering, data extraction</li><li>Scored report with a fix for every failure</li><li>Fee credited against Guard within 30 days</li></ul>
+          </article>
+          <article class="pcard">
+            <h3>Guard</h3>
+            <p class="d">Continuous screening for the agents you run.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="250" data-usd="325">£250</span><span class="per">per month</span></div>
+            <a class="btn line" href="#contact" data-intent="protect">Discuss Guard</a>
+            <ul class="incl"><li>Screens what your agent reads and says</li><li>Every block logged with source and reason</li><li>Monthly attack report</li><li><span>Above allowance: <span data-gbp="5" data-usd="6.50">£5</span> per 1,000 conversations</span></li></ul>
+          </article>
+          <article class="pcard">
+            <h3>Monthly AI Governance</h3>
+            <p class="d">Accuracy held across every AI channel.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="950" data-usd="1250">£950</span><span class="per">per month</span></div>
+            <a class="btn line" href="#contact" data-intent="ai">Discuss governance</a>
+            <ul class="incl"><li>Accuracy score per channel</li><li>Corrections and guardrail updates</li><li>Three to six months, then hand-over</li></ul>
+          </article>
+        </div>
+        <div class="plist">
+          <div><b>AI Catalogue Readiness</b><span class="m">Structured product data for AI search, merchant programmes and in-chat checkout.</span><span class="v">From <span data-gbp="2000" data-usd="2600">£2,000</span></span></div>
+          <div><b>AI Shopping Assistant</b><span class="m">Trained on your catalogue and policies, with guardrails, attack-tested before launch.</span><span class="v">From <span data-gbp="2500" data-usd="3250">£2,500</span></span></div>
+        </div>
+      </div>
+
+      <div class="pgroup">
+        <div class="pgroup-head"><div><p class="label">Board</p><h2>OS°1</h2></div><p>For boards and security leaders.</p></div>
+        <div class="os-card">
+          <div><h3 style="font-size:24px;font-weight:600;letter-spacing:-0.02em">Scoped with your leadership team.</h3><p style="margin-top:10px">OS°1 engagements are priced to the organisation, its sector and the decisions in scope.</p>
+            <div class="actions" style="margin-top:20px"><a class="btn primary" href="#contact" data-intent="briefing">Request a Briefing</a></div></div>
+          <ul class="incl"><li>Board Readiness exercise</li><li>Decision-risk report for the board</li><li>OS°1 programme under NDA</li></ul>
+        </div>
+      </div>
+
+      <div class="terms">
+        <div><b>Tax</b><span>Prices exclude VAT and sales tax.</span></div>
+        <div><b>Payment</b><span>Fixed engagements are invoiced on scope. Build work: half upfront, half on completion. Monthly services are billed monthly.</span></div>
+        <div><b>Scale</b><span>Larger organisations and multi-agent deployments are scoped individually.</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACT -->
+<div data-page="contact">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">Contact</p>
+        <h1>Book a sweep or request a briefing.</h1>
+        <p class="lede">A reply within one working day, with a scope and a time.</p>
+      </div>
+    </div>
+  </section>
+  <section class="sec">
+    <div class="wrap">
+      <div class="book">
+        <div>
+          <p class="label">Start</p>
+          <h2>Tell us what you need.</h2>
+          <p class="bl">Fixed price. Scope agreed in writing before work starts.</p>
+          <p class="bs">Sweeps and audits are scheduled in order of request.</p>
+          <div class="contact-meta">
+            <span class="label">Email</span>
+            <span class="addr" id="addr-text">contact@humannode.io</span>
+            <span class="label" style="margin-top:10px">Location</span>
+            <span>London, United Kingdom</span>
+          </div>
+        </div>
+        <div>
+          <form class="form" id="req" novalidate>
+            <div class="field"><span class="flabel" id="f-intent-label">I want to</span>
+              <div class="dd" id="dd">
+                <button type="button" class="dd-btn" id="dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="f-intent-label dd-val"><span id="dd-val"></span><svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+                <ul class="dd-list" id="dd-list" role="listbox" tabindex="-1" aria-labelledby="f-intent-label" hidden></ul>
+              </div>
+              <select id="f-intent" hidden aria-hidden="true" tabindex="-1">
+                <option value="sweep">Book an App and security sweep</option>
+                <option value="audit">Book the Exposure Audit</option>
+                <option value="training">Discuss Adversary Simulation</option>
+                <option value="ai">Book an AI Audit</option>
+                <option value="protect">Book an Agent Attack Test or discuss Guard</option>
+                <option value="briefing">Request an OS°1 briefing</option>
+                <option value="threat">Request a threat briefing</option>
+                <option value="debrief">Discuss my Exposure Check debrief</option>
+              </select></div>
+            <div class="field"><label for="f-name">Your name</label><input id="f-name" autocomplete="name"></div>
+            <div class="field"><label for="f-email">Work email</label><input id="f-email" type="email" autocomplete="email"></div>
+            <div class="field"><label for="f-org">Organisation and website</label><input id="f-org" autocomplete="organization"></div>
+            <div class="field"><label for="f-note">Anything we should know</label><textarea id="f-note" placeholder="Timing, systems in scope, what prompted this"></textarea></div>
+            <div class="actions"><button class="btn primary" type="submit">Prepare my request</button></div>
+            <p class="small">This prepares an email for you to send. Your details are used only to reply.</p>
+          </form>
+          <div class="out" id="out" hidden style="margin-top:20px">
+            <span class="label">Your request is ready</span>
+            <pre id="out-text"></pre>
+            <div class="actions"><button class="btn primary" type="button" id="copy-req">Copy request</button><a class="btn line" id="mail-req" href="#">Open in email app</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Human Node · London · No affiliation with companies named on this site.</span>
+    <nav aria-label="Footer">
+      <a href="#exposure-check">Exposure Check</a><a href="#exposure-audit">Exposure Audit</a><a href="#ai-audit">AI Audit</a><a href="#os1">OS°1</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = ['home','exposure-check','exposure-audit','ai-audit','os1','pricing','contact'];
+  var anchors = { research: 'os1', briefings: 'os1', stack: 'ai-audit', services: 'ai-audit', protect: 'ai-audit', liability: 'ai-audit', 'trusted-channels': 'exposure-audit', system: 'os1', dhos: 'os1', 'threat-matrix': 'os1' };
+  var menu = document.getElementById('menu'), burger = document.getElementById('burger');
+  function show(){
+    var h = (location.hash || '#home').slice(1);
+    var page = pages.indexOf(h) > -1 ? h : (anchors[h] || 'home');
+    document.querySelectorAll('[data-page]').forEach(function(p){ p.classList.toggle('on', p.dataset.page === page); });
+    document.querySelectorAll('.menu a').forEach(function(a){ if (a.getAttribute('href') === '#'+page) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+    menu.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+    if (anchors[h] && h !== 'services') { var el = document.getElementById(h); if (el) { el.scrollIntoView(); return; } }
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', show);
+  show();
+  burger.addEventListener('click', function(){ var open = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+  document.addEventListener('click', function(e){ var a = e.target.closest('[data-intent]'); if (a) { var s = document.getElementById('f-intent'); if (s) { s.value = a.dataset.intent; ddSync(); } } });
+
+  // Exposure Check (calls the Human Node check service; all output rendered as text)
+  var XC_API = '/api/check';
+  var SECTORS = ['Retail & E-commerce', 'FMCG', 'FinTech', 'Banking', 'Healthcare', 'Legal', 'Professional Services', 'Technology & SaaS'];
+  var SECTORS_MORE = ['Insurance', 'Asset Management', 'Crypto & Digital Assets', 'Pharma & Life Sciences', 'Telecoms', 'Energy & Utilities', 'Manufacturing', 'Automotive', 'Logistics & Transport', 'Aviation & Travel', 'Hospitality', 'Education', 'Public Sector', 'Charities & Non-profit', 'Media & Entertainment', 'Real Estate', 'Defence & Aerospace'];
+  var XC_STEPS = ['Reading public DNS records','Searching public sources and checking every citation','Matching 2026 incidents in your sector','Writing your debrief'];
+  var xc = { sector: '', org: '' };
+  var orgEl = document.getElementById('xc-org'), runEl = document.getElementById('xc-run'), hintEl = document.getElementById('xc-hint');
+  function keepIn(list, el){ if (!el) return; var t = el.offsetTop, b = t + el.offsetHeight; if (t < list.scrollTop) list.scrollTop = t; else if (b > list.scrollTop + list.clientHeight) list.scrollTop = b - list.clientHeight; }
+  var SEL_ALL = SECTORS.concat(SECTORS_MORE);
+  var xddBtn = document.getElementById('xdd-btn'), xddList = document.getElementById('xdd-list'), xddVal = document.getElementById('xdd-val'), xddActive = -1, xddOpts = [];
+  function xddGroup(t){ var g = document.createElement('li'); g.className = 'grp'; g.setAttribute('role','presentation'); g.textContent = t; xddList.appendChild(g); }
+  function xddAdd(name){ var i = xddOpts.length, li = document.createElement('li'); li.id = 'xdd-o' + i; li.setAttribute('role','option'); li.setAttribute('aria-selected','false'); li.textContent = name;
+    li.addEventListener('click', function(){ xddChoose(i); }); li.addEventListener('mousemove', function(){ xddFocus(i); }); xddList.appendChild(li); xddOpts.push(li); }
+  xddGroup('Most checked'); SECTORS.forEach(xddAdd);
+  xddGroup('All sectors'); SECTORS_MORE.forEach(xddAdd);
+  function xddFocus(i){ xddActive = i; xddOpts.forEach(function(li, k){ li.classList.toggle('active', k === i); }); xddList.setAttribute('aria-activedescendant', 'xdd-o' + i); keepIn(xddList, xddOpts[i]); }
+  function xddOpen(){ xddList.hidden = false; xddBtn.setAttribute('aria-expanded','true'); xddFocus(Math.max(0, SEL_ALL.indexOf(xc.sector))); xddList.focus({ preventScroll: true }); }
+  function xddClose(f){ xddList.hidden = true; xddBtn.setAttribute('aria-expanded','false'); if (f) xddBtn.focus(); }
+  function xddChoose(i){ xc.sector = SEL_ALL[i]; xddVal.textContent = xc.sector; xddVal.classList.remove('ph');
+    xddOpts.forEach(function(li, k){ li.setAttribute('aria-selected', k === i ? 'true' : 'false'); }); xddClose(true); xcReady(); }
+  xddBtn.addEventListener('click', function(){ xddList.hidden ? xddOpen() : xddClose(false); });
+  xddBtn.addEventListener('keydown', function(e){ if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); xddOpen(); } });
+  xddList.addEventListener('keydown', function(e){ var n = xddOpts.length;
+    if (e.key === 'ArrowDown') { e.preventDefault(); xddFocus(Math.min(n - 1, xddActive + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); xddFocus(Math.max(0, xddActive - 1)); }
+    else if (e.key === 'Home') { e.preventDefault(); xddFocus(0); }
+    else if (e.key === 'End') { e.preventDefault(); xddFocus(n - 1); }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); xddChoose(xddActive); }
+    else if (e.key === 'Escape') { e.preventDefault(); xddClose(true); }
+    else if (e.key === 'Tab') { xddClose(false); }
+    else if (e.key.length === 1) { var k = e.key.toLowerCase(); for (var j = 1; j <= n; j++) { var x = (xddActive + j) % n; if (SEL_ALL[x].toLowerCase().indexOf(k) === 0) { xddFocus(x); break; } } }
+  });
+  document.addEventListener('click', function(e){ if (!xddList.hidden && !e.target.closest('#xdd')) xddClose(false); });
+
+  function xcReady(){ xc.org = orgEl.value.trim(); var ok = !!(xc.sector && xc.org); runEl.disabled = !ok; hintEl.textContent = ok ? 'Takes about 90 seconds.' : 'Choose a sector and enter a name to start.'; }
+  orgEl.addEventListener('input', xcReady);
+  function vis(id, on){ document.getElementById(id).hidden = !on; }
+  function txt(id, v){ document.getElementById(id).textContent = (v == null || v === '') ? 'Not publicly available' : String(v); }
+  var timer = null;
+  function xcScan(){
+    vis('xc-result', false); vis('xc-error', false); vis('xc-how', false); vis('xc-scan', true);
+    document.getElementById('xc-scan-title').textContent = 'Checking ' + xc.org;
+    var ol = document.getElementById('xc-steps'); ol.textContent = '';
+    XC_STEPS.forEach(function(t){ var li = document.createElement('li'); li.textContent = t; ol.appendChild(li); });
+    var i = 0, lis = ol.children; lis[0].className = 'on';
+    clearInterval(timer);
+    timer = setInterval(function(){ if (i < lis.length - 1) { lis[i].className = 'done'; i++; lis[i].className = 'on'; } }, 4000);
+    document.getElementById('xc-scan').scrollIntoView({ block: 'start' });
+  }
+  function xcFail(msg){
+    clearInterval(timer); vis('xc-scan', false); vis('xc-error', true); vis('xc-how', true);
+    document.getElementById('xc-error-text').textContent = msg;
+  }
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function safeUrl(u){ return /^https?:\/\//i.test(String(u || '')) ? String(u) : null; }
+  function srcLink(u, label){ var a = el('a', null, label || 'Source'); a.href = u; a.target = '_blank'; a.rel = 'noopener'; return a; }
+  var SEVL = { high: ['r','High'], medium: ['a','Medium'], low: ['g','Low'] };
+  var lastReport = null;
+  function xcRender(d){
+    clearInterval(timer); vis('xc-scan', false); vis('xc-result', true); lastReport = d;
+    var date = new Date(d.generated_at || Date.now());
+    document.getElementById('db-meta').textContent = 'Exposure debrief · ' + d.sector + ' · ' + date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('db-conf').textContent = 'Evidence confidence: ' + (d.confidence ? d.confidence.level : 'Low');
+    document.getElementById('db-org').textContent = d.org + (d.domain ? ' · ' + d.domain : '');
+    document.getElementById('db-bottom').textContent = d.bottom_line;
+    var r = document.getElementById('db-rating'); r.className = 'rate ' + d.rating.level; r.textContent = d.rating.label;
+    document.getElementById('db-priority').textContent = String(d.priority || 0);
+    var n = d.confidence ? d.confidence.sources : 0;
+    document.getElementById('db-evidence').textContent = n + ' source' + (n === 1 ? '' : 's') + (d.method && d.method.dns ? ', including live DNS records' : '');
+
+    var ol = document.getElementById('db-findings'); ol.textContent = '';
+    if (!d.findings || !d.findings.length) ol.appendChild(el('li', 'empty', 'No verifiable exposures found in the public sources checked.'));
+    (d.findings || []).forEach(function(f){
+      var li = el('li'), body = el('div'), top = el('div', 'db-f-top'), s = SEVL[f.severity] || SEVL.low;
+      top.appendChild(el('span', 'pill ' + s[0], s[1])); top.appendChild(el('b', null, f.title));
+      body.appendChild(top); body.appendChild(el('p', 'db-f-imp', f.implication));
+      var ev = el('ul', 'db-ev');
+      (f.evidence || []).slice(0, 4).forEach(function(e){ var u = safeUrl(e.url), i = el('li', u ? null : 'rec', e.text); if (u) i.appendChild(srcLink(u)); ev.appendChild(i); });
+      body.appendChild(ev); li.appendChild(body); ol.appendChild(li);
+    });
+    var cw = document.getElementById('db-controls'); cw.textContent = '';
+    if (d.controls && d.controls.length) { cw.hidden = false; cw.appendChild(el('b', null, 'Controls in place'));
+      d.controls.forEach(function(c){ cw.appendChild(el('div', 'c', c.title + (c.evidence && c.evidence[0] ? ' · ' + c.evidence[0].text : ''))); }); }
+    else cw.hidden = true;
+
+    var tb = document.getElementById('db-actions'); tb.textContent = '';
+    var acts = (d.actions || []).concat([{ action: 'Test help-desk resets, payment approvals, identity set-up and customer channels under signed scope.', why: 'What public sources cannot show', effort: '1 day', owner: 'Human Node sweep' }]);
+    acts.forEach(function(a, i){ var tr = el('tr'); tr.appendChild(el('td', null, String(i + 1).padStart(2, '0'))); tr.appendChild(el('td', null, a.action)); tr.appendChild(el('td', 'w', a.why)); tr.appendChild(el('td', 'e', a.effort)); tr.appendChild(el('td', 'o', a.owner)); tb.appendChild(tr); });
+
+    var sc = d.sector_context || { pattern: '', incidents: [] };
+    document.getElementById('db-sector-title').textContent = d.sector + ' in 2026.';
+    document.getElementById('db-pattern').textContent = sc.pattern + ' From the Human Node 2026 breach log.';
+    var inc = document.getElementById('db-incidents'); inc.textContent = '';
+    sc.incidents.forEach(function(x){ var row = el('div'), t = el('div', 'db-inc-top'); t.appendChild(el('b', null, x.name)); t.appendChild(el('span', 'vchip', x.vector));
+      row.appendChild(t); row.appendChild(el('p', null, x.line)); var u = safeUrl(x.url); if (u) { var a = srcLink(u, 'Source →'); a.className = 'link'; row.appendChild(a); } inc.appendChild(row); });
+
+    var m = d.method || {}, parts = [];
+    if (m.dns) parts.push('public DNS records read at ' + date.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' }));
+    if (m.web) { var ws = (m.web_sources || []).length; parts.push(ws ? ws + ' cited web source' + (ws === 1 ? '' : 's') : 'a public web search with no verifiable match'); }
+    parts.push(sc.incidents.length + ' incidents from the Human Node 2026 breach log');
+    document.getElementById('db-method').textContent = 'Built from ' + parts.join(', ') + '. No systems were scanned. Ratings follow fixed rules; nothing is scored by AI.';
+    document.getElementById('xc-result').scrollIntoView({ block: 'start' });
+  }
+  function xcSummary(){
+    var d = lastReport; if (!d) return '';
+    var top = (d.findings || []).slice(0, 3).map(function(f){ return f.title; }).join('; ');
+    return 'From the Exposure Check: ' + d.org + (d.domain ? ' (' + d.domain + ')' : '') + ', ' + d.sector + '. Exposure: ' + d.rating.label + '.' + (top ? ' Top findings: ' + top + '.' : '');
+  }
+  function xcRun(){
+    xcScan();
+    var dom = (document.getElementById('xc-domain').value || '').trim();
+    var ctrl = ('AbortController' in window) ? new AbortController() : null;
+    var to = setTimeout(function(){ if (ctrl) ctrl.abort(); }, 90000);
+    fetch(XC_API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ sector: xc.sector, organisation: xc.org, domain: dom }), signal: ctrl ? ctrl.signal : undefined })
+      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { s: r.status, j: j }; }); })
+      .then(function(x){
+        clearTimeout(to);
+        if (x.s === 429) return xcFail('Too many checks from your network in a short time. Wait ten minutes and try again.');
+        if (x.s === 400 && x.j.error) return xcFail(x.j.error.message);
+        if (x.s !== 200 || !x.j || !x.j.rating) return xcFail('The check did not complete. Run it again; if it fails twice, book a sweep and we will run it with you.');
+        xcRender(x.j);
+      })
+      .catch(function(){ clearTimeout(to); xcFail('The check service could not be reached. Check your connection and try again.'); });
+  }
+  document.getElementById('xc-form').addEventListener('submit', function(e){ e.preventDefault(); xcReady(); if (!runEl.disabled) xcRun(); });
+  document.getElementById('xc-retry').addEventListener('click', function(){ if (xc.sector && xc.org) xcRun(); });
+  document.getElementById('xc-new').addEventListener('click', function(){ vis('xc-result', false); vis('xc-how', true); orgEl.value = ''; document.getElementById('xc-domain').value = ''; xcReady(); window.scrollTo(0,0); orgEl.focus(); });
+  function xcPrefill(){ var org = document.getElementById('f-org'), note = document.getElementById('f-note'), d = lastReport;
+    if (org && !org.value && d) org.value = d.org + (d.domain ? ', ' + d.domain : '');
+    if (note && !note.value) note.value = xcSummary(); }
+  document.getElementById('xc-book').addEventListener('click', xcPrefill);
+  document.getElementById('xc-debrief').addEventListener('click', xcPrefill);
+
+  // Works with your stack
+  var cap = document.getElementById('tile-cap');
+  document.querySelectorAll('#tiles button.tile').forEach(function(t){
+    function pick(){ document.querySelectorAll('#tiles button.tile').forEach(function(o){ o.setAttribute('aria-pressed', o === t ? 'true' : 'false'); }); cap.textContent = ''; var b = document.createElement('b'); b.textContent = t.textContent + '. '; cap.appendChild(b); cap.appendChild(document.createTextNode(t.dataset.use)); }
+    t.setAttribute('aria-pressed','false'); t.addEventListener('click', pick); t.addEventListener('mouseenter', pick); t.addEventListener('focus', pick);
+  });
+
+  // Currency
+  function money(v, cur){ var n = parseFloat(v); var dec = n % 1 !== 0; return (cur === 'USD' ? '$' : '£') + n.toLocaleString(cur === 'USD' ? 'en-US' : 'en-GB', { minimumFractionDigits: dec ? 2 : 0, maximumFractionDigits: dec ? 2 : 0 }); }
+  function setCur(cur){
+    document.querySelectorAll('[data-gbp]').forEach(function(el){ el.textContent = money(cur === 'USD' ? el.dataset.usd : el.dataset.gbp, cur); });
+    document.querySelectorAll('.cur button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.cur === cur ? 'true' : 'false'); });
+    try { localStorage.setItem('hn-cur', cur); } catch(e){}
+  }
+  document.querySelectorAll('.cur button').forEach(function(b){ b.addEventListener('click', function(){ setCur(b.dataset.cur); }); });
+  (function(){ var saved = null; try { saved = localStorage.getItem('hn-cur'); } catch(e){}
+    var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+    var cur = saved || (/^America\//.test(tz) ? 'USD' : 'GBP'); if (cur === 'USD') setCur('USD'); })();
+
+  // Branded dropdown for the contact form (drives the hidden select)
+  var ddSel = document.getElementById('f-intent'), ddBtn = document.getElementById('dd-btn'), ddList = document.getElementById('dd-list'), ddVal = document.getElementById('dd-val'), ddActive = 0;
+  Array.prototype.forEach.call(ddSel.options, function(o, i){
+    var li = document.createElement('li'); li.id = 'dd-o' + i; li.setAttribute('role','option'); li.textContent = o.text; li.dataset.value = o.value;
+    li.addEventListener('click', function(){ ddChoose(i); });
+    li.addEventListener('mousemove', function(){ ddFocus(i); });
+    ddList.appendChild(li);
+  });
+  function ddSync(){ var i = ddSel.selectedIndex < 0 ? 0 : ddSel.selectedIndex; ddVal.textContent = ddSel.options[i].text;
+    Array.prototype.forEach.call(ddList.children, function(li, k){ li.setAttribute('aria-selected', k === i ? 'true' : 'false'); }); }
+  function ddFocus(i){ ddActive = i; Array.prototype.forEach.call(ddList.children, function(li, k){ li.classList.toggle('active', k === i); }); ddList.setAttribute('aria-activedescendant', 'dd-o' + i); keepIn(ddList, ddList.children[i]); }
+  function ddOpen(){ ddList.hidden = false; ddBtn.setAttribute('aria-expanded','true'); ddFocus(ddSel.selectedIndex); ddList.focus({ preventScroll: true }); }
+  function ddClose(focusBtn){ ddList.hidden = true; ddBtn.setAttribute('aria-expanded','false'); if (focusBtn) ddBtn.focus(); }
+  function ddChoose(i){ ddSel.selectedIndex = i; ddSync(); ddClose(true); }
+  ddBtn.addEventListener('click', function(){ ddList.hidden ? ddOpen() : ddClose(false); });
+  ddBtn.addEventListener('keydown', function(e){ if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); ddOpen(); } });
+  ddList.addEventListener('keydown', function(e){
+    var n = ddList.children.length;
+    if (e.key === 'ArrowDown') { e.preventDefault(); ddFocus(Math.min(n - 1, ddActive + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); ddFocus(Math.max(0, ddActive - 1)); }
+    else if (e.key === 'Home') { e.preventDefault(); ddFocus(0); }
+    else if (e.key === 'End') { e.preventDefault(); ddFocus(n - 1); }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ddChoose(ddActive); }
+    else if (e.key === 'Escape') { e.preventDefault(); ddClose(true); }
+    else if (e.key === 'Tab') { ddClose(false); }
+  });
+  document.addEventListener('click', function(e){ if (!ddList.hidden && !e.target.closest('#dd')) ddClose(false); });
+  ddSync();
+
+  function toast(t){ var d = document.createElement('div'); d.className='toast'; d.textContent=t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2200); }
+  function selectText(id){ var r = document.createRange(); r.selectNodeContents(document.getElementById(id)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+  function copy(text, done, id){
+    try { navigator.clipboard.writeText(text).then(function(){ toast(done); }, function(){ selectText(id); toast('Selected. Press copy.'); }); }
+    catch(e){ selectText(id); toast('Selected. Press copy.'); }
+  }
+  document.getElementById('req').addEventListener('submit', function(e){
+    e.preventDefault();
+    var s = document.getElementById('f-intent'), label = s.options[s.selectedIndex].text;
+    var name = document.getElementById('f-name').value.trim(), email = document.getElementById('f-email').value.trim(), org = document.getElementById('f-org').value.trim(), note = document.getElementById('f-note').value.trim();
+    var subject = label + (org ? ' – ' + org : '');
+    var body = 'Request: ' + label + '\nName: ' + (name || '—') + '\nEmail: ' + (email || '—') + '\nOrganisation: ' + (org || '—') + '\n\n' + (note || '');
+    document.getElementById('out-text').textContent = 'To: contact@humannode.io\nSubject: ' + subject + '\n\n' + body;
+    document.getElementById('mail-req').href = 'mailto:contact@humannode.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('out').hidden = false;
+  });
+  document.getElementById('copy-req').addEventListener('click', function(){ copy(document.getElementById('out-text').textContent, 'Request copied', 'out-text'); });
+})();
+</script>
+
+</body>
+</html>
