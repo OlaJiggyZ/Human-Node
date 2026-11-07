@@ -27,9 +27,10 @@ breach log (curated in `api/check.js`, each with a source). Ratings are rules-ba
 ## Contact form
 Requests are emailed to `CONTACT_TO` with the visitor's address as reply-to. Nothing is stored.
 Until `humannode.io` is verified in Resend, the sender is `onboarding@resend.dev`, which only delivers to the
-Resend account owner's own email, so set `CONTACT_TO` to that address. Once the domain is verified, set
-`CONTACT_FROM` (e.g. `Human Node <requests@humannode.io>`). If the keys are missing, the form tells visitors to
-call +44 7784 424121 and lets them copy their request. Limit: 3 requests per IP per 10 minutes, per instance.
+Resend account owner's own email, so set `CONTACT_TO` to that address. Once humannode.io is verified in Resend, set
+`CONTACT_TO=contact@humannode.io` and `CONTACT_FROM=Human Node <requests@humannode.io>`. Email is Google Workspace
+(MX, SPF, DKIM, DMARC set in Vercel DNS); Resend's records go on its own `send` subdomain and do not clash. If the keys are missing, the form tells visitors to
+call +44 7784 424121 or email contact@humannode.io, and lets them copy their request. Limit: 3 requests per IP per 10 minutes, per instance.
 
 ## Before launch
 - Registered company name, number and address in the footer.

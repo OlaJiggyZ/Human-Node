@@ -100,15 +100,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .menu a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
 @media (max-width: 1040px) { .menu a[aria-current="page"] { text-decoration: none; box-shadow: inset 3px 0 0 var(--accent); padding-left: 12px; } }
 .nav-cta { display: flex; gap: 8px; }
+.nav-tel { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: var(--ink); font-size: var(--t-small); font-weight: 500; white-space: nowrap; padding: 8px 6px; border-radius: 4px; font-variant-numeric: tabular-nums; }
+.nav-tel:hover { background: var(--bg); }
+.nav-tel svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
 .burger { display: none; width: 44px; height: 40px; margin-left: auto; border: 1px solid var(--line-2); background: #ffffff; border-radius: 4px; cursor: pointer; place-items: center; color: var(--ink); }
 @media (max-width: 1040px) {
-  .burger { display: grid; }
+  .burger { display: grid; margin-left: 0; }
+  .nav-tel { margin-left: auto; }
   .nav-cta .btn.line { display: none; }
   .menu { display: none; position: absolute; top: 64px; left: 0; right: 0; margin: 0; flex-direction: column; background: #ffffff; border-bottom: 1px solid var(--line); padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); box-shadow: var(--shadow-sm); }
   .menu.open { display: flex; }
   .menu a { padding: 14px 4px; border-bottom: 1px solid var(--line); border-radius: 0; font-size: var(--t-body); }
 }
-@media (max-width: 560px) { .nav-cta { display: none; } }
+@media (min-width: 1041px) and (max-width: 1219px) { .nav-cta .btn.line { display: none; } .menu { margin-left: 4px; } }
+@media (max-width: 560px) { .nav-cta { display: none; } .top .wrap { gap: 10px; } }
+@media (max-width: 360px) { .nav-tel span { display: none; } .nav-tel { padding: 10px; border: 1px solid var(--line-2); } }
 
 /* Pages */
 main > [data-page] { display: none; }
@@ -574,6 +580,7 @@ footer a:hover { color: var(--ink); }
       <a href="#os1">OS°1</a>
       <a href="#pricing">Pricing</a>
     </nav>
+    <a class="nav-tel" href="tel:+447784424121" aria-label="Call Human Node on +44 7784 424121"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 1.8 3.9 1.5c-.6-.1-1.1.2-1.4.7L1.8 3.6c-.3.7-.3 1.5.1 2.2 1.9 3.6 4.7 6.4 8.3 8.3.7.4 1.5.4 2.2.1l1.4-.7c.5-.3.8-.8.7-1.4l-.3-1.7c-.1-.5-.5-.9-1-.9l-2.1-.2c-.4 0-.8.2-1 .5l-.6.9c-1.8-1-3.2-2.4-4.2-4.2l.9-.6c.3-.2.5-.6.5-1l-.2-2.1c0-.5-.4-.9-.9-1Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>+44 7784 424121</span></a>
     <div class="nav-cta">
       <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
       <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
@@ -1344,7 +1351,9 @@ footer a:hover { color: var(--ink); }
           <p class="bl">Fixed price. Scope agreed in writing before work starts.</p>
           <p class="bs">Sweeps and audits are scheduled in order of request.</p>
           <div class="contact-meta">
-            <span class="label">Phone</span>
+            <span class="label">Email</span>
+            <a class="addr" href="mailto:contact@humannode.io">contact@humannode.io</a>
+            <span class="label" style="margin-top:10px">Phone</span>
             <a class="addr" href="tel:+447784424121">+44 7784 424121</a>
             <span class="label" style="margin-top:10px">Location</span>
             <span>London, United Kingdom</span>
@@ -1617,7 +1626,7 @@ footer a:hover { color: var(--ink); }
     var out = document.getElementById('out');
     function show(ok, why){
       document.getElementById('out-h').textContent = ok ? 'Request sent' : 'Not sent yet';
-      document.getElementById('out-p').textContent = ok ? 'Thank you. We reply within one working day with a scope and a time.' : (why || 'Online requests are not available right now.') + ' Call us on +44 7784 424121, or copy your request below.';
+      document.getElementById('out-p').textContent = ok ? 'Thank you. We reply within one working day with a scope and a time.' : (why || 'Online requests are not available right now.') + ' Call +44 7784 424121 or email contact@humannode.io, or copy your request below.';
       document.getElementById('out-text').textContent = body; document.getElementById('out-text').hidden = ok; document.getElementById('out-act').hidden = ok;
       out.hidden = false; if (ok) document.getElementById('req').reset(); out.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
