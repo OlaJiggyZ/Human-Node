@@ -568,6 +568,28 @@ footer a:hover { color: var(--ink); }
 .cur.seg button { border-radius: 9px; }
 .tm-cite { display: grid; gap: 8px; max-width: 80ch; }
 
+/* Phone */
+.nav-tel { align-self: center; height: 30px; display: inline-flex; align-items: center; gap: 7px; padding: 3px 10px 3px 3px; border: 1px solid transparent; border-radius: 99px; background: transparent; text-decoration: none; color: var(--ink); white-space: nowrap; transition: border-color .2s var(--ease), box-shadow .2s var(--ease); }
+.nav-tel:hover { border-color: var(--line); }
+.nav-tel:hover .t > span { color: var(--ink); }
+.nav-tel .ic { width: 22px; height: 22px; }
+.nav-tel .ic svg { width: 10px; height: 10px; }
+.nav-tel .ic, .menu-tel .ic, .foot-tel .ic { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; color: #ffffff; background: radial-gradient(circle at 30% 28%, #a960ee, #635bff 60%, #4b44e0); flex: none; }
+.nav-tel .ic svg, .menu-tel .ic svg, .foot-tel .ic svg { width: 13px; height: 13px; }
+.nav-tel:hover .ic svg { animation: hn-ring .6s var(--ease) 1; }
+@keyframes hn-ring { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-14deg); } 50% { transform: rotate(12deg); } 75% { transform: rotate(-6deg); } }
+.nav-tel .t { display: grid; line-height: 1.15; }
+.nav-tel small { font: 500 10px/1.2 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.nav-tel .t > span { font-size: 13px; font-weight: 500; color: var(--ink-2); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.menu a.menu-tel { align-items: center; gap: 10px; }
+.foot-tel { display: inline-flex; align-items: center; gap: 6px; vertical-align: middle; color: var(--ink); font-weight: 500; text-decoration: none; }
+.foot-tel .ic { width: 20px; height: 20px; }
+.foot-tel .ic svg { width: 10px; height: 10px; }
+.foot-tel:hover { color: var(--accent); }
+.menu-tel { display: none; }
+@media (max-width: 1240px) { .nav-cta .btn.line { display: none; } }
+@media (max-width: 1040px) { .nav-tel { display: none; } }
+@media (max-width: 1040px) { .menu a.menu-tel { display: flex; color: var(--ink); font-weight: 600; } }
 /* End-of-page call to action */
 .cta-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
 .cta-end h2 { max-width: 22ch; }
@@ -586,8 +608,10 @@ footer a:hover { color: var(--ink); }
       <a href="#protect">Protect</a>
       <a href="#os1">OS°1</a>
       <a href="#pricing">Pricing</a>
+      <a class="menu-tel" href="tel:+447784424121"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></span>Call +44 7784 424121</a>
     </nav>
     <div class="nav-cta">
+      <a class="nav-tel" href="tel:+447784424121" aria-label="Call Human Node on +44 7784 424121"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></span><span class="t"><span>+44 7784 424121</span></span></a>
       <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
       <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
     </div>
@@ -1469,7 +1493,7 @@ footer a:hover { color: var(--ink); }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Human Node · London · No affiliation with companies named on this site.</span>
+    <span>© 2026 Human Node · London · <a class="foot-tel" href="tel:+447784424121"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></span>+44 7784 424121</a> · contact@humannode.io<br>No affiliation with companies named on this site.</span>
     <nav aria-label="Footer">
       <a href="#exposure-check">Exposure Check</a><a href="#exposure-audit">Exposure Audit</a><a href="#ai-audit">AI Audit</a><a href="#protect">Protect</a><a href="#os1">OS°1</a><a href="#threat-matrix">Threat Matrix</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
     </nav>
