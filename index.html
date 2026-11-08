@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Human Node · Cognitive defence and cybersecurity</title>
-<meta name="description" content="Human Node secures the decision layer across people, systems and AI: Exposure Check, Exposure Audit, AI Audit and OS°1.">
+<meta name="description" content="Human Node secures the decisions attackers target, across people, systems and AI: Exposure Audit, AI Audit, Protect, OS°1 and the 2026 Threat Matrix.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://humannode.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Human Node">
-<meta property="og:title" content="Human Node · Defence for the decision layer">
-<meta property="og:description" content="Human Node secures the decision layer across people, systems and AI.">
+<meta property="og:title" content="Human Node · Secure the decisions attackers target">
+<meta property="og:description" content="Human Node finds where your business is exposed, fixes it, and prepares your people.">
 <meta property="og:url" content="https://humannode.io/">
 <meta name="twitter:card" content="summary">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -100,21 +100,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .menu a[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 8px; }
 @media (max-width: 1040px) { .menu a[aria-current="page"] { text-decoration: none; box-shadow: inset 3px 0 0 var(--accent); padding-left: 12px; } }
 .nav-cta { display: flex; gap: 8px; }
-.nav-tel { display: inline-flex; align-items: center; gap: 7px; text-decoration: none; color: var(--ink); font-size: var(--t-small); font-weight: 500; white-space: nowrap; padding: 8px 6px; border-radius: 4px; font-variant-numeric: tabular-nums; }
-.nav-tel:hover { background: var(--bg); }
-.nav-tel svg { width: 15px; height: 15px; flex: none; color: var(--accent); }
 .burger { display: none; width: 44px; height: 40px; margin-left: auto; border: 1px solid var(--line-2); background: #ffffff; border-radius: 4px; cursor: pointer; place-items: center; color: var(--ink); }
 @media (max-width: 1040px) {
-  .burger { display: grid; margin-left: 0; }
-  .nav-tel { margin-left: auto; }
+  .burger { display: grid; }
   .nav-cta .btn.line { display: none; }
   .menu { display: none; position: absolute; top: 64px; left: 0; right: 0; margin: 0; flex-direction: column; background: #ffffff; border-bottom: 1px solid var(--line); padding: 8px max(16px, env(safe-area-inset-right, 0px)) 16px max(16px, env(safe-area-inset-left, 0px)); box-shadow: var(--shadow-sm); }
   .menu.open { display: flex; }
   .menu a { padding: 14px 4px; border-bottom: 1px solid var(--line); border-radius: 0; font-size: var(--t-body); }
 }
-@media (min-width: 1041px) and (max-width: 1219px) { .nav-cta .btn.line { display: none; } .menu { margin-left: 4px; } }
-@media (max-width: 560px) { .nav-cta { display: none; } .top .wrap { gap: 10px; } }
-@media (max-width: 360px) { .nav-tel span { display: none; } .nav-tel { padding: 10px; border: 1px solid var(--line-2); } }
+@media (max-width: 560px) { .nav-cta { display: none; } }
 
 /* Pages */
 main > [data-page] { display: none; }
@@ -455,10 +449,6 @@ footer a:hover { color: var(--ink); }
 .book .out { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18); color: #ffffff; }
 .book .out pre { background: rgba(0,0,0,.25); color: #d8dee8; }
 .book .out .label { color: #b9b5ff; }
-.book .contact-meta a.addr { color: inherit; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.3); justify-self: start; }
-.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.opt { opacity: .6; font-weight: 400; }
-#out-p { margin: 0; }
 .book .btn.line { background: transparent; color: #ffffff; border-color: rgba(255,255,255,.35); }
 .book .contact-meta { margin-top: 28px; display: grid; gap: 6px; font-size: 15px; color: var(--band-2); }
 .book .addr { color: #ffffff; }
@@ -561,6 +551,23 @@ footer a:hover { color: var(--ink); }
 .case-l { font-size: 13px; color: var(--ink-3); border-left: 2px solid var(--accent); padding-left: 10px; }
 .prow .num small.u { display: block; font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); text-align: right; margin-top: 4px; }
 
+
+/* Brief: matrix link, five pricing cards, matrix filter */
+.tm-link { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 8px 14px 8px 8px; border: 1px solid var(--line-2); border-radius: 99px; background: rgba(255,255,255,.8); justify-self: start; }
+.tm-link .label { color: #ffffff; background: var(--accent); padding: 4px 8px; border-radius: 99px; letter-spacing: .04em; }
+.tm-link:hover { border-color: var(--accent); color: var(--accent-deep); }
+.pcards.c5 { grid-template-columns: repeat(6, minmax(0,1fr)); }
+.pcards.c5 > .pcard:nth-child(-n+3) { grid-column: span 2; }
+.pcards.c5 > .pcard:nth-child(n+4) { grid-column: span 3; }
+@media (max-width: 1040px) { .pcards.c5 { grid-template-columns: repeat(2, minmax(0,1fr)); } .pcards.c5 > .pcard:nth-child(n) { grid-column: span 1; } .pcards.c5 > .pcard:last-child { grid-column: span 2; } }
+@media (max-width: 680px) { .pcards.c5 { grid-template-columns: 1fr; } .pcards.c5 > .pcard:nth-child(n) { grid-column: span 1; } }
+.pcard .after { font-size: 14px; color: var(--ink-2); display: grid; gap: 4px; padding-top: 12px; border-top: 1px solid var(--line); align-self: end; }
+.pcard { grid-template-rows: auto auto auto auto auto 1fr; }
+.tm-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.cur.seg { flex-wrap: wrap; border-radius: 12px; }
+.cur.seg button { border-radius: 9px; }
+.tm-cite { display: grid; gap: 8px; max-width: 80ch; }
+
 /* End-of-page call to action */
 .cta-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
 .cta-end h2 { max-width: 22ch; }
@@ -574,13 +581,12 @@ footer a:hover { color: var(--ink); }
       Human Node
     </a>
     <nav class="menu" id="menu" aria-label="Main">
-      <a href="#exposure-check">Exposure Check</a>
       <a href="#exposure-audit">Exposure Audit</a>
       <a href="#ai-audit">AI Audit</a>
+      <a href="#protect">Protect</a>
       <a href="#os1">OS°1</a>
       <a href="#pricing">Pricing</a>
     </nav>
-    <a class="nav-tel" href="tel:+447784424121" aria-label="Call Human Node on +44 7784 424121"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.6 1.8 3.9 1.5c-.6-.1-1.1.2-1.4.7L1.8 3.6c-.3.7-.3 1.5.1 2.2 1.9 3.6 4.7 6.4 8.3 8.3.7.4 1.5.4 2.2.1l1.4-.7c.5-.3.8-.8.7-1.4l-.3-1.7c-.1-.5-.5-.9-1-.9l-2.1-.2c-.4 0-.8.2-1 .5l-.6.9c-1.8-1-3.2-2.4-4.2-4.2l.9-.6c.3-.2.5-.6.5-1l-.2-2.1c0-.5-.4-.9-.9-1Z" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg><span>+44 7784 424121</span></a>
     <div class="nav-cta">
       <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
       <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
@@ -606,6 +612,7 @@ footer a:hover { color: var(--ink); }
           <a class="btn primary" href="#exposure-check">Run the free Exposure Check</a>
           <a class="btn line" href="#contact" data-intent="sweep">Book a Sweep</a>
         </div>
+        <a class="tm-link" href="#threat-matrix"><span class="label">New</span> 2026 Threat Matrix: 118 breaches, what actually broke →</a>
       </div>
       <figure class="panel" aria-label="What one decision cost in 2026">
         <div class="panel-top"><span class="label">What one decision cost in 2026</span></div>
@@ -621,15 +628,29 @@ footer a:hover { color: var(--ink); }
     <div class="wrap">
       <div class="head"><p class="label">Start where you sit</p><h2>Choose your route.</h2></div>
       <div class="body doors">
-        <a class="door" href="#exposure-check"><span class="label">I run the business</span><b>See where you are exposed.</b><span>A free check in 90 seconds, then a one-day sweep with a fixed-price fix list.</span><span class="go">Run the check →</span></a>
+        <a class="door" href="#exposure-check"><span class="label">I run a brand or business</span><b>See where you are exposed.</b><span>A free check in 90 seconds, then a one-day sweep with a ranked fix list.</span><span class="go">Run the check →</span></a>
         <a class="door" href="#exposure-audit"><span class="label">I run IT or security</span><b>Test systems, logins and people.</b><span>A full audit under signed scope, every finding evidenced and ranked.</span><span class="go">Exposure Audit →</span></a>
-        <a class="door" href="#ai-audit"><span class="label">We use AI with customers</span><b>Control what your AI says and does.</b><span>Accuracy across AI search, and assistants that cannot be turned against you.</span><span class="go">AI Audit →</span></a>
+        <a class="door" href="#protect"><span class="label">We run AI with customers</span><b>Control what your AI says and does.</b><span>Accuracy across AI search, and agents tested and guarded against attack.</span><span class="go">Protect →</span></a>
         <a class="door" href="#os1"><span class="label">I sit on the board</span><b>Measure human risk.</b><span>Board-level evidence of how decisions hold under attack pressure.</span><span class="go">OS°1 →</span></a>
       </div>
     </div>
   </section>
 
   <section class="sec tint">
+    <div class="wrap">
+      <div class="split">
+        <div class="head"><p class="label">For consumer brands</p><h2>Your customers trust your channels. Attackers use that.</h2>
+          <div class="actions" style="margin-top:8px"><a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a></div></div>
+        <div class="spec">
+          <div><b>Customer channels</b><span>Email, SMS and app alerts can be turned on your own customers. ASOS customers received an extortion alert through the ASOS app.</span></div>
+          <div><b>Suppliers and platforms</b><span>One compromised platform can expose your customer data. 47% of the 118 incidents in our 2026 log involved a third party.</span></div>
+          <div><b>AI product claims</b><span>AI tools can quote wrong prices or invent health and safety claims about your products.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
     <div class="wrap">
       <div class="head"><p class="label">What it protects</p><h2>Four things a breach takes from a business.</h2></div>
       <div class="body protects">
@@ -641,7 +662,7 @@ footer a:hover { color: var(--ink); }
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec tint">
     <div class="wrap">
       <div class="head"><p class="label">How it works</p><h2>Check. Sweep. Fix.</h2></div>
       <ol class="body steps s3">
@@ -663,7 +684,7 @@ footer a:hover { color: var(--ink); }
       <div class="body three">
         <div><span class="label">People</span><h3>The phone is the front door</h3><p>Calls posing as IT, a help desk or a bank were the most common known way in.</p></div>
         <div><span class="label">Suppliers</span><h3>One supplier, thousands of victims</h3><p>One hacked supplier exposed thousands of its customers' businesses.</p></div>
-        <div><span class="label">AI</span><h3>AI tools are a new way in</h3><p>AI assistants were tricked into resetting passwords and leaking data. AI involvement doubled in September and October.</p></div>
+        <div><span class="label">AI</span><h3>AI tools are a new way in</h3><p>AI assistants were tricked into resetting passwords and leaking data. AI involvement doubled in September and October.</p><p><a class="link" href="#protect">Test your agents before an attacker does →</a></p></div>
       </div>
       <p style="margin-top:28px"><a class="link" href="#threat-matrix">2026 Threat Matrix →</a></p>
     </div>
@@ -1040,11 +1061,11 @@ footer a:hover { color: var(--ink); }
   <section class="sec">
     <div class="wrap">
       <div class="split">
-        <div class="head"><p class="label">Services</p><h2>Audit. Fix. Govern. Protect.</h2><p>Every engagement starts with an audit. Its findings set the scope.</p></div>
+        <div class="head"><p class="label">Services</p><h2>Audit. Fix. Govern.</h2><p>Every engagement starts with an audit. Its findings set the scope.</p></div>
         <div class="flow">
-        <div class="col"><div class="box"><span class="label">Your brand</span><ul><li>Customer questions</li><li>Live prices, claims, policies</li></ul></div><div class="box"><span class="label">Your agents</span><ul><li>Permissions</li><li>What they read</li><li>What they can do</li></ul></div></div>
+        <div class="col"><div class="box"><span class="label">Your brand</span><ul><li>Customer questions</li><li>Live prices, claims, policies</li></ul></div><div class="box"><span class="label">Your channels</span><ul><li>AI search engines</li><li>Your site assistant</li></ul></div></div>
         <div class="engine">AI<br>Audit</div>
-        <div class="col"><div class="box"><span class="label">Outputs</span><ul><li>Accuracy per channel</li><li>Errors with evidence</li><li>Attack findings</li><li>Fixes and guardrails</li></ul></div></div>
+        <div class="col"><div class="box"><span class="label">Outputs</span><ul><li>Accuracy per channel</li><li>Errors with evidence</li><li>Fixes at the source</li><li>Monthly score</li></ul></div></div>
       </div>
       </div>
       <div class="body rows">
@@ -1052,33 +1073,12 @@ footer a:hover { color: var(--ink); }
         <div class="row"><span class="k"><span class="label">Fix</span><b>AI Catalogue Readiness</b></span><span><p>Structured product data for AI search, merchant programmes and in-chat checkout.</p></span><span class="p"></span></div>
         <div class="row"><span class="k"><span class="label">Fix</span><b>AI Shopping Assistant</b></span><span><p>An assistant trained on your catalogue and policies, with guardrails, attack-tested before launch.</p></span><span class="p"></span></div>
         <div class="row"><span class="k"><span class="label">Govern</span><b>Monthly AI Governance</b></span><span><p>A monthly accuracy score per channel, corrections and guardrail updates. Three to six months, then hand-over.</p></span><span class="p"></span></div>
-        <div class="row"><span class="k"><span class="label">Protect</span><b>Agent Attack Test</b></span><span><p>Your AI agent attacked the way an adversary would: prompt injection, poisoned data, social engineering and data extraction.</p></span><span class="p"></span></div>
-        <div class="row"><span class="k"><span class="label">Protect</span><b>Guard</b></span><span><p>Screens what your agent reads and says, blocks known attack patterns and logs every block.</p></span><span class="p"></span></div>
-      </div>
-      <p style="margin-top:20px"><a class="link" href="#pricing">Pricing →</a></p>
+                      </div>
+      <p style="margin-top:20px"><a class="link" href="#protect">Running AI agents? See Protect →</a> &nbsp; <a class="link" href="#pricing">Pricing →</a></p>
     </div>
   </section>
 
-  <section class="sec tint" id="protect">
-    <div class="wrap split">
-      <div class="head">
-        <p class="label">Protect</p>
-        <h2>An AI agent with account powers is a help desk attackers can call.</h2>
-        <p>In 2026, prompt injection through web forms and files hijacked agents built on Copilot Studio, Agentforce and AI coding tools. Any agent with account, refund or data permissions is in scope.</p>
-        <div class="actions"><a class="btn primary" href="#contact" data-intent="protect">Book an Attack Test</a></div>
-      </div>
-      <div class="case" aria-label="How attackers used Meta's AI support assistant">
-        <span class="label">Case · Instagram, June 2026</span>
-        <div class="step"><span class="label">Step 1</span><span>Attackers used a VPN to appear close to the account holder.</span></div>
-        <div class="step"><span class="label">Step 2</span><span>They asked Meta's AI support assistant to link the account to an email address they controlled.</span></div>
-        <div class="step"><span class="label">Step 3</span><span>The recovery path did not check that email against the account. The reset link went to the attacker.</span></div>
-        <div class="case-out"><b style="color:var(--ink)">20,225 accounts taken.</b> Meta disabled the tool and invalidated the links. Sources: <a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a>, <a class="link" href="https://bleepingcomputer.com/news/security/meta-ai-support-data-breach-affects-20-000-instagram-accounts" target="_blank" rel="noopener">BleepingComputer</a>.</div>
-        <div class="case-out"><b style="color:var(--ink)">Guard.</b> Identity checks sit outside the model. No request in the chat can change where a reset goes.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" id="liability">
+  <section class="sec tint" id="liability">
     <div class="wrap split">
       <div class="head">
         <p class="label">Liability</p>
@@ -1095,7 +1095,7 @@ footer a:hover { color: var(--ink); }
     </div>
   </section>
 
-  <section class="sec tint">
+  <section class="sec">
     <div class="wrap split">
       <div class="head"><p class="label">Data</p><h2>Held to security standards.</h2></div>
       <div class="two">
@@ -1107,10 +1107,74 @@ footer a:hover { color: var(--ink); }
     </div>
   </section>
 
-  <section class="sec">
+  <section class="sec tint">
     <div class="wrap cta-end">
       <h2>See what AI says about you.</h2>
-      <div class="actions"><a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a><a class="btn line" href="#contact" data-intent="protect">Book an Attack Test</a></div>
+      <div class="actions"><a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a><a class="btn line" href="#protect">Protect your agents</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- PROTECT -->
+<div data-page="protect">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">Protect</p>
+        <h1>A firewall for the agents that act for you.</h1>
+        <p class="lede">Your AI agents read untrusted content and act with real permissions. Human Node attacks them first, then screens what they read and say.</p>
+        <div class="actions"><a class="btn primary" href="#contact" data-intent="protect">Book an Attack Test</a><a class="btn line" href="#contact" data-intent="protect">Discuss Guard</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">How it works</p><h2>Test. Guard. Report.</h2></div>
+      <ol class="body steps s3">
+        <li><span class="label">1</span><h3>Test</h3><p>We attack your agent with prompt injection, poisoned data, social engineering and data extraction.</p></li>
+        <li><span class="label">2</span><h3>Guard</h3><p>Guard screens what your agent reads and says, blocks known attack patterns and logs every block.</p></li>
+        <li><span class="label">3</span><h3>Report</h3><p>A monthly attack report shows what was blocked, where it came from and why.</p></li>
+      </ol>
+      <p class="body rule">Guard reduces risk from known attack patterns. Critical actions need identity checks outside the model.</p>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap split">
+      <div class="head">
+        <p class="label">Who needs it</p>
+        <h2>An AI agent with account powers is a help desk attackers can call.</h2>
+        <p>Any agent that can touch an account, a refund, an order or customer data.</p>
+        <p>In 2026, prompt injection through web forms and files hijacked agents built on Copilot Studio, Agentforce and AI coding tools.</p>
+      </div>
+      <div class="case" aria-label="How attackers used Meta's AI support assistant">
+        <span class="label">Case · Instagram, June 2026</span>
+        <div class="step"><span class="label">Step 1</span><span>Attackers used a VPN to appear close to the account holder.</span></div>
+        <div class="step"><span class="label">Step 2</span><span>They asked Meta's AI support assistant to link the account to an email address they controlled.</span></div>
+        <div class="step"><span class="label">Step 3</span><span>The recovery path did not check that email against the account. The reset link went to the attacker.</span></div>
+        <div class="case-out"><b style="color:var(--ink)">20,225 accounts taken.</b> Meta disabled the tool and invalidated the links. Sources: <a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a>, <a class="link" href="https://bleepingcomputer.com/news/security/meta-ai-support-data-breach-affects-20-000-instagram-accounts" target="_blank" rel="noopener">BleepingComputer</a>.</div>
+        <div class="case-out"><b style="color:var(--ink)">The control.</b> Keep identity checks outside the model, so a chat request alone cannot change where a reset goes.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head"><p class="label">Services</p><h2>Test first. Then guard in production.</h2></div>
+      <div class="body rows">
+        <div class="row"><span class="k"><span class="label">Test</span><b>Agent Attack Test</b></span><span><p>Your AI agent attacked the way an adversary would. A scored report with evidence and a fix for every failure. The fee is credited against Guard within 30 days.</p></span><span class="p"></span></div>
+        <div class="row"><span class="k"><span class="label">Guard</span><b>Guard</b></span><span><p>Screens what your agent reads and says, blocks known attack patterns and logs every block with its source and reason. Deployable today. Above the monthly allowance, <span data-gbp="5" data-usd="6.50">£5</span> per 1,000 conversations.</p></span><span class="p"></span></div>
+      </div>
+      <p style="margin-top:20px"><a class="link" href="#pricing">Pricing →</a></p>
+    </div>
+  </section>
+
+  <section class="sec tint">
+    <div class="wrap cta-end">
+      <h2>Test your agents before an attacker does.</h2>
+      <div class="actions"><a class="btn primary" href="#contact" data-intent="protect">Book an Attack Test</a><a class="btn line" href="#contact" data-intent="protect">Discuss Guard</a></div>
     </div>
   </section>
 </div>
@@ -1166,50 +1230,26 @@ footer a:hover { color: var(--ink); }
     </div>
   </section>
 
-<section class="sec" id="threat-matrix">
-    <div class="wrap">
-      <div class="head">
-        <p class="label">Threat Behaviour Matrix · 2026 edition</p>
-        <h2>Trust is the master key. Authority and urgency turn it.</h2>
-        <p>Built from 118 breaches logged between January and October 2026. Each cell counts the incidents where that attack vector exploited that pressure state, as recorded in the incident's sources.</p>
-      </div>
-      <div class="body stats">
-        <div><b>118</b><span>breaches logged in 2026, with sources</span></div>
-        <div><b>50</b><span>pressure entries citing trust, twice any other state</span></div>
-        <div><b>12</b><span>break-ins began with an impersonation call, the top known vector</span></div>
-        <div><b>2×</b><span>AI involvement: September and October matched January to August</span></div>
-      </div>
-      <div class="body table-wrap">
-        <table class="heat">
-          <thead><tr><th>Attack vector</th><th class="n">Incidents</th><th>Trust</th><th>Authority</th><th>Urgency</th><th>Routine</th><th>Speed</th><th>Fear</th><th>Reward</th><th>Secrecy</th><th class="n">AI involved</th></tr></thead>
-          <tbody><tr><th scope="row"><b>Impersonation call: IT, help desk, bank</b><span class="ex">Odido · Charter · RingCentral · City of Aurora</span></th><td class="n">12</td><td class="hm" style="background:rgba(99,91,255,0.90);color:#ffffff" title="12 incidents">12</td><td class="hm" style="background:rgba(99,91,255,0.90);color:#ffffff" title="12 incidents">12</td><td class="hm" style="background:rgba(99,91,255,0.70);color:#ffffff" title="9 incidents">9</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>Stolen SaaS, OAuth or vendor credential</b><span class="ex">Vercel via Context.ai · Klue → LastPass · Beacon CRM (1,500 UK charities)</span></th><td class="n">10</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">2</td></tr><tr><th scope="row"><b>Poisoned software update or package</b><span class="ex">Trivy → European Commission · LiteLLM · TanStack → OpenAI</span></th><td class="n">9</td><td class="hm" style="background:rgba(99,91,255,0.64);color:#ffffff" title="8 incidents">8</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.70);color:#ffffff" title="9 incidents">9</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">4</td></tr><tr><th scope="row"><b>AI-run intrusion</b><span class="ex">ARTEX vs Korean banks and 2,250 M365 tenants · JadePuffer · Mexican agencies</span></th><td class="n">8</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">8</td></tr><tr><th scope="row"><b>Trusted-sender and official-channel abuse</b><span class="ex">ASOS · Revolut · Brevo → Trezor</span></th><td class="n">6</td><td class="hm" style="background:rgba(99,91,255,0.51);color:#ffffff" title="6 incidents">6</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>Automated internal trust: signing, approval, data feeds</b><span class="ex">Binance · Bitget · KelpDAO</span></th><td class="n">6</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>AI agent overreach and shadow AI</b><span class="ex">Panasonic · Vercel · OpenAI test models → Hugging Face</span></th><td class="n">6</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">6</td></tr><tr><th scope="row"><b>Executive or VIP deepfake</b><span class="ex">Fideuram (€95M) · Singapore Zoom · Schwyz SME</span></th><td class="n">5</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.45);color:var(--ink)" title="5 incidents">5</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="n">5</td></tr><tr><th scope="row"><b>Employee social engineering, method undisclosed</b><span class="ex">Carnival · Levi Strauss · Apollo</span></th><td class="n">4</td><td class="hm" style="background:rgba(99,91,255,0.38);color:var(--ink)" title="4 incidents">4</td><td class="hm" style="background:rgba(99,91,255,0.32);color:var(--ink)" title="3 incidents">3</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>Fake relationship: partner, founder, recruiter</b><span class="ex">Drift Protocol · axios · fake job interviews (WaterPlum)</span></th><td class="n">3</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr><tr><th scope="row"><b>AI agent manipulation: prompt injection, support bots</b><span class="ex">Meta AI support bot · Copilot Studio / Agentforce · AGENTS.md injection</span></th><td class="n">3</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">3</td></tr><tr><th scope="row"><b>Insider misuse</b><span class="ex">UK Biobank · ESNEFT</span></th><td class="n">2</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.18);color:var(--ink)" title="1 incident">1</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">·</td></tr><tr><th scope="row"><b>Credential phishing: email and search ads</b><span class="ex">CIRO · Google Cloud search ads</span></th><td class="n">2</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm" style="background:rgba(99,91,255,0.25);color:var(--ink)" title="2 incidents">2</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="hm z"><span class="sr">0</span>·</td><td class="n">1</td></tr></tbody>
-        </table>
-      </div>
-      <div class="body three">
-        <div><span class="label">Finding</span><h3>Verify the request, not just the login</h3><p>The largest losses moved through legitimate accounts acting on false requests.</p></div>
-        <div><span class="label">Finding</span><h3>Machines fall for trust too</h3><p>Signing systems, package updates, OAuth grants and AI agents acted on input because it came from a trusted source.</p></div>
-        <div><span class="label">Finding</span><h3>Fatigue and overload rarely appear</h3><p>Both are tracked as hypotheses, not lead risks.</p></div>
-      </div>
-      <p class="small muted" style="margin-top:20px">Method: 71 of 118 incidents had a disclosed entry vector and are scored; an incident can count in more than one row. "AI involved" counts confirmed or suspected AI use. Updated 31 October 2026.</p>
-    </div>
-  </section>
 
-<section class="sec tint" id="briefings">
-    <div class="wrap">
-      <div class="head"><p class="label">Threat briefings</p><h2>The incidents that define 2026.</h2></div>
-      <div class="body table-wrap">
-        <table style="min-width:680px">
-          <thead><tr><th>Date</th><th>Incident</th><th>Layer</th><th>Source</th></tr></thead>
-          <tbody><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Binance: an engineer&#x27;s compromised laptop reached a trusted internal service; about $6.3B left in roughly 20 minutes</td><td style="white-space:nowrap">Systems · People</td><td><a class="link" href="https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>ASOS: an impersonated trusted contact led to customer data access and a rogue notification sent through the app</td><td style="white-space:nowrap">People · Channels</td><td><a class="link" href="https://techcrunch.com/2026/10/08/asos-confirms-breach-of-customer-data-after-hackers-send-rogue-app-notification/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Korean banks: an AI attack framework probed and exploited customer-facing apps at machine speed</td><td style="white-space:nowrap">AI · Systems</td><td><a class="link" href="https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/" target="_blank" rel="noopener">BleepingComputer</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Sep 2026</td><td>Fideuram: a WhatsApp message posing as the group CEO and a cloned voice led to about €95M in transfers</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://live.euronext.com/en/financial-news/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say" target="_blank" rel="noopener">Reuters</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Jun 2026</td><td>Instagram: attackers talked Meta&#x27;s AI support assistant into sending password resets; 20,225 accounts taken</td><td style="white-space:nowrap">AI</td><td><a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a></td></tr><tr><td class="tnum" style="white-space:nowrap">May 2026</td><td>Singapore: a Zoom call with deepfaked heads of government cost a businessman about US$3.8m</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://www.scmp.com/news/asia/southeast-asia/article/3353868/how-victim-lost-us38-million-singapore-deepfake-zoom-scam-impersonating-pm-wong" target="_blank" rel="noopener">SCMP</a></td></tr></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
 
   <section class="sec">
+    <div class="wrap split">
+      <div class="head"><p class="label">Threat Behaviour Matrix · 2026 edition</p><h2>118 breaches. What actually broke.</h2><p>The evidence base behind OS°1: every notable breach of 2026, sourced and scored for the attack route and the pressure it exploited.</p>
+        <div class="actions" style="margin-top:8px"><a class="btn primary" href="#threat-matrix">Open the Threat Matrix</a></div></div>
+      <div class="body stats" style="margin-top:0;grid-template-columns:1fr 1fr">
+        <div><b>118</b><span>breaches logged in 2026, with sources</span></div>
+        <div><b>50</b><span>pressure entries citing trust, twice any other state</span></div>
+        <div><b>12</b><span>break-ins began with an impersonation call</span></div>
+        <div><b>2×</b><span>AI involvement in September and October versus January to August</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec tint">
     <div class="wrap">
       <div class="head"><p class="label">Who it serves</p><h2>Organisations where one decision is a structural liability.</h2></div>
       <div class="body rows">
+        <div class="row"><span class="k"><b>Consumer and FMCG brands</b></span><span><p>Customer channels, supplier platforms and what AI says about your products.</p></span><span class="p"></span></div>
         <div class="row"><span class="k"><b>Regulated finance</b></span><span><p>Payment approvals, help desks and signing systems under UK GDPR, the UK NIS Regulations and DORA.</p></span><span class="p"></span></div>
         <div class="row"><span class="k"><b>High-trust supply chains</b></span><span><p>Automotive, defence and food networks, where one failure cascades across partners.</p></span><span class="p"></span></div>
         <div class="row"><span class="k"><b>Insurers and capital allocators</b></span><span><p>Quantified human exposure to price cyber risk.</p></span><span class="p"></span></div>
@@ -1227,6 +1267,75 @@ footer a:hover { color: var(--ink); }
   </section>
 </div>
 
+<!-- THREAT MATRIX -->
+<div data-page="threat-matrix">
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="copy">
+        <p class="label">Threat Behaviour Matrix · 2026 edition</p>
+        <h1>118 breaches. What actually broke.</h1>
+        <p class="lede">Every notable breach of 2026, sourced and scored for the attack route used and the human pressure it exploited.</p>
+        <div class="actions"><a class="btn primary" href="/threat-matrix-2026.pdf" download>Download the PDF</a><a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a></div>
+        <p class="note">Updated quarterly. Every incident is sourced. No email required.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">The matrix</p>
+        <h2>Trust is the master key. Authority and urgency turn it.</h2>
+        <p>Each cell counts the incidents where that attack route exploited that pressure state, as recorded in the incident's sources.</p>
+      </div>
+      <div class="body stats">
+        <div><b>118</b><span>breaches logged in 2026, with sources</span></div>
+        <div><b>50</b><span>pressure entries citing trust, twice any other state</span></div>
+        <div><b>12</b><span>break-ins began with an impersonation call, the top known vector</span></div>
+        <div><b>2×</b><span>AI involvement: September and October matched January to August</span></div>
+      </div>
+      <div class="body tm-bar">
+        <div class="cur seg" role="group" aria-label="Filter by sector" id="tm-filter">
+          <button type="button" data-g="all" aria-pressed="true">All sectors</button><button type="button" data-g="consumer" aria-pressed="false">Consumer and retail</button><button type="button" data-g="finance" aria-pressed="false">Finance</button><button type="button" data-g="software" aria-pressed="false">Software and AI</button>
+        </div>
+        <p class="small muted" id="tm-note" aria-live="polite"></p>
+      </div>
+      <div class="table-wrap" style="margin-top:16px">
+        <table class="heat">
+          <thead><tr id="tm-head"></tr></thead>
+          <tbody id="tm-body"></tbody>
+        </table>
+      </div>
+      <div class="body three">
+        <div><span class="label">Finding</span><h3>Verify the request, not just the login</h3><p>The largest losses moved through legitimate accounts acting on false requests.</p></div>
+        <div><span class="label">Finding</span><h3>Machines fall for trust too</h3><p>Signing systems, package updates, OAuth grants and AI agents acted on input because it came from a trusted source.</p></div>
+        <div><span class="label">Finding</span><h3>Fatigue and overload rarely appear</h3><p>Both are tracked as hypotheses, not lead risks.</p></div>
+      </div>
+      <div class="body tm-cite">
+        <p class="small muted">Method: 71 of 118 incidents had a disclosed entry vector and are scored; an incident can count in more than one row. "AI involved" counts confirmed or suspected AI use. Sector filters tag an incident only where its source states the sector.</p>
+        <p class="small"><b>Cite as:</b> Human Node, 2026 Threat Behaviour Matrix, updated 31 October 2026. humannode.io/threat-matrix</p>
+        <p class="small muted">Next edition: January 2027, covering the full 2026 log.</p>
+      </div>
+      <div class="actions" style="margin-top:28px"><a class="btn primary" href="#contact" data-intent="briefing">Request a Briefing</a><a class="btn line" href="/threat-matrix-2026.pdf" download>Download the PDF</a></div>
+    </div>
+  </section>
+
+  <section class="sec tint" id="briefings">
+    <div class="wrap">
+      <div class="head"><p class="label">Threat briefings</p><h2>The incidents that define 2026.</h2></div>
+      <div class="body table-wrap">
+        <table style="min-width:680px">
+          <thead><tr><th>Date</th><th>Incident</th><th>Layer</th><th>Source</th></tr></thead>
+          <tbody><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Binance: an engineer&#x27;s compromised laptop reached a trusted internal service; about $6.3B left in roughly 20 minutes</td><td style="white-space:nowrap">Systems · People</td><td><a class="link" href="https://techcrunch.com/2026/10/29/binance-pauses-withdrawals-as-hackers-suspected-of-stealing-billions-in-crypto/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>ASOS: an impersonated trusted contact led to customer data access and a rogue notification sent through the app</td><td style="white-space:nowrap">People · Channels</td><td><a class="link" href="https://techcrunch.com/2026/10/08/asos-confirms-breach-of-customer-data-after-hackers-send-rogue-app-notification/" target="_blank" rel="noopener">TechCrunch</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Oct 2026</td><td>Korean banks: an AI attack framework probed and exploited customer-facing apps at machine speed</td><td style="white-space:nowrap">AI · Systems</td><td><a class="link" href="https://www.bleepingcomputer.com/news/security/hacker-used-artex-ai-and-claude-agents-to-target-south-korean-banks/" target="_blank" rel="noopener">BleepingComputer</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Sep 2026</td><td>Fideuram: a WhatsApp message posing as the group CEO and a cloned voice led to about €95M in transfers</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://live.euronext.com/en/financial-news/ai-messaging-scam-costs-italys-top-bank-intesa-millions-sources-say" target="_blank" rel="noopener">Reuters</a></td></tr><tr><td class="tnum" style="white-space:nowrap">Jun 2026</td><td>Instagram: attackers talked Meta&#x27;s AI support assistant into sending password resets; 20,225 accounts taken</td><td style="white-space:nowrap">AI</td><td><a class="link" href="https://www.helpnetsecurity.com/2026/06/08/instagram-ai-support-vulnerability-account-takeovers/" target="_blank" rel="noopener">Help Net Security</a></td></tr><tr><td class="tnum" style="white-space:nowrap">May 2026</td><td>Singapore: a Zoom call with deepfaked heads of government cost a businessman about US$3.8m</td><td style="white-space:nowrap">People · AI</td><td><a class="link" href="https://www.scmp.com/news/asia/southeast-asia/article/3353868/how-victim-lost-us38-million-singapore-deepfake-zoom-scam-impersonating-pm-wong" target="_blank" rel="noopener">SCMP</a></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script type="application/json" id="tm-data">{"rows":[{"key":"call","label":"Impersonation call: IT, help desk, bank","ex":"Odido \u00b7 Charter \u00b7 RingCentral \u00b7 City of Aurora"},{"key":"saas","label":"Stolen SaaS, OAuth or vendor credential","ex":"Vercel via Context.ai \u00b7 Klue \u2192 LastPass \u00b7 Beacon CRM (1,500 UK charities)"},{"key":"supply","label":"Poisoned software update or package","ex":"Trivy \u2192 European Commission \u00b7 LiteLLM \u00b7 TanStack \u2192 OpenAI"},{"key":"aioffence","label":"AI-run intrusion","ex":"ARTEX vs Korean banks and 2,250 M365 tenants \u00b7 JadePuffer \u00b7 Mexican agencies"},{"key":"channel","label":"Trusted-sender and official-channel abuse","ex":"ASOS \u00b7 Revolut \u00b7 Brevo \u2192 Trezor"},{"key":"internaltrust","label":"Automated internal trust: signing, approval, data feeds","ex":"Binance \u00b7 Bitget \u00b7 KelpDAO"},{"key":"shadow","label":"AI agent overreach and shadow AI","ex":"Panasonic \u00b7 Vercel \u00b7 OpenAI test models \u2192 Hugging Face"},{"key":"deepfake","label":"Executive or VIP deepfake","ex":"Fideuram (\u20ac95M) \u00b7 Singapore Zoom \u00b7 Schwyz SME"},{"key":"seother","label":"Employee social engineering, method undisclosed","ex":"Carnival \u00b7 Levi Strauss \u00b7 Apollo"},{"key":"longcon","label":"Fake relationship: partner, founder, recruiter","ex":"Drift Protocol \u00b7 axios \u00b7 fake job interviews (WaterPlum)"},{"key":"agentmanip","label":"AI agent manipulation: prompt injection, support bots","ex":"Meta AI support bot \u00b7 Copilot Studio / Agentforce \u00b7 AGENTS.md injection"},{"key":"insider","label":"Insider misuse","ex":"UK Biobank \u00b7 ESNEFT"},{"key":"phish","label":"Credential phishing: email and search ads","ex":"CIRO \u00b7 Google Cloud search ads"}],"cols":["Trust","Authority","Urgency","Routine","Speed","Fear","Reward","Secrecy"],"inc":[{"n":"Higham Lane School","v":[],"p":[],"ai":false,"s":[]},{"n":"Poland energy sector","v":[],"p":[],"ai":false,"s":[]},{"n":"Canadian Investment Regulatory Organization","v":["phish"],"p":["Trust","Routine"],"ai":false,"s":["finance"]},{"n":"Unnamed business owner, Canton Schwyz","v":["deepfake"],"p":["Trust","Authority","Urgency","Secrecy"],"ai":true,"s":[]},{"n":"Under Armour","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"Panera Bread","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":["consumer"]},{"n":"Moltbook","v":["shadow"],"p":["Speed"],"ai":true,"s":["software"]},{"n":"Step Finance","v":["seother"],"p":["Trust"],"ai":false,"s":["finance"]},{"n":"Notepad++","v":["supply"],"p":["Trust","Routine"],"ai":false,"s":["software"]},{"n":"OpenClaw / ClawHub skill marketplace","v":["supply"],"p":["Trust","Routine","Speed"],"ai":true,"s":["software"]},{"n":"BridgePay Network Solutions","v":[],"p":[],"ai":false,"s":["finance"]},{"n":"Odido","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":[]},{"n":"Figure Technology Solutions","v":["call"],"p":["Trust","Authority"],"ai":false,"s":["finance"]},{"n":"University of Mississippi Medical Center","v":[],"p":[],"ai":false,"s":[]},{"n":"Mexican federal and state agencies","v":["aioffence"],"p":[],"ai":true,"s":[]},{"n":"Salesforce Experience Cloud customers","v":[],"p":[],"ai":false,"s":["software"]},{"n":"Stryker","v":[],"p":[],"ai":false,"s":[]},{"n":"England Hockey","v":[],"p":[],"ai":false,"s":[]},{"n":"Telus Digital","v":["saas"],"p":[],"ai":false,"s":["software"]},{"n":"Companies House","v":[],"p":[],"ai":false,"s":[]},{"n":"Aura","v":["call"],"p":["Trust","Authority"],"ai":false,"s":["consumer"]},{"n":"LiteLLM","v":["supply"],"p":["Routine","Speed"],"ai":true,"s":["software"]},{"n":"European Commission","v":["supply"],"p":["Trust","Routine"],"ai":false,"s":[]},{"n":"Statistics South Africa","v":[],"p":[],"ai":false,"s":[]},{"n":"Drift Protocol","v":["longcon","internaltrust"],"p":["Trust","Routine"],"ai":false,"s":["finance"]},{"n":"Education Authority Northern Ireland","v":[],"p":[],"ai":false,"s":[]},{"n":"axios","v":["longcon"],"p":["Trust","Authority","Urgency"],"ai":true,"s":["software"]},{"n":"Cisco","v":["supply"],"p":["Trust","Routine"],"ai":false,"s":["software"]},{"n":"Jones Day","v":["call"],"p":["Trust","Authority"],"ai":false,"s":[]},{"n":"Bitcoin Depot","v":[],"p":[],"ai":false,"s":["finance"]},{"n":"Anodot, downstream Snowflake customers incl. Rockstar Games","v":["saas"],"p":[],"ai":false,"s":["software"]},{"n":"Basic-Fit","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"Booking.com","v":["channel"],"p":["Trust","Urgency"],"ai":false,"s":["consumer"]},{"n":"Microsoft Copilot Studio and Salesforce Agentforce","v":["agentmanip"],"p":["Trust"],"ai":true,"s":["software"]},{"n":"KelpDAO","v":["internaltrust"],"p":[],"ai":false,"s":["finance"]},{"n":"Vercel","v":["saas","shadow"],"p":["Routine","Speed"],"ai":true,"s":["software"]},{"n":"UK Biobank","v":["insider"],"p":["Trust","Reward"],"ai":false,"s":[]},{"n":"Sri Lanka Treasury / External Resources Department","v":["channel"],"p":["Trust","Routine"],"ai":false,"s":["finance"]},{"n":"Medtronic","v":[],"p":[],"ai":false,"s":[]},{"n":"Amtrak","v":[],"p":[],"ai":false,"s":[]},{"n":"Instructure","v":[],"p":["Trust","Urgency","Fear"],"ai":false,"s":["software"]},{"n":"DigiCert","v":["channel"],"p":["Trust","Routine","Speed"],"ai":false,"s":["software"]},{"n":"Foxconn","v":[],"p":[],"ai":false,"s":[]},{"n":"OpenAI","v":["supply"],"p":["Trust","Routine","Speed"],"ai":false,"s":["software"]},{"n":"Singapore businessman","v":["deepfake"],"p":["Trust","Authority","Urgency","Reward"],"ai":true,"s":[]},{"n":"NYC Health + Hospitals","v":["saas"],"p":[],"ai":false,"s":[]},{"n":"City of Aurora, Illinois","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":[]},{"n":"Charter Communications","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":[]},{"n":"US law firms","v":["call"],"p":["Trust","Authority","Urgency","Routine"],"ai":false,"s":["finance"]},{"n":"Carnival Corporation","v":["seother"],"p":["Trust","Authority"],"ai":false,"s":["consumer"]},{"n":"Powys County Council","v":[],"p":[],"ai":false,"s":[]},{"n":"Meta / Instagram","v":["agentmanip"],"p":[],"ai":true,"s":["consumer"]},{"n":"Humanity Protocol","v":[],"p":[],"ai":false,"s":["finance"]},{"n":"Oracle PeopleSoft zero-day campaign","v":[],"p":[],"ai":false,"s":["software"]},{"n":"Novo Nordisk","v":[],"p":["Fear"],"ai":false,"s":[]},{"n":"Klue \u2192 LastPass, Recorded Future, Tanium, Jamf and others","v":["saas"],"p":[],"ai":false,"s":["software"]},{"n":"Unnamed organisation","v":["aioffence"],"p":[],"ai":true,"s":[]},{"n":"KDDI","v":[],"p":[],"ai":false,"s":[]},{"n":"Ostium","v":["internaltrust"],"p":[],"ai":false,"s":["finance"]},{"n":"Fairlife","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"Hugging Face","v":["shadow"],"p":[],"ai":true,"s":["software"]},{"n":"Upbound Group","v":[],"p":[],"ai":false,"s":["finance"]},{"n":"Stadler Rail","v":["saas"],"p":["Fear"],"ai":false,"s":[]},{"n":"Minnesota community water utilities","v":[],"p":[],"ai":false,"s":[]},{"n":"Beacon CRM","v":["saas"],"p":[],"ai":false,"s":["software"]},{"n":"RingCentral","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":["software"]},{"n":"CEVA Logistics","v":[],"p":[],"ai":false,"s":[]},{"n":"UK Department for Education and Police National Legal Database","v":[],"p":["Fear"],"ai":false,"s":[]},{"n":"Coldcard hardware wallet users","v":[],"p":[],"ai":false,"s":["finance"]},{"n":"Point72, Citadel, Millennium, Two Sigma","v":["call","deepfake"],"p":["Trust","Authority","Urgency","Routine"],"ai":true,"s":["finance"]},{"n":"Levi Strauss & Co.","v":["seother"],"p":["Trust","Authority"],"ai":false,"s":["consumer"]},{"n":"Taiwan government agencies","v":["aioffence"],"p":[],"ai":true,"s":[]},{"n":"MyDr","v":[],"p":["Fear"],"ai":false,"s":["software"]},{"n":"French tax authority","v":[],"p":[],"ai":false,"s":[]},{"n":"Eight organisations incl. an Australian energy utility","v":["aioffence"],"p":[],"ai":true,"s":["finance"]},{"n":"Apollo Global Management","v":["seother"],"p":["Trust","Authority"],"ai":false,"s":["finance"]},{"n":"Small UK power generator","v":[],"p":[],"ai":false,"s":[]},{"n":"McKesson","v":["call","saas"],"p":["Trust","Authority","Urgency"],"ai":false,"s":[]},{"n":"Boston Scientific","v":[],"p":[],"ai":false,"s":[]},{"n":"Manchester Airports Group","v":[],"p":[],"ai":false,"s":[]},{"n":"IDScan.net","v":[],"p":[],"ai":false,"s":["consumer","software"]},{"n":"State of Berlin","v":[],"p":["Fear"],"ai":false,"s":[]},{"n":"Blockstream Liquid Network","v":["internaltrust"],"p":["Trust"],"ai":false,"s":["finance"]},{"n":"PREY-0058 help-desk vishing campaign","v":["call"],"p":["Trust","Authority","Urgency"],"ai":false,"s":["finance"]},{"n":"Veradigm","v":["saas"],"p":["Trust"],"ai":false,"s":["software"]},{"n":"Brevo / Trezor","v":["channel"],"p":["Trust","Urgency","Fear"],"ai":false,"s":["finance","software"]},{"n":"Revolut","v":["channel"],"p":["Trust","Authority","Routine"],"ai":false,"s":["finance"]},{"n":"CenterPoint Energy","v":[],"p":[],"ai":false,"s":[]},{"n":"Dyfed-Powys Police","v":[],"p":[],"ai":false,"s":[]},{"n":"Unnamed organisation, breach notified to Spain's AEPD","v":["aioffence"],"p":["Speed"],"ai":true,"s":[]},{"n":"WaterPlum / \"Contagious Interview\"","v":["longcon"],"p":["Authority","Routine","Reward"],"ai":false,"s":["finance","software"]},{"n":"FBI","v":[],"p":["Routine","Fear"],"ai":false,"s":[]},{"n":"Bitget","v":["internaltrust"],"p":["Trust"],"ai":false,"s":["finance"]},{"n":"Services Australia, Medicare statistics portal","v":["shadow"],"p":[],"ai":true,"s":[]},{"n":"Fideuram","v":["deepfake"],"p":["Trust","Authority","Urgency","Secrecy"],"ai":true,"s":["finance"]},{"n":"Keio Corporation","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"East Suffolk and North Essex NHS Foundation Trust","v":["insider"],"p":["Routine"],"ai":false,"s":[]},{"n":"US Defense Manpower Data Center","v":[],"p":[],"ai":false,"s":[]},{"n":"Shinhan Bank, KB Kookmin, Hana Bank, BNK Financial","v":["aioffence"],"p":["Speed"],"ai":true,"s":["finance"]},{"n":"ASOS","v":["channel"],"p":["Trust","Authority","Fear"],"ai":true,"s":["consumer"]},{"n":"TFG London","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"French supermarkets","v":[],"p":["Routine"],"ai":false,"s":["consumer"]},{"n":"Ahold Delhaize","v":[],"p":[],"ai":false,"s":["consumer"]},{"n":"ConnectWise Cloud Backup / 2,250+ Microsoft 365 tenants","v":["saas","aioffence"],"p":["Trust","Routine"],"ai":true,"s":["software"]},{"n":"Google Cloud customers","v":["phish"],"p":["Trust","Routine"],"ai":true,"s":[]},{"n":"LiteLLM","v":["supply"],"p":["Trust","Routine"],"ai":true,"s":["software"]},{"n":"Quest Diagnostics","v":[],"p":[],"ai":false,"s":[]},{"n":"Developers using Codex / Claude Code","v":["agentmanip"],"p":["Trust","Routine"],"ai":true,"s":["software"]},{"n":"Panasonic","v":["shadow"],"p":["Speed"],"ai":true,"s":[]},{"n":"Necton Primary School and UK websites","v":[],"p":["Fear"],"ai":true,"s":["software"]},{"n":"Georgia Secretary of State Data Hub","v":["shadow"],"p":["Fear"],"ai":true,"s":[]},{"n":"University of New Mexico Health Sciences Center / UNM Hospital","v":["deepfake"],"p":["Urgency","Fear"],"ai":true,"s":[]},{"n":"Sony Network Communications","v":[],"p":[],"ai":false,"s":[]},{"n":"123 Reg","v":["aioffence"],"p":["Trust","Urgency","Speed"],"ai":true,"s":["software"]},{"n":"Polymarket","v":["supply"],"p":["Trust","Routine"],"ai":false,"s":["finance"]},{"n":"Cursor marketplace, trojanised Claude Code extension 2.1.313","v":["supply"],"p":["Trust","Routine"],"ai":true,"s":["software"]},{"n":"Binance","v":["internaltrust"],"p":["Trust","Routine","Reward"],"ai":false,"s":["finance"]},{"n":"Silicon Practice","v":[],"p":[],"ai":false,"s":[]}],"untagged":2}</script>
+
 <!-- PRICING -->
 <div data-page="pricing">
   <section class="hero">
@@ -1235,7 +1344,7 @@ footer a:hover { color: var(--ink); }
       <div class="copy">
         <p class="label">Pricing</p>
         <h1>Fixed prices. Agreed before work starts.</h1>
-        <p class="lede">Every engagement opens at a fixed price. Anything beyond it is scoped from findings and agreed in writing.</p>
+        <p class="lede">Five ways to start. Every engagement opens at a fixed price, in writing.</p>
         <div class="cur" role="group" aria-label="Currency"><button type="button" data-cur="GBP" aria-pressed="true">GBP £</button><button type="button" data-cur="USD" aria-pressed="false">USD $</button></div>
       </div>
     </div>
@@ -1243,88 +1352,52 @@ footer a:hover { color: var(--ink); }
 
   <section class="sec">
     <div class="wrap">
-      <div class="pgroup">
-        <div class="pgroup-head"><div><p class="label">Security</p><h2>Exposure Audit</h2></div><p>Systems, identity and people, tested under signed scope.</p></div>
-        <div class="pcards c3">
-          <article class="pcard">
-            <h3>App and security sweep</h3>
-            <p class="d">One day across your website, app, identity set-up, customer channels and public footprint.</p>
+      <div class="pcards c5">
+          <article class="pcard key">
+            <h3>Security Sweep</h3>
+            <p class="d">One day across your website, app, logins, customer channels and public footprint.</p>
             <div class="price"><span class="from">From</span><span class="amt" data-gbp="2950" data-usd="3850">£2,950</span><span class="per">one day</span></div>
             <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
-            <ul class="incl"><li>Ranked report within 5 working days</li><li>Evidence and a fix for every finding</li><li>Signed scope before testing</li></ul>
+            <ul class="incl"><li>Ranked report in 5 working days</li><li>Evidence and a fix for every finding</li></ul>
+            <p class="after"><span class="label">After it</span><span>Exposure Audit or hardening</span></p>
           </article>
-          <article class="pcard key">
+          <article class="pcard">
             <h3>Exposure Audit</h3>
-            <p class="d">Systems, identity, people and AI in one engagement.</p>
+            <p class="d">Systems, logins, people and AI, tested under signed scope.</p>
             <div class="price"><span class="from">From</span><span class="amt" data-gbp="4500" data-usd="5850">£4,500</span><span class="per">per audit</span></div>
-            <a class="btn primary" href="#contact" data-intent="audit">Book the Exposure Audit</a>
-            <ul class="incl"><li>Everything in the sweep</li><li>Help-desk, approval and call-verification testing</li><li>AI accuracy and prompt-injection checks</li><li>One website, one AI assistant, up to 20 staff</li></ul>
+            <a class="btn line" href="#contact" data-intent="audit">Book the Audit</a>
+            <ul class="incl"><li>One website, one AI assistant, up to 20 staff</li><li>Help-desk, approval and call testing</li></ul>
+            <p class="after"><span class="label">After it</span><span>Adversary Simulation or hardening</span></p>
           </article>
           <article class="pcard">
-            <h3>Adversary Simulation</h3>
-            <p class="d">Bespoke, live simulation of the attacks behind 2026's breaches, scored by decision.</p>
-            <div class="price"><span class="from">From</span><span class="amt" data-gbp="3500" data-usd="4550">£3,500</span><span class="per">per programme</span></div>
-            <a class="btn line" href="#contact" data-intent="training">Discuss simulation</a>
-            <ul class="incl"><li>Impersonation calls and cloned voices</li><li>Trusted-sender and payment-diversion scenarios</li><li>Decision scores for finance, support and leadership</li></ul>
-          </article>
-        </div>
-        <div class="plist">
-          <div><b>Exposure Audit, 21+ staff</b><span class="m">More help-desk, approval and verification paths tested across a larger team.</span><span class="v">From <span data-gbp="8500" data-usd="11050">£8,500</span></span></div>
-          <div><b>Hardening</b><span class="m">Fixes for what the audit finds, delivered or briefed to your developers.</span><span class="v">Scoped from findings</span></div>
-        </div>
-      </div>
-
-      <div class="pgroup">
-        <div class="pgroup-head"><div><p class="label">AI</p><h2>AI Audit</h2></div><p>What AI says about you, and what your agents can be made to do.</p></div>
-        <div class="pcards c4">
-          <article class="pcard key">
-            <h3>AI Visibility Audit</h3>
-            <p class="d">Your customers' questions, checked across the major AI engines.</p>
+            <h3>AI Audit</h3>
+            <p class="d">What AI tells your customers, checked against your live prices, claims and policies.</p>
             <div class="price"><span class="from">From</span><span class="amt" data-gbp="1200" data-usd="1550">£1,200</span><span class="per">one-off</span></div>
-            <a class="btn primary" href="#contact" data-intent="ai">Book an AI Audit</a>
-            <ul class="incl"><li>Perplexity, ChatGPT, Google AI Mode and your assistant</li><li>Score in 3 working days</li><li>Fixed quote for anything it recommends</li></ul>
+            <a class="btn line" href="#contact" data-intent="ai">Book an AI Audit</a>
+            <ul class="incl"><li>Perplexity, ChatGPT, Google AI Mode and your assistant</li><li>Score in 3 working days</li></ul>
+            <p class="after"><span class="label">After it</span><span>Monthly governance from <span data-gbp="950" data-usd="1250">£950</span></span></p>
           </article>
           <article class="pcard">
-            <h3>Agent Attack Test</h3>
-            <p class="d">Your AI agent attacked the way an adversary would.</p>
-            <div class="price"><span class="from">From</span><span class="amt" data-gbp="1800" data-usd="2350">£1,800</span><span class="per">one-off</span></div>
+            <h3>Protect</h3>
+            <p class="d">Your AI agent attacked the way an adversary would, then guarded in production.</p>
+            <div class="price"><span class="from">From</span><span class="amt" data-gbp="1800" data-usd="2350">£1,800</span><span class="per">Attack Test</span></div>
             <a class="btn line" href="#contact" data-intent="protect">Book an Attack Test</a>
-            <ul class="incl"><li>Prompt injection, poisoned data, social engineering, data extraction</li><li>Scored report with a fix for every failure</li><li>Fee credited against Guard within 30 days</li></ul>
+            <ul class="incl"><li>Scored attack report</li><li>Fee credited against Guard within 30 days</li></ul>
+            <p class="after"><span class="label">After it</span><span>Guard from <span data-gbp="250" data-usd="325">£250</span> a month</span></p>
           </article>
           <article class="pcard">
-            <h3>Guard</h3>
-            <p class="d">Continuous screening for the agents you run.</p>
-            <div class="price"><span class="from">From</span><span class="amt" data-gbp="250" data-usd="325">£250</span><span class="per">per month</span></div>
-            <a class="btn line" href="#contact" data-intent="protect">Discuss Guard</a>
-            <ul class="incl"><li>Screens what your agent reads and says</li><li>Every block logged with source and reason</li><li>Monthly attack report</li><li><span>Above allowance: <span data-gbp="5" data-usd="6.50">£5</span> per 1,000 conversations</span></li></ul>
+            <h3>OS°1</h3>
+            <p class="d">Board-level measurement of how decisions hold under attack pressure.</p>
+            <div class="price"><span class="from">For boards</span><span class="amt">Scoped</span><span class="per">priced to scope</span></div>
+            <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
+            <ul class="incl"><li>Board Readiness exercise</li><li>Decision-risk report</li></ul>
+            <p class="after"><span class="label">After it</span><span>Programme under NDA</span></p>
           </article>
-          <article class="pcard">
-            <h3>Monthly AI Governance</h3>
-            <p class="d">Accuracy held across every AI channel.</p>
-            <div class="price"><span class="from">From</span><span class="amt" data-gbp="950" data-usd="1250">£950</span><span class="per">per month</span></div>
-            <a class="btn line" href="#contact" data-intent="ai">Discuss governance</a>
-            <ul class="incl"><li>Accuracy score per channel</li><li>Corrections and guardrail updates</li><li>Three to six months, then hand-over</li></ul>
-          </article>
-        </div>
-        <div class="plist">
-          <div><b>AI Catalogue Readiness</b><span class="m">Structured product data for AI search, merchant programmes and in-chat checkout.</span><span class="v">From <span data-gbp="2000" data-usd="2600">£2,000</span></span></div>
-          <div><b>AI Shopping Assistant</b><span class="m">Trained on your catalogue and policies, with guardrails, attack-tested before launch.</span><span class="v">From <span data-gbp="2500" data-usd="3250">£2,500</span></span></div>
-        </div>
       </div>
-
-      <div class="pgroup">
-        <div class="pgroup-head"><div><p class="label">Board</p><h2>OS°1</h2></div><p>For boards and security leaders.</p></div>
-        <div class="os-card">
-          <div><h3 style="font-size:24px;font-weight:600;letter-spacing:-0.02em">Scoped with your leadership team.</h3><p style="margin-top:10px">OS°1 engagements are priced to the organisation, its sector and the decisions in scope.</p>
-            <div class="actions" style="margin-top:20px"><a class="btn primary" href="#contact" data-intent="briefing">Request a Briefing</a></div></div>
-          <ul class="incl"><li>Board Readiness exercise</li><li>Decision-risk report for the board</li><li>OS°1 programme under NDA</li></ul>
-        </div>
-      </div>
-
-      <div class="terms">
+      <p class="body rule">Fixes, training and larger teams are quoted from findings, in writing, before work starts.</p>
+      <div class="terms" style="grid-template-columns:repeat(2,minmax(0,1fr))">
         <div><b>Tax</b><span>Prices exclude VAT and sales tax.</span></div>
         <div><b>Payment</b><span>Fixed engagements are invoiced on scope. Build work: half upfront, half on completion. Monthly services are billed monthly.</span></div>
-        <div><b>Scale</b><span>Larger organisations and multi-agent deployments are scoped individually.</span></div>
       </div>
     </div>
   </section>
@@ -1352,9 +1425,7 @@ footer a:hover { color: var(--ink); }
           <p class="bs">Sweeps and audits are scheduled in order of request.</p>
           <div class="contact-meta">
             <span class="label">Email</span>
-            <a class="addr" href="mailto:contact@humannode.io">contact@humannode.io</a>
-            <span class="label" style="margin-top:10px">Phone</span>
-            <a class="addr" href="tel:+447784424121">+44 7784 424121</a>
+            <span class="addr" id="addr-text">contact@humannode.io</span>
             <span class="label" style="margin-top:10px">Location</span>
             <span>London, United Kingdom</span>
           </div>
@@ -1379,17 +1450,14 @@ footer a:hover { color: var(--ink); }
             <div class="field"><label for="f-name">Your name</label><input id="f-name" autocomplete="name"></div>
             <div class="field"><label for="f-email">Work email</label><input id="f-email" type="email" autocomplete="email"></div>
             <div class="field"><label for="f-org">Organisation and website</label><input id="f-org" autocomplete="organization"></div>
-            <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" type="tel" autocomplete="tel"></div>
-            <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" tabindex="-1" autocomplete="off"></div>
             <div class="field"><label for="f-note">Anything we should know</label><textarea id="f-note" placeholder="Timing, systems in scope, what prompted this"></textarea></div>
-            <div class="actions"><button class="btn primary" type="submit" id="req-send">Send request</button></div>
-            <p class="small" id="req-msg" role="status" aria-live="polite">Sent straight to Human Node. Your details are used only to reply.</p>
+            <div class="actions"><button class="btn primary" type="submit">Prepare my request</button></div>
+            <p class="small">This prepares an email for you to send. Your details are used only to reply.</p>
           </form>
           <div class="out" id="out" hidden style="margin-top:20px">
-            <span class="label" id="out-h">Request sent</span>
-            <p id="out-p">Thank you. We reply within one working day with a scope and a time.</p>
-            <pre id="out-text" hidden></pre>
-            <div class="actions" id="out-act" hidden><a class="btn primary" href="tel:+447784424121">Call +44 7784 424121</a><button class="btn line" type="button" id="copy-req">Copy request</button></div>
+            <span class="label">Your request is ready</span>
+            <pre id="out-text"></pre>
+            <div class="actions"><button class="btn primary" type="button" id="copy-req">Copy request</button><a class="btn line" id="mail-req" href="#">Open in email app</a></div>
           </div>
         </div>
       </div>
@@ -1401,20 +1469,28 @@ footer a:hover { color: var(--ink); }
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Human Node · London · <a href="tel:+447784424121">+44 7784 424121</a> · No affiliation with companies named on this site.</span>
+    <span>© 2026 Human Node · London · No affiliation with companies named on this site.</span>
     <nav aria-label="Footer">
-      <a href="#exposure-check">Exposure Check</a><a href="#exposure-audit">Exposure Audit</a><a href="#ai-audit">AI Audit</a><a href="#os1">OS°1</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+      <a href="#exposure-check">Exposure Check</a><a href="#exposure-audit">Exposure Audit</a><a href="#ai-audit">AI Audit</a><a href="#protect">Protect</a><a href="#os1">OS°1</a><a href="#threat-matrix">Threat Matrix</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
     </nav>
   </div>
 </footer>
 
 <script>
 (function(){
-  var pages = ['home','exposure-check','exposure-audit','ai-audit','os1','pricing','contact'];
-  var anchors = { research: 'os1', briefings: 'os1', stack: 'ai-audit', services: 'ai-audit', protect: 'ai-audit', liability: 'ai-audit', 'trusted-channels': 'exposure-audit', system: 'os1', dhos: 'os1', 'threat-matrix': 'os1' };
+  var pages = ['home','exposure-check','exposure-audit','ai-audit','protect','os1','threat-matrix','pricing','contact'];
+  var anchors = { research: 'threat-matrix', briefings: 'threat-matrix', stack: 'ai-audit', services: 'ai-audit', liability: 'ai-audit', 'trusted-channels': 'exposure-audit', system: 'os1', dhos: 'os1' };
   var menu = document.getElementById('menu'), burger = document.getElementById('burger');
   function show(){
-    var h = (location.hash || '#home').slice(1);
+    var onTMPath = /\/threat-matrix\/?$/.test(location.pathname);
+    var h = (location.hash || '').slice(1);
+    if (!h) h = onTMPath ? 'threat-matrix' : 'home';
+    try {
+      if (/(^|\.)humannode\.io$/.test(location.hostname)) {
+        if (h === 'threat-matrix' && !onTMPath) history.replaceState(null, '', '/threat-matrix');
+        else if (h !== 'threat-matrix' && onTMPath) history.replaceState(null, '', '/#' + h);
+      }
+    } catch (e) {}
     var page = pages.indexOf(h) > -1 ? h : (anchors[h] || 'home');
     document.querySelectorAll('[data-page]').forEach(function(p){ p.classList.toggle('on', p.dataset.page === page); });
     document.querySelectorAll('.menu a').forEach(function(a){ if (a.getAttribute('href') === '#'+page) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
@@ -1571,10 +1647,10 @@ footer a:hover { color: var(--ink); }
   function money(v, cur){ var n = parseFloat(v); var dec = n % 1 !== 0; return (cur === 'USD' ? '$' : '£') + n.toLocaleString(cur === 'USD' ? 'en-US' : 'en-GB', { minimumFractionDigits: dec ? 2 : 0, maximumFractionDigits: dec ? 2 : 0 }); }
   function setCur(cur){
     document.querySelectorAll('[data-gbp]').forEach(function(el){ el.textContent = money(cur === 'USD' ? el.dataset.usd : el.dataset.gbp, cur); });
-    document.querySelectorAll('.cur button').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.cur === cur ? 'true' : 'false'); });
+    document.querySelectorAll('.cur button[data-cur]').forEach(function(b){ b.setAttribute('aria-pressed', b.dataset.cur === cur ? 'true' : 'false'); });
     try { localStorage.setItem('hn-cur', cur); } catch(e){}
   }
-  document.querySelectorAll('.cur button').forEach(function(b){ b.addEventListener('click', function(){ setCur(b.dataset.cur); }); });
+  document.querySelectorAll('.cur button[data-cur]').forEach(function(b){ b.addEventListener('click', function(){ setCur(b.dataset.cur); }); });
   (function(){ var saved = null; try { saved = localStorage.getItem('hn-cur'); } catch(e){}
     var tz = ''; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
     var cur = saved || (/^America\//.test(tz) ? 'USD' : 'GBP'); if (cur === 'USD') setCur('USD'); })();
@@ -1608,6 +1684,43 @@ footer a:hover { color: var(--ink); }
   document.addEventListener('click', function(e){ if (!ddList.hidden && !e.target.closest('#dd')) ddClose(false); });
   ddSync();
 
+  // Threat Matrix: rendered from the breach-log data; sector filter tags only source-stated sectors
+  var TM = JSON.parse(document.getElementById('tm-data').textContent), tmG = 'all';
+  var TM_LABEL = { all: 'All sectors', consumer: 'Consumer and retail', finance: 'Finance', software: 'Software and AI' };
+  function shortName(n){ return n.split(/ \/ |, downstream| incl\.| zero-day| \(|, Recorded/)[0]; }
+  function tmRender(){
+    var incs = TM.inc.filter(function(x){ return tmG === 'all' || x.s.indexOf(tmG) > -1; });
+    var rows = TM.rows.map(function(r, i){
+      var ids = incs.filter(function(x){ return x.v.indexOf(r.key) > -1; });
+      var cells = TM.cols.map(function(c){ return ids.filter(function(x){ return x.p.indexOf(c) > -1; }).length; });
+      return { r: r, i: i, n: ids.length, cells: cells, ai: ids.filter(function(x){ return x.ai; }).length,
+               ex: tmG === 'all' ? r.ex : ids.slice(0, 3).map(function(x){ return shortName(x.n); }).join(' · ') };
+    }).sort(function(a, b){ return b.n - a.n || a.i - b.i; });
+    var mx = 1; rows.forEach(function(r){ r.cells.forEach(function(v){ if (v > mx) mx = v; }); });
+    var head = document.getElementById('tm-head'); head.textContent = '';
+    ['Attack vector', 'Incidents'].concat(TM.cols, ['AI involved']).forEach(function(t, k){ var th = document.createElement('th'); th.textContent = t; if (k === 1 || t === 'AI involved') th.className = 'n'; head.appendChild(th); });
+    var body = document.getElementById('tm-body'); body.textContent = '';
+    rows.forEach(function(r){
+      var tr = document.createElement('tr'), th = document.createElement('th'); th.scope = 'row';
+      var b = document.createElement('b'); b.textContent = r.r.label; th.appendChild(b);
+      var ex = document.createElement('span'); ex.className = 'ex'; ex.textContent = r.ex || 'No incidents in this sector'; th.appendChild(ex); tr.appendChild(th);
+      var n = document.createElement('td'); n.className = 'n'; n.textContent = r.n; tr.appendChild(n);
+      r.cells.forEach(function(v){ var td = document.createElement('td'); td.className = 'hm' + (v ? '' : ' z');
+        if (v) { var a = 0.12 + 0.78 * (v / mx); td.style.background = 'rgba(99,91,255,' + a.toFixed(2) + ')'; td.style.color = a > 0.5 ? '#ffffff' : 'var(--ink)'; td.textContent = v; td.title = v + ' incident' + (v > 1 ? 's' : ''); }
+        else td.textContent = '·';
+        tr.appendChild(td); });
+      var ai = document.createElement('td'); ai.className = 'n'; ai.textContent = r.ai || '·'; tr.appendChild(ai);
+      body.appendChild(tr);
+    });
+    var scored = incs.filter(function(x){ return x.v.length; }).length;
+    document.getElementById('tm-note').textContent = tmG === 'all'
+      ? 'All ' + incs.length + ' incidents. ' + scored + ' have a disclosed entry route and are scored.'
+      : TM_LABEL[tmG] + ': ' + incs.length + ' incidents where the source states the sector; ' + scored + ' are scored. ' + TM.untagged + ' incidents have no stated sector and appear only under All sectors.';
+  }
+  document.querySelectorAll('#tm-filter button').forEach(function(btn){ btn.addEventListener('click', function(){
+    tmG = btn.dataset.g; document.querySelectorAll('#tm-filter button').forEach(function(o){ o.setAttribute('aria-pressed', o === btn ? 'true' : 'false'); }); tmRender(); }); });
+  tmRender();
+
   function toast(t){ var d = document.createElement('div'); d.className='toast'; d.textContent=t; document.body.appendChild(d); setTimeout(function(){ d.remove(); }, 2200); }
   function selectText(id){ var r = document.createRange(); r.selectNodeContents(document.getElementById(id)); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
   function copy(text, done, id){
@@ -1617,26 +1730,12 @@ footer a:hover { color: var(--ink); }
   document.getElementById('req').addEventListener('submit', function(e){
     e.preventDefault();
     var s = document.getElementById('f-intent'), label = s.options[s.selectedIndex].text;
-    var v = function(id){ return document.getElementById(id).value.trim(); };
-    var name = v('f-name'), email = v('f-email'), org = v('f-org'), phone = v('f-phone'), note = v('f-note');
-    var msg = document.getElementById('req-msg'), btn = document.getElementById('req-send');
-    if (!name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = 'Add your name and a valid work email.'; (name ? document.getElementById('f-email') : document.getElementById('f-name')).focus(); return; }
+    var name = document.getElementById('f-name').value.trim(), email = document.getElementById('f-email').value.trim(), org = document.getElementById('f-org').value.trim(), note = document.getElementById('f-note').value.trim();
     var subject = label + (org ? ' – ' + org : '');
-    var body = 'Request: ' + label + '\nName: ' + name + '\nEmail: ' + email + '\nPhone: ' + (phone || '—') + '\nOrganisation: ' + (org || '—') + '\n\n' + (note || '');
-    var out = document.getElementById('out');
-    function show(ok, why){
-      document.getElementById('out-h').textContent = ok ? 'Request sent' : 'Not sent yet';
-      document.getElementById('out-p').textContent = ok ? 'Thank you. We reply within one working day with a scope and a time.' : (why || 'Online requests are not available right now.') + ' Call +44 7784 424121 or email contact@humannode.io, or copy your request below.';
-      document.getElementById('out-text').textContent = body; document.getElementById('out-text').hidden = ok; document.getElementById('out-act').hidden = ok;
-      out.hidden = false; if (ok) document.getElementById('req').reset(); out.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
-    }
-    msg.textContent = 'Sent straight to Human Node. Your details are used only to reply.';
-    btn.disabled = true; btn.textContent = 'Sending…';
-    fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ intent: label, name: name, email: email, phone: phone, organisation: org, note: note, website: v('f-web') }) })
-      .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return { ok: r.ok, d: d }; }); })
-      .then(function(x){ if (x.ok) show(true); else show(false, x.d && x.d.error && !x.d.error.fallback ? x.d.error.message : ''); })
-      .catch(function(){ show(false); })
-      .then(function(){ btn.disabled = false; btn.textContent = 'Send request'; });
+    var body = 'Request: ' + label + '\nName: ' + (name || '—') + '\nEmail: ' + (email || '—') + '\nOrganisation: ' + (org || '—') + '\n\n' + (note || '');
+    document.getElementById('out-text').textContent = 'To: contact@humannode.io\nSubject: ' + subject + '\n\n' + body;
+    document.getElementById('mail-req').href = 'mailto:contact@humannode.io?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    document.getElementById('out').hidden = false;
   });
   document.getElementById('copy-req').addEventListener('click', function(){ copy(document.getElementById('out-text').textContent, 'Request copied', 'out-text'); });
 })();

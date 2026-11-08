@@ -36,5 +36,11 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/threat-matrix",
+      "destination": "/index.html"
+    }
   ]
 }
