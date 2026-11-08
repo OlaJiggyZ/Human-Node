@@ -590,6 +590,30 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 1240px) { .nav-cta .btn.line { display: none; } }
 @media (max-width: 1040px) { .nav-tel { display: none; } }
 @media (max-width: 1040px) { .menu a.menu-tel { display: flex; color: var(--ink); font-weight: 600; } }
+
+/* Mobile fixes: call icon, matrix link, matrix cards */
+.tel-mob { display: none; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #ffffff; background: radial-gradient(circle at 30% 28%, #a960ee, #635bff 60%, #4b44e0); flex: none; }
+.tel-mob svg { width: 11px; height: 11px; }
+@media (max-width: 1040px) { .tel-mob { display: grid; } .nav-cta { margin-left: auto; } .burger { margin-left: 0; } }
+@media (max-width: 560px) { .tel-mob { margin-left: auto; } }
+@media (max-width: 600px) {
+  .tm-link { border-radius: 12px; padding: 12px 14px; align-items: flex-start; gap: 8px; font-size: 15px; line-height: 1.4; }
+  .tm-link .label { flex: none; margin-top: 1px; }
+}
+.tm-cards { display: none; gap: 12px; margin-top: 16px; }
+.tmc { border: 1px solid var(--line); border-radius: 12px; background: #ffffff; padding: 16px; display: grid; gap: 10px; }
+.tmc-top { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items: start; }
+.tmc-top b { font-weight: 600; font-size: 16px; line-height: 1.3; letter-spacing: -0.01em; }
+.tmc-n { font-family: var(--mono); font-size: 26px; line-height: 1; color: var(--ink); text-align: right; }
+.tmc-n small { display: block; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); margin-top: 4px; }
+.tmc-ex { font-size: 13px; color: var(--ink-3); }
+.tmc-p { display: flex; flex-wrap: wrap; gap: 6px; }
+.tmc-p span { font: 500 12px/1 var(--sans); padding: 6px 9px; border-radius: 99px; color: var(--ink); background: var(--bg); border: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.tmc-p span b { font-weight: 600; margin-left: 4px; }
+.tmc-p span.ai { border-style: dashed; }
+.tmc-none { font-size: 13px; color: var(--ink-3); }
+@media (max-width: 720px) { .tm-cards { display: grid; } .tm-table { display: none; } }
+
 /* End-of-page call to action */
 .cta-end { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
 .cta-end h2 { max-width: 22ch; }
@@ -608,13 +632,13 @@ footer a:hover { color: var(--ink); }
       <a href="#protect">Protect</a>
       <a href="#os1">OS°1</a>
       <a href="#pricing">Pricing</a>
-      <a class="menu-tel" href="tel:+447784424121"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></span>Call +44 7784 424121</a>
-    </nav>
+          </nav>
     <div class="nav-cta">
       <a class="nav-tel" href="tel:+447784424121" aria-label="Call Human Node on +44 7784 424121"><span class="ic"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></span><span class="t"><span>+44 7784 424121</span></span></a>
       <a class="btn line" href="#contact" data-intent="briefing">Request a Briefing</a>
       <a class="btn primary" href="#contact" data-intent="sweep">Book a Sweep</a>
     </div>
+    <a class="tel-mob" href="tel:+447784424121" aria-label="Call Human Node on +44 7784 424121"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 1.8 6.6 4.9c.2.4.1.9-.3 1.2l-1.1.9a8.6 8.6 0 0 0 3.8 3.8l.9-1.1c.3-.4.8-.5 1.2-.3l3.1 1.4c.4.2.6.6.5 1.1l-.4 1.8c-.1.5-.5.8-1 .8C6.9 14.5 1.5 9.1 1.5 2.7c0-.5.3-.9.8-1l1.8-.4c.5-.1.9.1 1.1.5Z" fill="currentColor"/></svg></a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 1h18M0 7h18M0 13h18" stroke="currentColor" stroke-width="1.5"/></svg>
     </button>
@@ -1325,7 +1349,8 @@ footer a:hover { color: var(--ink); }
         </div>
         <p class="small muted" id="tm-note" aria-live="polite"></p>
       </div>
-      <div class="table-wrap" style="margin-top:16px">
+      <div class="tm-cards" id="tm-cards"></div>
+      <div class="table-wrap tm-table" style="margin-top:16px">
         <table class="heat">
           <thead><tr id="tm-head"></tr></thead>
           <tbody id="tm-body"></tbody>
@@ -1735,6 +1760,22 @@ footer a:hover { color: var(--ink); }
         tr.appendChild(td); });
       var ai = document.createElement('td'); ai.className = 'n'; ai.textContent = r.ai || '·'; tr.appendChild(ai);
       body.appendChild(tr);
+    });
+    var cards = document.getElementById('tm-cards'); cards.textContent = '';
+    rows.forEach(function(r){
+      var c = document.createElement('div'); c.className = 'tmc';
+      var top = document.createElement('div'); top.className = 'tmc-top';
+      var b = document.createElement('b'); b.textContent = r.r.label; top.appendChild(b);
+      var n = document.createElement('div'); n.className = 'tmc-n'; n.textContent = r.n; var sm = document.createElement('small'); sm.textContent = r.n === 1 ? 'incident' : 'incidents'; n.appendChild(sm); top.appendChild(n);
+      c.appendChild(top);
+      var ex = document.createElement('div'); ex.className = 'tmc-ex'; ex.textContent = r.ex || 'No incidents in this sector'; c.appendChild(ex);
+      var pr = document.createElement('div'); pr.className = 'tmc-p';
+      r.cells.forEach(function(v, k){ if (!v) return; var sp = document.createElement('span'); var a = 0.12 + 0.78 * (v / mx);
+        sp.style.background = 'rgba(99,91,255,' + a.toFixed(2) + ')'; sp.style.borderColor = 'transparent'; sp.style.color = a > 0.5 ? '#ffffff' : 'var(--ink)';
+        sp.textContent = TM.cols[k]; var bb = document.createElement('b'); bb.textContent = v; sp.appendChild(bb); pr.appendChild(sp); });
+      if (r.ai) { var ai = document.createElement('span'); ai.className = 'ai'; ai.textContent = 'AI involved'; var ab = document.createElement('b'); ab.textContent = r.ai; ai.appendChild(ab); pr.appendChild(ai); }
+      if (pr.children.length) c.appendChild(pr); else if (r.n) { var nn = document.createElement('div'); nn.className = 'tmc-none'; nn.textContent = 'No pressure state recorded in sources.'; c.appendChild(nn); }
+      cards.appendChild(c);
     });
     var scored = incs.filter(function(x){ return x.v.length; }).length;
     document.getElementById('tm-note').textContent = tmG === 'all'
